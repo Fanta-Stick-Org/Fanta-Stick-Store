@@ -7,3 +7,4 @@ Aplicación de software que permita controlar las ventas físicas y virtuales de
 * Oscar Mauricio Rozo Galvis
 * David Echavarria
 * Edward Reina Hortua
+* Carolina Rozo Galvis
