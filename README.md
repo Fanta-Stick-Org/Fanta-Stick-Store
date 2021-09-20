@@ -8,3 +8,4 @@ Aplicación de software que permita controlar las ventas físicas y virtuales de
 * David Echavarria
 * Edward Reina Hortua
 * Carolina Rozo Galvis
+* Kevin Baquero Chavarro
