@@ -1,0 +1,89 @@
+/*Hoja de estilo para login*/
+html{
+    background-color: #009691 ;
+    font-family: 'Montserrat', sans-serif;
+    margin: 50px;
+}
+
+#logo{
+    background-color: #ff8340;
+    border: 3px #e36622 solid;
+    border-radius: 10px;
+    border-width: 5px;
+    margin-left: 300px;
+    margin-right: 300px;
+    text-align: center;
+    padding: 20px;
+}
+
+#formulario{
+    margin-top: 5px;
+    background-color: #ff8340;
+    border: 3px #e36622 solid;
+    border-radius: 10px;
+    border-width: 5px;
+    margin-left: 300px;
+    margin-right: 300px;
+    padding-top: 5px;
+    text-align: center;
+}
+
+.form{
+    padding: 10px;
+    padding-bottom: 5px;
+}
+
+.texto{
+    color: white;
+    font-weight: bold;
+}
+
+.input{
+    font-family: 'Montserrat', sans-serif;
+    border: 0;
+    border-radius: 5px;
+    height: 20px;
+}
+
+.boton{
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 0;
+    border-radius: 6px;
+    width: 70px;
+    background-color: #e36622;
+    color: white;
+    font-weight: bold;
+}
+
+.boton:hover{
+    transition: all 0.5s;
+    background-color: #963c0b;
+    color: white;
+}
+
+#footer{
+    margin-top: 30px;
+    text-align: center;
+    color: azure;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:link{
+    transition: color 0.3s;
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+a:visited{
+    text-decoration: none;
+    color: white;
+}
+a:hover{
+    text-decoration: none;
+    color: cyan;
+}
+
