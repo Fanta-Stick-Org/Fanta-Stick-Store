@@ -8,7 +8,7 @@ loginButton.addEventListener("click", (e) => {
     const password = loginForm.password.value;
     
     if (username === "admin" && password ==="admin") {
-        window.location.href="/vistas/index.html";
+        location.href = "./index.html";
         /* alert("Haz iniciado sesion correctamente"); */
         /* location.reload(); */
     } else {
