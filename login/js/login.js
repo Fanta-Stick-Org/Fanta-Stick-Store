@@ -6,8 +6,8 @@ loginButton.addEventListener("click", (e) => {
     e.preventDefault();
     const username = loginForm.username.value;
     const password = loginForm.password.value;
-    
-    if (username === "admin" && password ==="admin") {
+
+    if (username === "admin" && password === "admin") {
         location.href = "./index.html";
         /* alert("Haz iniciado sesion correctamente"); */
         /* location.reload(); */

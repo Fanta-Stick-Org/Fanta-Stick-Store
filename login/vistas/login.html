@@ -1,41 +1,42 @@
 <!DOCTYPE html>
 <html lang="es">
 
-    <head>
-        <title>Login</title>
-        <Link rel="stylesheet" href="../css/login.css">
-        </Link>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+<head>
+    <title>Login</title>
+    <Link rel="stylesheet" href="../css/login.css">
+    </Link>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
 
-    </head>
+</head>
 
-    <body>
-        <header id="logo">
-            <img src="../img/Logo azul.png" alt="Logo" width="600" height="400">
-        </header>
-        <section id="formulario">
-            <!-- action="/formulario" method="POST" -->
-            <form class="form" id="login-form">
+<body>
+    <header id="logo">
+        <img src="../img/Logo azul.png" alt="Logo" width="600" height="400">
+    </header>
+    <section id="formulario">
+        <!-- action="/formulario" method="POST" -->
+        <form class="form" id="login-form">
+            <div class="inline">
                 <label class="texto" for="username">Username</label>
                 <input class="input" name="username" type="username" id="username" placeholder="Enter username">
-                <br>
-                <br>
+            </div>
+            <div class="inline">
                 <label class="texto" for="password">Password</label>
                 <input class="input" name="password" type="password" id="password" placeholder="Enter password">
-                <br>
-                <small class="texto">We'll never share your password with anyone else.</small>
-                <br>
-                <br>
-                <input class="boton" value="Login" id="login-form-submit" type="submit">Login</input>
-            </form>
-        </section>
-        <footer id="footer">
-            <a class="link"
-                href="https://github.com/Fanta-Stick-Org/Fanta-Stick-Store.git">Copyright-Fanta-Stick-Org-2021</a>
-        </footer>
-        <script src="../js/login.js"></script>
-    </body>
+                <span class="texto">We'll never share your password with anyone else.</span>
+            </div>
+            <div class="inline">
+                <button class="boton" value="Login" id="login-form-submit" type="submit">Login</button>
+            </div>
+        </form>
+    </section>
+    <footer id="footer">
+        <a class="link"
+            href="https://github.com/Fanta-Stick-Org/Fanta-Stick-Store.git">Copyright-Fanta-Stick-Org-2021</a>
+    </footer>
+    <script src="../js/login.js"></script>
+</body>
 
 </html>
