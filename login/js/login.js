@@ -8,7 +8,7 @@ loginButton.addEventListener("click", (e) => {
     const password = loginForm.password.value;
 
     if (username === "admin" && password === "admin") {
-        location.href = "./main.html";
+        location.href = "./registerProduct.html";
         /* alert("Haz iniciado sesion correctamente"); */
         /* location.reload(); */
     } else {
