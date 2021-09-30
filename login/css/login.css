@@ -1,7 +1,7 @@
 /*Hoja de estilo para login*/
 html{
     background-color: #009691 ;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 50px;
 }
 
@@ -39,7 +39,7 @@ html{
 }
 
 .input{
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins', sans-serif;
     border: 0;
     border-radius: 5px;
     height: 20px;
@@ -51,7 +51,7 @@ span{
 }
 
 .boton{
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Poppins', sans-serif;
     cursor: pointer;
     margin-bottom: 10px;
     padding: 8px;
@@ -61,7 +61,6 @@ span{
     height: 40px;
     background-color: #e36622;
     color: white;
-    font-weight: bold;
 }
 
 .boton:hover{
