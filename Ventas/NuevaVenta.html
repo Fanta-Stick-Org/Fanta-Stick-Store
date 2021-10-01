@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nueva Venta</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com/%22%3E">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="./Logo blanco.png" alt="Logo-Fanta-Stick-Org">
+            </div>
+
+            <nav class="menu">
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Productos</a></li>
+                    <li><a href="#">Ventas</a></li>
+                    <li><a href="#">Usuarios</a></li>
+
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+
+
+
+    <form action="" name="NuevaVenta" id="newSaleForm" class="form" method="GET">
+
+        <h1>Ventas / Nueva Venta</h1>
+
+        <div class="grid-container">
+
+            <div class="grid-item"><label for="idSale" class="grid-item">Codigo de Venta</label>
+                <input type="text" id="idSale" name="idSale" placeholder="Id de Venta">
+            </div>
+
+            <div class="grid-item">
+                <label for="dateSale" class="grid-item">Fecha de venta </label>
+                <input type="datetime-local" id="dateSale" name="dateSale" placeholder="Fecha de Venta">
+            </div>
+
+            <div class="grid-item">
+                <label for="idSeller" class="grid-item">Codigo Vendedor</label>
+                <input type="text" id="idSeller" name="idSeller" placeholder="Id del Vendedor" class="grid-item"><br />
+            </div>
+
+            <div class="grid-item">
+                <label for="stateSale" class="grid-item">Estado de la Venta</label><br />
+
+                <input type="radio" id="stateSaleCancel" name="stateSale" value="Cancelada" class="grid-item">
+                <label for="stateSaleCancel" class="grid-item">Cancelada</label> <br />
+
+
+                <input type="radio" id="stateSalePend" name="stateSale" value="Pendiente" class="grid-item">
+                <label for="stateSalePend" class="grid-item">Pendiente </label><br />
+            </div>
+
+            <div class="grid-item">
+                <label for="idCustomer" class="grid-item">Codigo Cliente</label>
+                <input type="text" id="idCustomer" name="idCustomer" placeholder="Id del Cliente" class="grid-item">
+            </div>
+            <div class="grid-item">
+                <label for="nameCostumer">Nombre del Cliente</label class="grid-item">
+                <input type="text" id="nameCostumer" name="nameCostumer" placeholder="Nombre del Cliente"
+                    class="grid-item">
+            </div>
+        </div>
+
+
+        <div class="grid-container-2">
+            <div class="grid-item">
+                <label for="idProduct">Codigo del Producto</label>
+            </div>
+            <div class="grid-item">
+                <label for="nameProduct">Descripcion del Producto</label>
+            </div>
+
+            <div class="grid-item">
+                <label for="qtyProduct">Cantidad</label>
+            </div>
+
+            <div class="grid-item">
+                <label for="priceProduct">Precio Unitario</label>
+            </div>
+
+            <div class="grid-item">
+                <label for="priceProduct">Precio Total</label>
+            </div>
+
+
+            <div class="grid-item-input">
+                <input type="text" id="idProduct" name="idProduct" placeholder="Codigo del Producto">
+            </div>
+
+            <div class="grid-item-input">
+                <input type="text" id="nameProduct" name="nameProduct" placeholder="Descripcion del Producto">
+            </div>
+
+            <div class="grid-item-input">
+                <input type="text" id="qtyProduct" name="qtyProduct" placeholder="Cantidad">
+            </div>
+
+            <div class="grid-item-input">
+                <input type="text" id="priceProduct" name="priceProduct" placeholder="Precio Unitario">
+            </div>
+
+            <div class="grid-item-input">
+                <input type="text" id="totalPriceProducts" name="totalPriceProducts" placeholder="Precio Total">
+            </div>
+
+            <div class="grid-item-input">
+                <input type="text" id="idProduct" name="idProduct" placeholder="Codigo del Producto">
+            </div>
+
+            <div class="grid-item-input">
+                <input type="text" id="nameProduct" name="nameProduct" placeholder="Descripcion del Producto">
+            </div>
+
+            <div class="grid-item-input">
+                <input type="text" id="qtyProduct" name="qtyProduct" placeholder="Cantidad">
+            </div>
+
+            <div class="grid-item-input">
+                <input type="text" id="priceProduct" name="priceProduct" placeholder="Precio Unitario">
+            </div>
+
+            <div class="grid-item-input">
+                <input type="text" id="totalPriceProducts" name="totalPriceProducts" placeholder="Precio Total">
+            </div>
+        </div>
+        <button class="button+">+</button>
+        <br />
+        <input class="totalSale" type="text" id="totalSale" name="totalSale" placeholder="Total Venta" readonly>
+        <br /><br />
+        <input class="buttonSubmit" type="submit" id="FormButton" name="FormButton" value="Procesar venta" onclick="captura()">
+
+
+
+
+    </form>
+
+    <script src="./form.js"></script>
+
+
+    <footer>
+        <div class="containerfinal">
+            <div class="menufinal">
+                <ul>
+                    <li><a href="#">Contacto</a></li>
+                    <li style="margin-left: 100px;"><a href="https://github.com/Fanta-Stick-Org/Fanta-Stick-Store"
+                            target="_blank">Github</a></li>
+                    <li style="font-size: 20px;"><b>|</b></li>
+                    <li><a href="https://trello.com/b/UvFvhLkZ/desarrollo-web" target="_blank">Trello</a></li>
+                    <li style="float: right;"><a href="#">@Copyright Fanta-Stick</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

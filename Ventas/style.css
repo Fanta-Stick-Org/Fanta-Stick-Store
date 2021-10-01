@@ -1,0 +1,155 @@
+header
+{
+    width: 100%;
+    background-color: #FB813E;
+    height: 120px;
+}
+
+.container{
+    width: 90%;
+    margin: 0px auto;
+}
+
+.logo{
+    display: table;
+    float: left;
+}
+
+.logo img{
+    width: 120px;
+    height: auto;
+    margin-top: 10px;
+}
+
+.menu{
+    float: right;
+    display: block;
+}
+
+.menu ul{
+    list-style: none;
+}
+
+.menu ul li{
+    display: inline-block;
+    margin-top: 17px;
+}
+
+.menu ul li a{
+    color: #000;
+    text-decoration: none;
+    padding: 0px 20px;
+    line-height: 80px;
+    letter-spacing: 1px;
+    font-size: 22px;
+}
+
+.menu ul li a:hover
+{
+    background-color: #d36d34;
+    display: block;
+}
+
+footer{
+    width: 100%;
+    background-color: #FB813E;
+    float: right;
+    height: 111px;
+    position: absolute;
+    bottom: 0;
+}
+
+.menufinal ul li{
+    display: inline-block;
+    margin-top: 17px;
+}
+
+.menufinal ul li a{
+    color: #000;
+    text-decoration: none;
+    padding: 0px 20px;
+    line-height: 80px;
+    letter-spacing: 1px;
+    font-size: 22px;
+}
+
+form {
+	background-color: #afcfce;
+	width: 1000px;
+	height: auto;
+	margin: auto;
+	text-align: center;
+
+}
+
+
+.grid-container {
+	display: grid;
+	grid-column-gap: auto;
+	grid-template-columns: auto auto auto;
+	padding: 5px;
+	text-align: center;
+	WIDTH: 700px;
+	margin: auto; 
+	
+  }
+
+.grid-container-2 {
+	display: grid;
+	grid-column-gap: 0px;
+	grid-template-columns: auto auto auto auto auto;
+	padding: 5px;
+	text-align: center;
+	WIDTH: 800px; 
+	margin-left: 50px;
+	
+  }
+
+  .grid-item{
+	  color: black;
+	  padding: 5px;
+	  text-align: left;
+  }
+
+  .grid-item-input{
+	border: 1px solid #39c;
+	font-size: 5px;
+	
+	
+  }
+
+  .totalSale{
+	  margin-left: 700px;
+	  padding: 10px;
+	  
+
+  }
+
+  .buttonSubmit{
+	  margin-left: 700px;
+	  padding: 10px;
+
+  }
+  body{
+    background-color: #afcfce;
+  }
+  .tableSales{
+      width: 80%;
+      margin: auto;
+      background-color: white;
+  }
+
+  h1{
+      text-align: center;
+  }
+
+  .tdTableSales, .thTableSales, .trTableSales {
+      border: 1px solid black;
+      border-collapse: collapse;
+      padding: 15px;
+      align-items: center;
+  }
+.tdTableSales{
+      padding: 10px;
+  }
+

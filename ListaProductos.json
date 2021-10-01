@@ -1,0 +1,86 @@
+[
+      {
+        "idProduct": ,
+        "nameProduct": ,
+        "priceProduct": ,
+        "qtyProduct": 
+      },
+      {
+        "idProduct": ,
+        "nameProduct": ,
+        "priceProduct": ,
+        "qtyProduct":
+      },
+      {
+        "idProduct": ,
+        "nameProduct":"Computador Portátil LENOVO 14" ,
+        "priceProduct": 2.299.000,
+        "qtyProduct": 4
+      },
+      {
+        "idProduct": ,
+        "nameProduct":"Computador Portatil HP 14" ,
+        "priceProduct": 1.699.000,
+        "qtyProduct":6
+      },
+      {
+        "idProduct": ,
+        "nameProduct": "Computador Portátil ACER 15.6",
+        "priceProduct": 1.815.000,
+        "qtyProduct": 2
+      },
+      {
+        "idProduct": ,
+        "nameProduct": "Computador Portátil ASUS 14",
+        "priceProduct": 1.049.000,
+        "qtyProduct": 5
+      },
+      {
+        "idProduct": ,
+        "nameProduct": "Computador All In One LENOVO 23,8",
+        "priceProduct": 1.815.000,
+        "qtyProduct": 8
+      },
+      {
+        "idProduct": ,
+        "nameProduct": "iMac 21.5" Retina 4K 3.0Ghz",
+        "priceProduct": 5.999.000,
+        "qtyProduct": 1
+      },
+      {
+        "idProduct": ,
+        "nameProduct": "Tablet LENOVO 10",
+        "priceProduct": 798.000,
+        "qtyProduct": 10
+      },
+      {
+        "idProduct": ,
+        "nameProduct": "Tablet SAMSUNG 10.4",
+        "priceProduct": 699.900,
+        "qtyProduct": 10
+      },
+      {
+        "idProduct": ,
+        "nameProduct": "Monitor HP 21.5",
+        "priceProduct": 579.000,
+        "qtyProduct": 8
+      },
+      {
+        "idProduct": ,
+        "nameProduct": "Monitor ACER Gamer 27",
+        "priceProduct": 1.199.000,
+        "qtyProduct": 2
+      },
+      {
+        "idProduct": ,
+        "nameProduct": "Combo LOGITECH Teclado + Mouse",
+        "priceProduct": 89.900,
+        "qtyProduct": 15
+      },
+      {
+        "idProduct": ,
+        "nameProduct": "Audífonos de Diadema JBL",
+        "priceProduct": 659.900,
+        "qtyProduct": 4
+      }
+]
