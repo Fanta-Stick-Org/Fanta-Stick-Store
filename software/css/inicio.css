@@ -1,45 +1,44 @@
-/* Hoja de estilo para el registro de productos */
-html{
-    background-color: #FB813E ;
+/* Hoja de estilo para la pagina principal */
+html {
+    background-color: #FB813E;
     font-family: 'Poppins', sans-serif;
     margin: 0%;
 }
 
 /* Header */
-header
-{
+header {
     background-color: #FB813E;
     height: 120px;
 }
 
-.logo{
+.logo {
     display: table;
     float: left;
 }
 
-.logo img{
+.logo img {
     width: 120px;
     height: auto;
     margin-top: 10px;
     margin-left: 70px;
 }
 
-.menu{
+.menu {
     float: unset;
-    float: right;  
+    float: right;
     margin-right: 50px;
 }
 
-.menu ul{
+.menu ul {
     list-style: none;
 }
 
-.menu ul li{
+.menu ul li {
     display: inline-block;
     margin-top: 5px;
 }
 
-.menu ul li a{
+.menu ul li a {
     color: #000;
     text-decoration: none;
     padding: 0px 20px;
@@ -49,8 +48,7 @@ header
     border-radius: 6px;
 }
 
-.menu ul li a:hover
-{
+.menu ul li a:hover {
     background-color: #d36d34;
     display: block;
     transition: color 0.3s;
@@ -58,12 +56,12 @@ header
 
 }
 
-.menu li ul{
+.menu li ul {
     display: none;
     position: absolute;
 }
 
-.menu li:hover > ul{
+.menu li:hover>ul {
     display: grid;
     background-color: #FB813E;
     padding-left: 0%;
@@ -71,61 +69,44 @@ header
     cursor: pointer;
 }
 
-
 /* Body */
-
-#containerSection{
+#containerSection {
     font-family: 'Poppins', sans-serif;
     background-color: #afcfce;
-    padding-top: 10px;
-    text-align: center;
 }
 
-#tittle{
+#tittle {
     font-family: 'Poppins', sans-serif;
     font-size: 33px;
+    text-align: center;
+    padding-top: 20px;
 }
 
-.formRegister{
+#content{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid: 20px;
+}
+
+.item{
+    padding-top: 20px;
+    text-align: justify;
+}
+
+.item img{
+    width: 450px;
+    height: auto;
+    margin-left: 150px;
+    margin-bottom: 20px;
+}
+
+p{
     font-family: 'Poppins', sans-serif;
-    margin: 20px;
-    padding-bottom: 20px;
-}
-
-.input{
-    font-family: 'Poppins', sans-serif;
-    border: 0;
-    border-radius: 5px;
-    height: 20px;
-    margin-top: 5px;
-}
-
-.formSubmit{
-    padding: 10px;
-}
-
-#register-form-submit{
-    font-family: 'Poppins', sans-serif;
-    font-size: 22px ;
-    cursor: pointer;
-    margin-bottom: 10px;
-    padding: 8px;
-    border: 0;
-    border-radius: 6px;
-    width: 130px;
-    height: 60px;
-    background-color: #fff4e7;
-    color: black;
-}
-
-#register-form-submit:hover{
-    transition: all 0.5s;
-    background-color: #d36d34;
-    color: white;
+    font-size: 20px;
 }
 
 /* Footer */
-footer{
+footer {
     width: 100%;
     background-color: #FB813E;
     float: right;
@@ -134,12 +115,12 @@ footer{
     bottom: 0;
 }
 
-.menufinal ul li{
+.menufinal ul li {
     display: inline-block;
     margin-top: 17px;
 }
 
-.menufinal ul li a{
+.menufinal ul li a {
     color: #000;
     text-decoration: none;
     padding: 0px 20px;
@@ -150,7 +131,7 @@ footer{
     cursor: pointer;
 }
 
-.menufinal ul li a:hover{
+.menufinal ul li a:hover {
     text-decoration: none;
     color: #afcfce;
 }
