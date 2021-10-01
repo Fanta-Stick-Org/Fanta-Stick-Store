@@ -8,8 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/inicio.css">
-    <title>Página Principal 🧡</title>
+    <link rel="stylesheet" href="../css/listProducts.css">
+    <title>Listar Productos 👀</title>
 </head>
 
 <body>
@@ -25,7 +25,7 @@
                     <ul>
                         <li><a href="../vistas/registerProduct.html">Registrar</a></li>
                         <li><a href="../vistas/listProducts.html">Listar</a></li>
-                        <li><a href="../vistas/updateProduct.html">Actualizar</a></li>
+                        <li><a href="/vistas/updateProduct.html">Actualizar</a></li>
                     </ul>
                 </li>
                 <li><a href="#">Ventas</a>
@@ -47,17 +47,42 @@
     </header>
     <main>
         <section id="containerSection">
-            <h1 id="tittle">¡Bienvenido a Fanta-Stick-Store!</h1>
+            <h1 id="tittle">Listado de Productos</h1>
             <hr>
-            <div id="content">
-                <div class="item"><img src="../img/shop.jpg" alt="shop"></div>
-                <div class="item">
-                    <p>Este proyecto es hecho por el Fanta-Stick-Org Team 👩🏻‍💻👨🏻‍💻 <br>
-                        para llevar a cabo la gestión de las ventas físicas y online ✅. <br><br>
-                        Cordialmente. @<a href="https://github.com/Fanta-Stick-Org/Fanta-Stick-Store">Fanta-Stick
-                            Team</a> ❤.</p>
-                </div>
+            <div class="formSubmit">
+                <button value="Login" id="register-form-submit" type="submit">Listar</button>
             </div>
+            <hr>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id Producto</th>
+                        <th>Descripción</th>
+                        <th>Valor Unitario</th>
+                        <th>Estado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>001</td>
+                        <td>Mouse Inalámbrico</td>
+                        <td>$120.000</td>
+                        <td>Disponible</td>
+                    </tr>
+                    <tr>
+                        <td>002</td>
+                        <td>Teclado Inalámbrico</td>
+                        <td>$90.000</td>
+                        <td>Disponible</td>
+                    </tr>
+                    <tr>
+                        <td>003</td>
+                        <td>Monitor 1920x1080</td>
+                        <td>$410.000</td>
+                        <td>No Disponible</td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
     </main>
     <footer>

@@ -1,0 +1,170 @@
+/* Hoja de estilo para el registro de productos */
+html{
+    background-color: #FB813E ;
+    font-family: 'Poppins', sans-serif;
+    margin: 0%;
+}
+
+/* Header */
+header
+{
+    background-color: #FB813E;
+    height: 120px;
+}
+
+.logo{
+    display: table;
+    float: left;
+}
+
+.logo img{
+    width: 120px;
+    height: auto;
+    margin-top: 10px;
+    margin-left: 70px;
+}
+
+.menu{
+    float: unset;
+    float: right;  
+    margin-right: 50px;
+}
+
+.menu ul{
+    list-style: none;
+}
+
+.menu ul li{
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.menu ul li a{
+    color: #000;
+    text-decoration: none;
+    padding: 0px 20px;
+    line-height: 80px;
+    letter-spacing: 1px;
+    font-size: 22px;
+    border-radius: 6px;
+}
+
+.menu ul li a:hover
+{
+    background-color: #d36d34;
+    display: block;
+    transition: color 0.3s;
+    cursor: pointer;
+
+}
+
+.menu li ul{
+    display: none;
+    position: absolute;
+}
+
+.menu li:hover > ul{
+    display: grid;
+    background-color: #FB813E;
+    padding-left: 0%;
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+
+/* Body */
+
+#containerSection{
+    font-family: 'Poppins', sans-serif;
+    background-color: #afcfce;
+    padding-top: 10px;
+    text-align: center;
+    padding: bottom 10px;
+}
+
+#tittle{
+    font-family: 'Poppins', sans-serif;
+    font-size: 33px;
+}
+
+.formSubmit{
+    padding: 10px;
+}
+
+#register-form-submit{
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px ;
+    cursor: pointer;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 0;
+    border-radius: 6px;
+    width: 110px;
+    height: 50px;
+    background-color: #fff4e7;
+    color: black;
+}
+
+#register-form-submit:hover{
+    transition: all 0.5s;
+    background-color: #d36d34;
+    color: white;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+th, td{
+    border: solid 1px #eee;
+    padding: 5px;
+}
+
+th{
+    background-color: #d36d34;
+    color: white;
+}
+
+tr:nth-child(even){
+    background-color: #eee;
+}
+
+tr:hover{
+    background-color: #FB813E;
+}
+
+
+
+
+/* Footer */
+footer{
+    width: 100%;
+    background-color: #FB813E;
+    float: right;
+    height: 111px;
+    position: absolute;
+    bottom: 0;
+}
+
+.menufinal ul li{
+    display: inline-block;
+    margin-top: 17px;
+}
+
+.menufinal ul li a{
+    color: #000;
+    text-decoration: none;
+    padding: 0px 20px;
+    line-height: 80px;
+    letter-spacing: 1px;
+    font-size: 22px;
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+.menufinal ul li a:hover{
+    text-decoration: none;
+    color: #afcfce;
+}
