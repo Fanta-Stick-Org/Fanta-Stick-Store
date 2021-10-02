@@ -4,20 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="../public/icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/listProducts.css">
+    <link rel="stylesheet" href="../src/styles/listProducts.css">
     <title>Listar Productos 👀</title>
 </head>
 
 <body>
     <header>
         <div class="logo">
-            <img src="../img/Logo blanco.png" alt="Logo-Fanta-Stick-Org">
+            <img src="../src/img/Logo blanco.png" alt="Logo-Fanta-Stick-Org">
         </div>
-
         <nav class="menu">
             <ul>
                 <li><a href="../vistas/inicio.html">Inicio</a></li>
@@ -50,10 +50,10 @@
             <h1 id="tittle">Listado de Productos</h1>
             <hr>
             <div class="formSubmit">
-                <button value="Login" id="register-form-submit" type="submit">Listar</button>
+                <button value="Login" id="list-submit" type="submit">Listar</button>
             </div>
             <hr>
-            <table>
+            <table id="transactionTable">
                 <thead>
                     <tr>
                         <th>Id Producto</th>
@@ -99,6 +99,7 @@
             </div>
         </div>
     </footer>
+    <script src="../js/listProducts.js"></script>
 </body>
 
 </html>
