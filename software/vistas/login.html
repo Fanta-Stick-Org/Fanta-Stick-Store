@@ -4,34 +4,36 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="../public/icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio de Sesión 🔰</title>
-    <Link rel="stylesheet" href="../css/login.css">
+    <Link rel="stylesheet" href="../src/styles/login.css">
     </Link>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/d4cd33a1a3.js" crossorigin="anonymous"></script>
 
 </head>
 
 <body>
     <header id="logo">
-        <img src="../img/Logo azul.png" alt="Logo" width="600" height="400">
+        <img src="../src/img/Logo azul.png" alt="Logo" width="600" height="400">
     </header>
     <section id="formulario">
         <!-- action="/formulario" method="POST" -->
         <form class="form" id="login-form">
             <div class="inline">
-                <label class="texto" for="username">Usuario</label>
+                <label class="texto" for="username"><i class="fas fa-user"> </i> Usuario </label>
                 <input class="input" name="username" type="username" id="username" placeholder="Ingrese su usuario">
             </div>
             <div class="inline">
-                <label class="texto" for="password">Contraseña</label>
+                <label class="texto" for="password"><i class="fas fa-user-secret"> </i> Contraseña </label>
                 <input class="input" name="password" type="password" id="password" placeholder="ingrese su contraseña">
                 <span class="texto">No compartas tu contraseña con nadie :).</span>
             </div>
             <div class="inline">
-                <button class="boton" value="Login" id="login-form-submit" type="submit">Ingresar</button>
+                <button class="boton" value="Login" id="login-form-submit" type="submit">Ingresar <i class="fas fa-chevron-right"></i></button>
             </div>
         </form>
     </section>
