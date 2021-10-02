@@ -4,18 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="../public/icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/updateProduct.css">
+    <link rel="stylesheet" href="../src/styles/updateProduct.css">
     <title>Actualizar Productos 😮</title>
 </head>
 
 <body>
     <header>
         <div class="logo">
-            <img src="../img/Logo blanco.png" alt="Logo-Fanta-Stick-Org">
+            <img src="../src/img/Logo blanco.png" alt="Logo-Fanta-Stick-Org">
         </div>
 
         <nav class="menu">
@@ -49,7 +50,7 @@
         <section id="containerSection">
             <h1 id="tittle">Actualizar Productos</h1>
             <hr>
-            <form action="">
+            <form action="" id="form-update-products">
                 <div class="formRegister">
                     <label class="texto" for="idProducto">Id Producto</label>
                     <input class="input" name="idProducto" type="text" id="idProducto" placeholder="Ej: 001">
@@ -73,7 +74,7 @@
             </form>
             <hr>
             <div class="formSubmit">
-                <button value="Login" id="register-form-submit" type="submit">Actualizar</button>
+                <button value="Login" id="update-form-submit" type="submit">Actualizar</button>
             </div>
         </section>
     </main>
@@ -91,6 +92,7 @@
             </div>
         </div>
     </footer>
+    <script src="../js/updateProduct.js"></script>
 </body>
 
 </html>
