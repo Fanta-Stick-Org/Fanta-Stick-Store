@@ -82,25 +82,25 @@ header {
     padding-top: 20px;
 }
 
-#content{
+#content {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid: 20px;
 }
 
-.item{
+.item {
     padding-top: 20px;
     text-align: justify;
 }
 
-.item img{
+.item img {
     width: 450px;
     height: auto;
     margin-left: 150px;
     margin-bottom: 20px;
 }
 
-p{
+p {
     font-family: 'Poppins', sans-serif;
     font-size: 20px;
 }
