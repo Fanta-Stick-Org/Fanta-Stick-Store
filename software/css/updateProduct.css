@@ -104,7 +104,7 @@ header
     padding: 10px;
 }
 
-#register-form-submit{
+#update-form-submit{
     font-family: 'Poppins', sans-serif;
     font-size: 22px ;
     cursor: pointer;
@@ -118,7 +118,7 @@ header
     color: black;
 }
 
-#register-form-submit:hover{
+#update-form-submit:hover{
     transition: all 0.5s;
     background-color: #d36d34;
     color: white;
