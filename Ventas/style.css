@@ -55,7 +55,7 @@ footer{
     background-color: #FB813E;
     float: right;
     height: 111px;
-    position: absolute;
+    position: fixed;
     bottom: 0;
 }
 

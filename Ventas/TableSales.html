@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,13 +11,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com/%22%3E">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
-    <style>  
-          body {
-        font-family: 'Poppins', sans-serif;
-    }
-</style>
-    
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+
 </head>
+
 <body>
     <header>
         <div class="container">
@@ -39,6 +41,12 @@
 
     <div>
         <h1>Listado de Ventas</h1>
+
+        <div  class="divbuscarID">
+            <input class="buscarID" type="text" id="buscarID" onkeyup="myFunction()" placeholder="Buscar por ID..."
+                title="Buscador por ID">
+        </div>
+
         <table class="tableSales">
             <tr class="trTableSales">
                 <th class="thTableSales">Id de venta</th>
@@ -47,10 +55,28 @@
                 <th class="thTableSales">Nombre Cliente</th>
                 <th class="thTableSales">Estado de la Venta</th>
                 <th class="thTableSales">Total de la Venta</th>
+                <th class="thTableSales">Seleccionar Venta</th>
 
-            
-                
 
+
+            <tr class="trTableSales">
+                <td class="tdTableSales">0002</td>
+                <td class="tdTableSales">02/10/2021 15:30</td>
+                <td class="tdTableSales">1101010102</td>
+                <td class="tdTableSales">Ana Peña</td>
+                <td class="tdTableSales">Cancelada</td>
+                <td class="tdTableSales">850000</td>
+                <td class="tdTableSales"><input type="button" name="buttonSeeSale" value="Ver"></button></td>
+            </tr>
+           
+            <tr class="trTableSales">
+                <td class="tdTableSales">0002</td>
+                <td class="tdTableSales">02/10/2021 15:30</td>
+                <td class="tdTableSales">1101010102</td>
+                <td class="tdTableSales">Ana Peña</td>
+                <td class="tdTableSales">Cancelada</td>
+                <td class="tdTableSales">850000</td>
+                <td class="tdTableSales"><input type="button" name="buttonSeeSale" value="Ver"></button></td>
             </tr>
             <tr class="trTableSales">
                 <td class="tdTableSales">0001</td>
@@ -59,8 +85,39 @@
                 <td class="tdTableSales">Pedro Perez</td>
                 <td class="tdTableSales">Pendiente</td>
                 <td class="tdTableSales">1500000</td>
+                <td class="tdTableSales"><input type="button" name="buttonSeeSale" value="Ver"></button></td>
             </tr>
+
   
+            <tr class="trTableSales">
+                <td class="tdTableSales">0002</td>
+                <td class="tdTableSales">02/10/2021 15:30</td>
+                <td class="tdTableSales">1101010102</td>
+                <td class="tdTableSales">Ana Peña</td>
+                <td class="tdTableSales">Cancelada</td>
+                <td class="tdTableSales">850000</td>
+                <td class="tdTableSales"><input type="button" name="buttonSeeSale" value="Ver"></button></td>
+            </tr>
+            <tr class="trTableSales">
+                <td class="tdTableSales">0001</td>
+                <td class="tdTableSales">01/10/2021 15:36</td>
+                <td class="tdTableSales">1101010101</td>
+                <td class="tdTableSales">Pedro Perez</td>
+                <td class="tdTableSales">Pendiente</td>
+                <td class="tdTableSales">1500000</td>
+                <td class="tdTableSales"><input type="button" name="buttonSeeSale" value="Ver"></button></td>
+            </tr>
+
+            <tr class="trTableSales">
+                <td class="tdTableSales">0002</td>
+                <td class="tdTableSales">02/10/2021 15:30</td>
+                <td class="tdTableSales">1101010102</td>
+                <td class="tdTableSales">Ana Peña</td>
+                <td class="tdTableSales">Cancelada</td>
+                <td class="tdTableSales">850000</td>
+                <td class="tdTableSales"><input type="button" name="buttonSeeSale" value="Ver"></button></td>
+            </tr>
+
         </table>
     </div>
     <footer>
@@ -78,4 +135,5 @@
         </div>
     </footer>
 </body>
+
 </html>

@@ -37,6 +37,20 @@
 
         </div>
     </header>
+    <footer>
+        <div class="containerfinal">
+            <div class="menufinal">
+                <ul>
+                    <li><a href="#">Contacto</a></li>
+                    <li style="margin-left: 100px;"><a href="https://github.com/Fanta-Stick-Org/Fanta-Stick-Store"
+                            target="_blank">Github</a></li>
+                    <li style="font-size: 20px;"><b>|</b></li>
+                    <li><a href="https://trello.com/b/UvFvhLkZ/desarrollo-web" target="_blank">Trello</a></li>
+                    <li style="float: right;"><a href="#">@Copyright Fanta-Stick</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
 
 
 
@@ -69,7 +83,10 @@
 
 
                 <input type="radio" id="stateSalePend" name="stateSale" value="Pendiente" class="grid-item">
-                <label for="stateSalePend" class="grid-item">Pendiente </label><br />
+                <label for="stateSalePend" class="grid-item">Pendiente</label><br />
+
+                <input type="radio" id="stateSaleClosed" name="stateSale" value="Cerrada" class="grid-item">
+                <label for="stateSaleClosed" class="grid-item">Cerrada</label><br />
             </div>
 
             <div class="grid-item">
@@ -77,8 +94,8 @@
                 <input type="text" id="idCustomer" name="idCustomer" placeholder="Id del Cliente" class="grid-item">
             </div>
             <div class="grid-item">
-                <label for="nameCostumer">Nombre del Cliente</label class="grid-item">
-                <input type="text" id="nameCostumer" name="nameCostumer" placeholder="Nombre del Cliente"
+                <label for="nameCustumer">Nombre del Cliente</label class="grid-item">
+                <input type="text" id="nameCustumer" name="nameCustumer" placeholder="Nombre del Cliente"
                     class="grid-item">
             </div>
         </div>
@@ -147,9 +164,9 @@
         </div>
         <button class="button+">+</button>
         <br />
-        <input class="totalSale" type="text" id="totalSale" name="totalSale" placeholder="Total Venta" readonly>
+        <input class="totalSale" type="text" id="totalSale" name="totalSale" placeholder="Total Venta" value="100.000" disabled>
         <br /><br />
-        <input class="buttonSubmit" type="submit" id="FormButton" name="FormButton" value="Procesar venta" onclick="captura()">
+        <button class="buttonSubmit" id="FormButton" name="FormButton">Procesar venta </button>
 
 
 
@@ -159,20 +176,7 @@
     <script src="./form.js"></script>
 
 
-    <footer>
-        <div class="containerfinal">
-            <div class="menufinal">
-                <ul>
-                    <li><a href="#">Contacto</a></li>
-                    <li style="margin-left: 100px;"><a href="https://github.com/Fanta-Stick-Org/Fanta-Stick-Store"
-                            target="_blank">Github</a></li>
-                    <li style="font-size: 20px;"><b>|</b></li>
-                    <li><a href="https://trello.com/b/UvFvhLkZ/desarrollo-web" target="_blank">Trello</a></li>
-                    <li style="float: right;"><a href="#">@Copyright Fanta-Stick</a></li>
-                </ul>
-            </div>
-        </div>
-    </footer>
+    
 </body>
 
 </html>
