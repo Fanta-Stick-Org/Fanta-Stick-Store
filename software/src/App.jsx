@@ -1,6 +1,6 @@
-import logo from './img/Logo azul.png';
-import './styles/login.css';
-import Barra from './components/prueba';
+import logo from 'img/Logo azul.png';
+import 'styles/login.css';
+import Barra from 'components/prueba';
 
 function App() {
     return (
@@ -29,9 +29,7 @@ function App() {
                     href="https://github.com/Fanta-Stick-Org/Fanta-Stick-Store.git">Copyright-Fanta-Stick-Org-2021</a>
             </footer>
             <script src="../js/login.js"></script>
-            <div>
-                <Barra/>
-            </div>
+            <Barra/>
         </div>
     );
 }
