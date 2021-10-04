@@ -1,38 +1,41 @@
-function vistaHeader(params) {
-    return(
-        <header>
-        <div class="logo">
-            <img src="../src/img/Logo blanco.png" alt="Logo-Fanta-Stick-Org"></img>
-        </div>
+import 'styles/header.css';
+import logo from 'img/Logo blanco.png';
+import { Link } from 'react-router-dom';
 
-        <nav class="menu">
-            <ul>
-                <li><a href="../vistas/inicio.html">Inicio</a></li>
-                <li><a href="#">Productos</a>
-                    <ul>
-                        <li><a href="../vistas/registerProduct.html">Registrar</a></li>
-                        <li><a href="../vistas/listProducts.html">Listar</a></li>
-                        <li><a href="../vistas/updateProduct.html">Actualizar</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Ventas</a>
-                    <ul>
-                        <li><a href="#">Registrar</a></li>
-                        <li><a href="#">Listar</a></li>
-                        <li><a href="#">Actualizar</a></li>
-                    </ul>
-                </li>
-                <li><a href="#">Usuarios</a>
-                    <ul>
-                        <li><a href="#">Registrar</a></li>
-                        <li><a href="#">Listar</a></li>
-                        <li><a href="#">Actualizar</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-    </header>
+function Header() {
+    return (
+        <header id='headerMain'>
+            <div className="logo">
+            <Link to='/main-page'><img src={logo} alt="Logo-Fanta-Stick-Org"></img></Link>
+            </div>
+            <nav className="menu">
+                <ul>
+                    <li><Link to='/main-page'>Inicio</Link></li>
+                    <li><Link to='/main-page'>Productos</Link>
+                        <ul>
+                            <li><Link to='/registerProduct'>Registrar</Link></li>
+                            <li><Link to='/listProducts'>Listar</Link></li>
+                            <li><Link to='/updateProduct'>Actualizar</Link></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Ventas</a>
+                        <ul>
+                            <li><a href="#">Registrar</a></li>
+                            <li><a href="#">Listar</a></li>
+                            <li><a href="#">Actualizar</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Usuarios</a>
+                        <ul>
+                            <li><a href="#">Registrar</a></li>
+                            <li><a href="#">Listar</a></li>
+                            <li><a href="#">Actualizar</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
     )
 }
 
-export default vistaHeader;
+export default Header;

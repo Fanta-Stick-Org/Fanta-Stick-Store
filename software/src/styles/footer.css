@@ -1,0 +1,45 @@
+/* Footer */
+#footerMain {
+    width: 100%;
+    background-color: #FB813E;
+    float: right;
+    height: 111px;
+    position: fixed;
+    bottom: 0;
+}
+
+.menufinal{
+    text-align: center;
+}
+
+#contacto{
+    float: left;
+}
+
+#copyright{
+    float: right;
+    padding-right: 50px;
+}
+
+.menufinal ul li {
+    font-family: 'Poppins', sans-serif;
+    display: inline-block;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.menufinal ul li a {
+    color: #000;
+    text-decoration: none;
+    padding: 0px 20px;
+    line-height: 80px;
+    letter-spacing: 1px;
+    font-size: 22px;
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+.menufinal ul li a:hover {
+    text-decoration: none;
+    color: #afcfce;
+}

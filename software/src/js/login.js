@@ -1,6 +1,5 @@
 const loginForm = document.getElementById("login-form");
 const loginButton = document.getElementById("login-form-submit");
-/* const loginErrorMsg = document.getElementById("login-error-msg"); */
 
 loginButton.addEventListener("click", (e) => {
     e.preventDefault();
@@ -8,10 +7,7 @@ loginButton.addEventListener("click", (e) => {
     const password = loginForm.password.value;
 
     if (username === "admin" && password === "admin") {
-        location.href = "./inicio.html";
-        /* alert("Haz iniciado sesion correctamente"); */
-        /* location.reload(); */
-    } else {
-        loginErrorMsg.style.opacity = 1;
+        alert("Haz iniciado sesion correctamente");
+        window.location.href = "/main";
     }
 })
