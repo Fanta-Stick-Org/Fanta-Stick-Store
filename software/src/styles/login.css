@@ -1,5 +1,9 @@
 /*Hoja de estilo para login*/
 
+html{
+    background-color: #009691;
+}
+
 #logo{
     margin-top: 50px;
     background-color: #ff8340;
