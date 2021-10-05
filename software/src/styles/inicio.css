@@ -1,47 +1,22 @@
-/* Hoja de estilo para la pagina principal */
-
-/* Body */
-#containerSection {
-    font-family: 'Poppins', sans-serif;
-    background-color: #afcfce;
-}
-
-#tittle {
-    font-family: 'Poppins', sans-serif;
-    font-size: 33px;
-    text-align: center;
-    padding-top: 20px;
-}
+@import url('general.css');
 
 #content{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid: 20px;
+    @apply grid grid-cols-2 ;
 }
 
 .item{
-    padding-top: 20px;
-    text-align: justify;
-    padding-bottom: 15px;
+    @apply pt-2 text-justify pb-3 mb-16 self-center;
 }
 
 .item img{
-    width: 450px;
-    height: auto;
-    margin-left: 150px;
-    margin-bottom: 20px;
+    @apply max-w-md h-auto pt-4 ml-32;
 }
 
 #linkFantaStick{
-    color: grey;
-}
-
-#linkFantaStick:hover{
-    text-decoration: none;
-    color: #009691;
+    @apply text-gray-500 hover:text-blue-500;
 }
 
 p{
     font-family: 'Poppins', sans-serif;
-    font-size: 20px;
+    @apply text-2xl font-medium;
 }

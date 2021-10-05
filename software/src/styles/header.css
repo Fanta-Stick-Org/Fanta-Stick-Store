@@ -1,64 +1,41 @@
 /* Header */
+
 #headerMain {
     font-family: 'Poppins', sans-serif;
     background-color: #FB813E;
-    height: 120px;
+    @apply h-36 font-semibold;
 }
 
 .logo {
-    padding-top: 3px;
-    display: table;
-    float: left;
+    @apply p-1 float-left;
 }
 
 .logo img {
-    width: 120px;
-    height: auto;
-    margin-top: 10px;
-    margin-left: 70px;
+    @apply w-32 h-auto mt-4 ml-12;
 }
 
 .menu {
-    float: unset;
-    float: right;
-    margin-right: 50px;
-}
-
-.menu ul {
-    list-style: none;
+    @apply float-right mr-12;
 }
 
 .menu ul li {
-    display: inline-block;
-    /* margin-top: 16px; */
+    @apply inline-block mt-14 mr-4;
 }
 
 .menu ul li a {
-    color: #000;
-    text-decoration: none;
-    padding: 0px 20px;
-    line-height: 80px;
-    letter-spacing: 1px;
-    font-size: 22px;
-    border-radius: 6px;
+    @apply text-black text-xl p-5 rounded-lg;
 }
 
 .menu ul li a:hover {
-    background-color: #d36d34;
-    display: block;
-    transition: color 0.3s;
-    cursor: pointer;
+    @apply transition-all cursor-pointer text-white;
 }
 
 .menu li ul {
     display: none;
-    position: absolute;
+    @apply absolute p-0 pb-6 rounded-lg;
 }
 
-.menu li:hover>ul {
-    display: grid;
+.menu li:hover > ul {
     background-color: #FB813E;
-    padding-left: 0%;
-    transition: color 0.3s;
-    cursor: pointer;
+    @apply grid grid-cols-1 transition-all cursor-pointer;
 }

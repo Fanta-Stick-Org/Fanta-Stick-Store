@@ -1,0 +1,39 @@
+/* Hoja de estilo para la pagina principal */
+
+/* Body */
+.containerSection {
+    background-color: #afcfce;
+    @apply mb-auto;
+}
+
+#tittle{
+    font-family: 'Poppins', sans-serif;
+    @apply pt-10 pb-10 text-black text-center text-3xl font-semibold;
+}
+
+.form{
+    font-family: 'Poppins', sans-serif;
+    @apply text-center p-3;
+}
+
+.texto{
+    @apply pr-2 text-black;
+}
+
+.input{
+    @apply w-auto h-auto p-1 rounded-lg focus:ring-2 focus:ring-blue-600;
+}
+
+#btn-form-submit{
+    font-family: 'Poppins', sans-serif;
+    @apply w-auto h-auto cursor-pointer p-4 border-0 rounded-lg bg-gray-200 text-black text-2xl font-medium transition-all;
+}
+
+#btn-form-submit:hover{
+    background-color: #FB813E;
+    color: white;
+}
+
+.formSubmit{
+    @apply text-center pt-14 pb-16;
+}

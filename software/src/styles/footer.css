@@ -2,41 +2,28 @@
 #footerMain {
     width: 100%;
     background-color: #FB813E;
-    float: right;
-    height: 111px;
-    position: fixed;
-    bottom: 0;
+    @apply float-right h-auto fixed;
 }
 
 .menufinal{
-    text-align: center;
+    @apply text-center h-screen;
 }
 
 #contacto{
-    float: left;
+    @apply float-left ml-10;
 }
 
 #copyright{
-    float: right;
-    padding-right: 50px;
+    @apply float-right mr-10;
 }
 
 .menufinal ul li {
     font-family: 'Poppins', sans-serif;
-    display: inline-block;
-    margin-top: 10px;
-    text-align: center;
+    @apply font-semibold inline-block text-center py-4 ;
 }
 
 .menufinal ul li a {
-    color: #000;
-    text-decoration: none;
-    padding: 0px 20px;
-    line-height: 80px;
-    letter-spacing: 1px;
-    font-size: 22px;
-    transition: color 0.3s;
-    cursor: pointer;
+    @apply text-black transition-all cursor-pointer p-5 text-xl;
 }
 
 .menufinal ul li a:hover {

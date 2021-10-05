@@ -1,4 +1,7 @@
 /*Hoja de estilo para login*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 html{
     background-color: #009691;

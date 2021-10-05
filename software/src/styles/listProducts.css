@@ -1,63 +1,41 @@
-/* Hoja de estilo para el registro de productos */
+@import url('general.css');
 
-/* Body */
-
-#containerSection{
+#btn-list-submit{
     font-family: 'Poppins', sans-serif;
-    background-color: #afcfce;
-    height: 500px;
-    padding-top: 10px;
-    text-align: center;
+    @apply w-auto h-auto cursor-pointer p-4 border-0 rounded-lg bg-gray-200 text-black text-2xl transition-all;
 }
 
-#tittle{
-    font-family: 'Poppins', sans-serif;
-    font-size: 33px;
-}
-
-.formSubmit{
-    padding: 10px;
-    margin-bottom: 15px;
-}
-
-#list-submit{
-    font-family: 'Poppins', sans-serif;
-    font-size: 22px ;
-    cursor: pointer;
-    margin-bottom: 10px;
-    padding: 5px;
-    border: 0;
-    border-radius: 6px;
-    width: 110px;
-    height: 50px;
-    background-color: #fff4e7;
-    color: black;
-}
-
-#list-submit:hover{
-    transition: all 0.5s;
-    background-color: #d36d34;
+#btn-list-submit:hover{
+    background-color: #FB813E;
     color: white;
 }
 
-table{
+.formSubmitList{
+    @apply text-center pb-5 mb-5;
+}
+
+.table-products-container{
+    @apply text-center mx-10 pb-32;
+}
+
+#table-list-products{
+    font-family: 'Poppins', sans-serif;
     width: 100%;
-    border-collapse: collapse;
-    background-color: white;
+    @apply text-center border-collapse bg-white;
 }
 
 th, td{
-    border: solid 1px #eee;
-    padding: 5px;
+    @apply border border-solid border-gray-100 p-3;
 }
 
 th{
     background-color: #d36d34;
-    color: white;
+    @apply text-white;
+    
 }
 
 tr:nth-child(even){
-    background-color: #eee;
+    @apply bg-gray-200;
 }
 
 tr:hover{
