@@ -10,13 +10,6 @@ import LayoutLogin from 'layouts/layoutLogin';
 function App() {
     return (
         <Router>
-            <LayoutLogin>
-                <Switch>
-                    <Route path="/login" exact> 
-                        <Login />
-                    </Route>
-                </Switch>
-            </LayoutLogin>
             <LayoutContenido>
                 <Switch>
                     <Route path='/registerProduct'>
@@ -33,7 +26,15 @@ function App() {
                     </Route>
                 </Switch>
             </LayoutContenido>
+            <LayoutLogin>
+                <Switch>
+                    <Route path="/login" exact>
+                        <Login />
+                    </Route>
+                </Switch>
+            </LayoutLogin>
         </Router>
+
     )
 }
 
