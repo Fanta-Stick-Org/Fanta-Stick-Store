@@ -8,20 +8,20 @@ const UpdateProduct = () => {
             <form action="" id="form-update-products">
                 <div class="formRegister">
                     <label class="textoUpdate" for="idProducto">Id Producto </label>
-                    <input class="input" name="idProducto" type="text" id="idProducto" placeholder="Ej: 001"></input>
+                    <input class="input" name="idProducto" type="text" id="idProducto" placeholder="Ej: 001" required></input>
                 </div>
                 <div class="formRegister">
                     <label class="textoUpdate" for="descripcion">Descripción </label>
                     <input class="input" name="descripcion" type="text" id="descripcion"
-                        placeholder="Ej: Modelo, Marca..."></input>
+                        placeholder="Ej: Modelo, Marca..." required></input>
                 </div>
                 <div class="formRegister">
                     <label class="textoUpdate" for="valorUnitario">Valor Unitario </label>
-                    <input class="input" name="valorUnitario" type="number" id="valorUnitario" placeholder="Ej: 10.000"></input>
+                    <input class="input" name="valorUnitario" type="number" id="valorUnitario" placeholder="Ej: 10.000" required></input>
                 </div>
                 <div class="formRegister">
                     <label class="textoUpdate" for="estado">Estado </label>
-                    <select class="input" name="estado" type="text" id="estado" placeholder="Ej: 001">
+                    <select class="input" name="estado" type="text" id="estado" placeholder="Ej: 001" required>
                         <option value="disponible">Disponible</option>
                         <option value="noDisponible">No Disponible</option>
                     </select>
