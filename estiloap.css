@@ -1,0 +1,184 @@
+*
+{
+    margin:0px;
+    padding:0px;
+
+}
+
+header
+{
+    width:100%;
+    background-color:#FB813E ;
+    height: 120px;
+}
+.container
+{
+    width:90%;
+    margin:0px auto;
+}
+.logo
+{
+    display:table;
+    float: left;
+}
+.logo img
+{
+    width: 120px;
+    height: auto;
+    margin-top:10px;
+}
+.menu
+{
+    float: right;
+    display: block;
+}
+.menu ul
+{
+    list-style: none;
+}
+.menu ul li
+{
+    display: inline-block;
+    margin-top: 17px ;
+}
+.menu ul li a
+{
+    color: #000;
+    text-decoration:none;
+    padding:0px 20px;
+    line-height: 80px;
+    letter-spacing: 1px;
+    font-size: 22px;
+}
+.menu ul li a:hover
+{
+    background-color: rgba(148, 61, 3, 0.34);
+    display: block;
+    color: #000;
+}
+body
+{
+    width: 100%;
+    background-color: #AFCFCE;
+}
+
+.administradordeproductos
+{
+    font-size: 40px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+.search-box {
+    position: absolute;
+    top: 35%;
+    left: 45%;
+    background:#2f3640;
+    height: 40px;
+    border-radius: 40px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.search-box:hover > .search-txt {
+    width: 240px;
+    padding: 0 6px;
+}
+.search-box:hover > .search-btn{
+    background: white;
+}
+.search-btn{
+    color: #e84118;
+    float: right;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #2f3640;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 00.4s;
+}
+.search-txt{
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0;
+    color: white;
+    font-size: 16px;
+    transition: 0.4s;
+    line-height: 40px;
+    width: 240;
+}
+
+.formSubmit{
+    padding: 10px;
+}
+
+#register-form-submit{
+    font-family: 'Poppins', sans-serif;
+    font-size: 22px ;
+    cursor: pointer;
+    margin-bottom: 10px;
+    padding: 5px;
+    border: 0;
+    border-radius: 6px;
+    width: 110px;
+    height: 50px;
+    background-color: #fff4e7;
+    color: black;
+}
+
+#register-form-submit:hover{
+    transition: all 0.5s;
+    background-color: #d36d34;
+    color: white;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+th, td{
+    border: solid 1px #eee;
+    padding: 5px;
+}
+
+th{
+    background-color: #d36d34;
+    color: white;
+}
+
+tr:nth-child(even){
+    background-color: #eee;
+}
+
+tr:hover{
+    background-color: #FB813E;
+}
+
+footer{
+    width: 100%;
+    background-color: #FB813E;
+    float: right;
+    height: 111px;
+    position: absolute;
+    bottom: 0;
+    }
+
+.menufinal ul li{
+    display: inline-block;
+    margin-top: 17px;
+}
+
+.menufinal ul li a{
+    color: #000;
+    text-decoration: none;
+    padding: 0px 20px;
+    line-height: 80px;
+    letter-spacing: 1px;
+    font-size: 22px;
+}
