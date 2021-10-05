@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./css/estilos.css">
+        <title>Administrar Ventas</title>
+    </head>
+
+    <body>
+        <header>
+            <div class="logo">
+                <img src="./img/logo.png" alt="Logo-Fanta-Stick-Org">
+            </div>
+
+            <nav class="menu">
+                <ul>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Productos</a></li>
+                    <li><a href="#">Ventas</a></li>
+                    <li><a href="#">Usuarios</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section id="containerSection">
+            <div>
+                <h1 id="tittle">Verificar o actualizar ventas</h1>
+            </div>
+            <div class="buscador">
+                <input type="text" placeholder="Buscar venta" required>
+                <button class="boton" id="buscar"><img src="./img/lupa.png" alt=""></button>
+            </div>
+            <div>
+                <table>
+                    <tr>
+                        <th>Id de venta</th>
+                        <th >Fecha de venta</th>
+                        <th>Documento Cliente</th>
+                        <th>Nombre Cliente</th>
+                        <th>Estado de la Venta</th>
+                        <th>Total de la Venta</th>
+                    </tr>
+                    <tr>
+                        <td>1023</td>
+                        <td>03/10/2021 06:00</td>
+                        <td>1101010101</td>
+                        <td>Martín Rivera</td>
+                        <td>Pendiente</td>
+                        <td>350000</td>
+                        <td id="tdButton">
+                            <button class="botonActualizar">Ver / Actualizar</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+
+
+    
+        <footer>
+            <div class="containerfinal">
+                <div class="menufinal">
+                    <ul>
+                        <li><a href="#">Contacto</a></li>
+                        <li style="margin-left: 100px;">
+                            <a href="https://github.com/Fanta-Stick-Org/Fanta-Stick-Store"target="_blank">Github</a>
+                        </li>
+                        <li style="font-size: 20px;"><b>|</b></li>
+                        <li><a href="https://trello.com/b/UvFvhLkZ/desarrollo-web" target="_blank">Trello</a></li>
+                        <li style="float: right;"><a href="#">@Copyright Fanta-Stick</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+        <script src="./js/adminVentas.js"></script>
+    </body>
+</html>

@@ -1,0 +1,241 @@
+body {
+    background-color: #FB813E ;
+    font-family: 'Poppins', sans-serif;
+    margin: 0%;
+}
+
+/* Header */
+header
+{
+    background-color: #FB813E;
+    height: 100px;
+}
+
+.logo{
+    display: table;
+    float: left;
+}
+
+.logo img{
+    width: 110px;
+    height: auto;
+    margin-top: 10px;
+    margin-left: 70px;
+}
+
+.menu{
+    float: unset;
+    float: right;  
+    margin-right: 50px;
+}
+
+.menu ul{
+    list-style: none;
+}
+
+.menu ul li{
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.menu ul li a{
+    color: #000;
+    text-decoration: none;
+    padding: 0px 20px;
+    line-height: 80px;
+    letter-spacing: 1px;
+    font-size: 22px;
+    border-radius: 6px;
+}
+
+.menu ul li a:hover
+{
+    background-color: #d36d34;
+    display: block;
+    transition: color 0.3s;
+    cursor: pointer;
+
+}
+
+/* Body */
+
+#containerSection {
+    background-color: #afcfce;
+    padding-top: 3px;
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+#tittle {
+    font-size: 33px;
+}
+
+form {
+	background-color: #afcfce;
+	width: 1000px;
+	height: auto;
+	margin: auto;
+	text-align: center;
+
+}
+
+.grid-container {
+	display: grid;
+	grid-column-gap: auto;
+	grid-template-columns: auto auto auto;
+	padding: 5px;
+	text-align: center;
+	WIDTH: 700px;
+	margin: auto; 
+}
+
+.grid-container-2 {
+	display: grid;
+	grid-column-gap: 0px;
+	grid-template-columns: auto auto auto auto auto;
+	padding: 5px;
+	text-align: center;
+	WIDTH: 800px; 
+	margin-left: 50px;
+}
+
+.grid-item{
+	color: black;
+	padding: 5px;
+	text-align: left;
+}
+
+.grid-item-input{
+	border: 1px solid #39c;
+	font-size: 5px;
+}
+
+.totalSale{
+	margin-left: 700px;
+	padding: 10px;
+}
+
+.buttonSubmit{
+	margin-left: 700px;
+	padding: 10px;
+}
+body{
+    background-color: #afcfce;
+}
+.tableSales{
+    width: 80%;
+    margin: auto;
+    background-color: white;
+}
+
+h1{
+    text-align: center;
+}
+
+.tdTableSales, .thTableSales, .trTableSales {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 15px;
+    align-items: center;
+}
+.tdTableSales{
+    padding: 10px;
+}
+
+.actualizar {
+    border: 3px solid #d36d34;
+    border-radius: 30px;
+    height: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+}
+
+/* Buscador */
+.buscador {
+    position: relative;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: block;
+    grid-template-columns: 1fr 1fr;
+}
+
+.buscador input {
+    width: 240px;
+    height: 30px;
+    padding: 0 20px;
+    font-size: 18px;
+    color: black;
+    outline: none;
+    border: 1px solid #d36d34;
+    border-radius: 30px;
+}
+
+.boton {
+    position: absolute;
+    outline: none;
+    border: 1px solid #d36d34;
+    border-radius: 30px;
+}
+
+/* Tabla de ventas */
+
+.botonActualizar {
+    border: 3px solid #d36d34;
+    border-radius: 30px;
+    height: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+}
+table {
+    width: 90%;
+    margin: auto;
+    margin-bottom: 50px;
+}
+
+td, th, tr {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 15px;
+    align-items: center;
+}
+
+td {
+    padding: 10px;
+}
+
+table tr:hover {
+    background-color: #d36d34;
+}
+
+.tdButton {
+    border: px;
+}
+
+/* Footer */
+footer{
+    width: 100%;
+    background-color: #FB813E;
+    float: right;
+    height: 100px;
+}
+
+.menufinal ul li{
+    display: inline-block;
+    margin-top: 5px;
+}
+
+.menufinal ul li a{
+    color: #000;
+    text-decoration: none;
+    padding: 0px 20px;
+    line-height: 80px;
+    letter-spacing: 1px;
+    font-size: 22px;
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+.menufinal ul li a:hover{
+    text-decoration: none;
+    color: #afcfce;
+}
