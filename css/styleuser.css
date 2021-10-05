@@ -1,0 +1,254 @@
+*
+{
+    margin: 0px;
+    padding: 0px;
+}
+
+header
+{
+    width: 100%;
+    background-color: #FB813E;
+    height: 120px;
+}
+
+.container{
+    width: 90%;
+    margin: 0px auto;
+}
+
+.logo{
+    display: table;
+    float: left;
+}
+
+.logo img{
+    width: 120px;
+    height: auto;
+    margin-top: 10px;
+}
+
+.menu{
+    float: right;
+    display: block;
+}
+
+.menu ul{
+    list-style: none;
+}
+
+.menu ul li{
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.menu ul li a{
+    color: #000;
+    text-decoration: none;
+    padding: 0px 20px;
+    line-height: 80px;
+    letter-spacing: 1px;
+    font-size: 22px;
+    border-radius: 6px;
+}
+
+.menu ul li a:hover
+{
+    background-color: #d36d34;
+    display: block;
+    transition: color 0.1s;
+    cursor: pointer;
+    color: aliceblue;
+}
+
+body{
+    width: 100%;
+    background-color: #AFCFCE;
+}
+
+.indicadorUsuario{
+    font-size: 40px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.tablas{
+    background-color: aliceblue;
+    width: 100%;
+    margin: 20px 0px;
+}
+
+.camposTablas{
+    text-align: center;
+}
+
+.camposTablas ul{
+    list-style: none;
+}
+
+.camposTablas ul li{
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.tablaID{
+    float: left;  
+    margin: 50px 60px;
+}
+
+.tablaID ul li{
+    font-size: 20px;
+    display: block;
+    color: #000;
+    text-decoration: none;
+    padding: 10px;
+    margin: 5%;
+    background-color: #fff4e7;
+    width: 100%;
+    text-align: center;
+    border: 3px #faebd7 solid;
+    border-radius: 30px;
+    border-width: 5px;
+    margin-bottom: 30px;
+}
+
+.tablaNombre{
+    float: left;
+    margin: 50px 60px;
+}
+
+.tablaNombre ul li{
+    font-size: 20px;
+    display: block;
+    color: #000;
+    text-decoration: none;
+    padding: 10px;
+    margin: 5%;
+    background-color: #fff4e7;
+    width: 100%;
+    text-align: center;
+    border: 3px #faebd7 solid;
+    border-radius: 30px;
+    border-width: 5px;
+    margin-bottom: 30px;
+}
+
+.tablaEmail{
+    float: left;
+    margin: 43px 60px;
+}
+
+.tablaEmail ul li{
+    font-size: 20px;
+    display: block;
+    color: #000;
+    text-decoration: none;
+    padding: 10px;
+    margin: 5%;
+    background-color: #fff4e7;
+    width: 100%;
+    text-align: center;
+    border: 3px #faebd7 solid;
+    border-radius: 30px;
+    border-width: 5px;
+    margin-bottom: 30px;
+}
+
+.tablaRol{
+    float: left;
+    margin: 50px 60px;
+}
+
+.tablaRol ul li{
+    font-size: 20px;
+    display: block;
+    color: #000;
+    text-decoration: none;
+    padding: 10px;
+    margin: 5%;
+    background-color: #fff4e7;
+    width: 100%;
+    text-align: center;
+    border: 3px #faebd7 solid;
+    border-radius: 30px;
+    border-width: 5px;
+    margin-bottom: 30px;
+}
+
+.tablaEstado{
+    float: left;
+    margin: 50px 60px;
+}
+
+.tablaEstado ul li{
+    font-size: 20px;
+    display: block;
+    color: #000;
+    text-decoration: none;
+    padding: 10px;
+    margin: 5%;
+    background-color: #fff4e7;
+    width: 100%;
+    text-align: center;
+    border: 3px #faebd7 solid;
+    border-radius: 30px;
+    border-width: 5px;
+    margin-bottom: 30px;
+}
+
+.boton{
+    float: left;
+    margin: -2.5% 50%
+}
+
+.input{
+    margin-left: 30px;
+    font-size: 20px;
+    display: block;
+    color: #000;
+    text-decoration: none;
+    padding: 10px;
+    background-color: #fff4e7;
+    width: 100%;
+    text-align: center;
+    border: 3px #faebd7 solid;
+    border-radius: 30px;
+    border-width: 5px;
+    margin-bottom: 5px;
+}
+
+option{
+    color: #d36d34;
+    border-radius: 6px;
+}
+
+footer{
+    width: 100%;
+    background-color: #FB813E;
+    float: right;
+    height: 111px;
+    position: absolute;
+    bottom: 0;
+    }
+
+.menufinal ul li{
+    display: inline-block;
+    margin-top: 17px;
+}
+
+.menufinal ul li a{
+    color: #000;
+    text-decoration: none;
+    padding: 0px 20px;
+    line-height: 80px;
+    letter-spacing: 1px;
+    font-size: 22px;
+}
+
+.menufinal ul li a:hover{
+    transition: color 0.1s;
+    cursor: pointer;
+    color: aliceblue;
+}
+
+
+

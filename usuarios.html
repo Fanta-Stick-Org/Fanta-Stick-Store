@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interfaz de Usuarios</title>
+    <link rel="stylesheet" href="css/styleuser.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        .menu{
+            font-family: 'Poppins', sans-serif;
+        }
+        .indicadorUsuario{
+            font-family: 'Poppins', sans-serif;
+        }
+        .tablaID{
+            font-family: 'Poppins', sans-serif;
+        }
+        .tablaNombre{
+            font-family: 'Poppins', sans-serif;
+        }
+        .tablaEmail{
+            font-family: 'Poppins', sans-serif;
+        }
+        .tablaRol{
+            font-family: 'Poppins', sans-serif;
+        }
+        .tablaEstado{
+            font-family: 'Poppins', sans-serif;
+        }
+        .containerfinal{
+            font-family: 'Poppins', sans-serif;
+        }
+        .input{
+            font-family: 'Poppins', sans-serif;
+        }
+        .boton{
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+
+<header>
+    <div class="container">
+        <div class="logo">
+            <img src="images/Logo blanco.png" alt="Logo-Fanta-Stick-Org">
+        </div>
+
+        <nav class="menu">
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Productos</a></li>
+                <li><a href="#">Ventas</a></li>
+                <li><a href="#">Usuarios</a></li>
+                
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+<body>
+    <div class="indicadorUsuario">
+        <h1>Usuarios / Ver usuarios</h1>
+    </div>
+    <div class="tablas">  <!--
+        <div class="camposTablas">
+            <ul>
+                <li style="color:black; font-size: xx-large;margin-inline: 7%;">ID Usuario</li>
+                <li style="color:black; font-size: xx-large;margin-inline: 7%;">Nombre</li>
+                <li style="color:black; font-size: xx-large;margin-inline: 7%;">Email</li>
+                <li style="color:black; font-size: xx-large;margin-inline: 7%;">Roles</li>
+                <li style="color:black; font-size: xx-large;margin-inline: 7%;">Estado</li>
+            </ul>
+        </div> -->
+        <div class="tablaID">
+            <ul>
+                <li style="color: black; font-size: xx-large;"><b>ID Usuario</b></li>
+                    <li>1127938472</li>
+                    <li>1010047690</li>
+                    <li>1000850650</li>
+                    <li>1016092614</li>
+            </ul>
+        </div>
+        <div class="tablaNombre">
+            <ul>
+                <li style="color: black; font-size: xx-large;"><b>Nombre</b></li>
+                <li>David Echavarria</li>
+                <li>Kevin Baquero</li>
+                <li>Edward Reina</li>
+                <li>Carolina Rozo</li>
+            </ul>
+        </div>
+        <div class="tablaEmail">
+            <ul>
+                <li style="color: black; font-size: xx-large;"><b>Email</b></li>
+                <li>cheva79@gmail.com</li>
+                <li>baquerochavarro@gmail.com</li>
+                <li>edwardreinahortua@gmail.com</li>
+                <li>nyu.mess19@gmail.com</li>
+            </ul>
+        </div>
+        <div class="tablaRol">
+            <ul>
+                <li style="color: black; font-size: xx-large;"><b>Roles</b></li>
+                    <select class="input" name="rol" type="text" id="rol" placeholder="Ej: 001">
+                            <option value="Administrador">No Asignado</option>
+                            <option value="Administrador">Administrador</option>
+                            <option value="Vendedor">Vendedor</option>
+                        </select>
+                        <br>
+                        <select class="input" name="rol" type="text" id="rol" placeholder="Ej: 001">
+                            <option value="Administrador">No Asignado</option>
+                            <option value="Administrador">Administrador</option>
+                            <option value="Vendedor">Vendedor</option>
+                        </select>
+                        <br>
+                        <select class="input" name="rol" type="text" id="rol" placeholder="Ej: 001">
+                            <option value="Administrador">No Asignado</option>
+                            <option value="Administrador">Administrador</option>
+                            <option value="Vendedor">Vendedor</option>
+                        </select>
+                        <br>
+                        <select class="input" name="rol" type="text" id="rol" placeholder="Ej: 001">
+                            <option value="Administrador">No Asignado</option>
+                            <option value="Administrador">Administrador</option>
+                            <option value="Vendedor">Vendedor</option>
+                    </select>
+            </ul>
+        </div>
+        <div class="tablaEstado">
+            <ul>
+                <li style="color: black; font-size: xx-large;"><b>Estado</b></li>
+                <select class="input" name="estado" type="text" id="estado" placeholder="Ej: 001">
+                    <option value="Pendiente">Pendiente</option>
+                    <option value="Autorizado">Autorizado</option>
+                    <option value="No Autorizado">No Autorizado</option>
+                </select>
+                <br>
+                <select class="input" name="estado" type="text" id="estado" placeholder="Ej: 001">
+                    <option value="Pendiente">Pendiente</option>
+                    <option value="Autorizado">Autorizado</option>
+                    <option value="No Autorizado">No Autorizado</option>
+                </select>
+                <br>
+                <select class="input" name="estado" type="text" id="estado" placeholder="Ej: 001">
+                    <option value="Pendiente">Pendiente</option>
+                    <option value="Autorizado">Autorizado</option>
+                    <option value="No Autorizado">No Autorizado</option>
+                </select>
+                <br>
+                <select class="input" name="estado" type="text" id="estado" placeholder="Ej: 001">
+                    <option value="Pendiente">Pendiente</option>
+                    <option value="Autorizado">Autorizado</option>
+                    <option value="No Autorizado">No Autorizado</option>
+                </select>
+            </ul>
+        </div>
+    </div>
+    <div class="boton">
+        <button style="width: 150px; height: 40px;font-size: 20px;border-radius: 30px;background-color: #fff4e7;border-color: #faebd7;border-width: 5px;" onclick="myFunction()">Guardar</button>
+        
+        <script>
+            function myFunction() {
+                alert("Los datos se almacenaron correctamente!");
+            }
+        </script>
+    </div>
+</body>
+
+
+
+
+<footer>
+    <div class="containerfinal">
+        <div class="menufinal">
+            <ul>
+                <li><a href="#">Contacto</a></li>
+                <li style="margin-left: 100px;"><a href="https://github.com/Fanta-Stick-Org/Fanta-Stick-Store" target="_blank">Github</a></li>
+                <li style="font-size: 20px;"><b>|</b></li>
+                <li><a href="https://trello.com/b/UvFvhLkZ/desarrollo-web" target="_blank">Trello</a></li>
+                <li style="float: right;"><a href="#">@Copyright Fanta-Stick</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+
+</html>
