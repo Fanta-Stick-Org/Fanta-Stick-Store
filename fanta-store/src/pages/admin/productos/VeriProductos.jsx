@@ -5,9 +5,11 @@ const VeriProductos = () => {
     return (
         <div className='h-full pt-10'>
             <h1 className='tituloGeneral'>Administrador de productos</h1>
-            <div className="grid grid-flow-col-dense items-center justify-center">
-                <input className="inputGeneral" type="=text" name="" placeholder="Buscar" />
-                <button className='btnGeneral'><i class="fas fa-search"></i></button>
+            <div className="flex items-center justify-center justify-items-start p-2">
+                <input className="inputGeneralList" type="=text" name="" placeholder="Buscar" />
+                <div className="flex items-center justify-items-end pl-2">
+                    <button className='btnGeneralList'><i class="fas fa-search"></i></button>
+                </div>
             </div>
             <div className='table-container'>
                 <table id='table-list'>
@@ -58,7 +60,7 @@ const VeriProductos = () => {
                             <td>
                                 <div>
                                     <label className="textoGeneral" for="estado"></label>
-                                    <select className="inputGeneral" name="estado" type="text" id="estado" placeholder="Ej: 001">
+                                    <select className="inputGeneral" name="estado" type="text" id="estado" placeholder="">
                                         <option value="disponible">Disponible</option>
                                         <option value="noDisponible">No Disponible</option>
                                     </select>

@@ -16,9 +16,19 @@
     @apply appearance-none w-full relative block px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:z-10 sm:text-sm transition-all;
 }
 
+.inputGeneralList {
+    font-family: 'Poppins', sans-serif;
+    @apply appearance-none w-1/2 relative px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:z-10 sm:text-sm transition-all;
+}
+
 .btnGeneral {
     font-family: 'Poppins', sans-serif;
     @apply group relative w-full flex justify-center py-2 px-6 border border-transparent font-semibold rounded-md text-white text-xl bg-yellow-600 bg-opacity-80 hover:bg-yellow-700 hover:bg-opacity-75 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all;
+}
+
+.btnGeneralList {
+    font-family: 'Poppins', sans-serif;
+    @apply group relative w-2/6 flex justify-center py-2 px-6 border border-transparent font-semibold rounded-md text-white text-xl bg-yellow-600 bg-opacity-80 hover:bg-yellow-700 hover:bg-opacity-75 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all;
 }
 
 .btnGoogle {
