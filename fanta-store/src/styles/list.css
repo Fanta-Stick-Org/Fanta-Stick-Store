@@ -3,7 +3,7 @@ formSubmitList{
 }
 
 .table-container{
-    @apply text-center pt-10;
+    @apply text-center pt-10 pb-24;
 }
 
 #table-list{

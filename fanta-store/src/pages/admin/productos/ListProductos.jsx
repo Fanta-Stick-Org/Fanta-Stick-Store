@@ -5,8 +5,8 @@ const ListProductos = () => {
     return (
         <div className='h-full pt-10'>
             <h1 className="tituloGeneral">Listado de Productos</h1>
-            <div className="formSubmitList">
-                <button value="Login" id="btn-list-submit" type="button" className='btnGeneral'>Listar</button>
+            <div className="flex items-center justify-between justify-items-end pt-2">
+                <button value="list" id="btn-list-submit" type="submit" className='btnGeneral'>Listar</button>
             </div>
             <div className='table-container'>
                 <table id="table-list">

@@ -12,8 +12,8 @@ const ListVentas = () => {
                     <span className='textoForm'>Total Venta</span>
                 </div>
             </div>
-            <div className='table-products-container'>
-                <table id="table-list-products">
+            <div className='table-container'>
+                <table id="table-list">
                     <thead>
                         <tr>
                             <th>Codigo del Producto</th>
