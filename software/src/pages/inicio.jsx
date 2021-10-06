@@ -5,10 +5,10 @@ import React from 'react'
 const Inicio = () => {
     return (
         <section className="containerSection">
-            <h1 id="tittle">¡Bienvenido a Fanta-Stick-Store!</h1>
-            <div id="content">
-                <div className="item"><img src={shop} alt="shop"></img></div>
-                <div className="item">
+            <h2>¡Bienvenido a Fanta-Stick-Store!</h2>
+            <div id="contentIndex">
+                <div className="itemIndex"><img src={shop} alt="shop"></img></div>
+                <div className="itemIndex">
                     <p>Este proyecto es hecho por el Fanta-Stick-Org <br></br>
                         Team 👩🏻‍💻👨🏻‍💻. <br></br>
                         para llevar a cabo la gestión de las ventas <br></br>

@@ -1,0 +1,18 @@
+@import url('general.css');
+
+#contentIndex{
+    @apply grid grid-cols-2 h-full;
+}
+
+.itemIndex{
+    @apply p-2 text-justify mb-28 self-center;
+}
+
+.itemIndex img{
+    @apply max-w-md h-auto ml-32 mt-5;
+}
+
+p{
+    font-family: 'Poppins', sans-serif;
+    @apply text-xl font-medium;
+}
