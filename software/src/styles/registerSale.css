@@ -1,0 +1,72 @@
+@import url('general.css');
+
+#newSaleForm {
+    @apply h-auto m-auto text-center;
+}
+
+.grid-container {
+    @apply grid grid-cols-3 text-center m-auto w-4/6;
+}
+
+.grid-container-2 {
+    @apply grid grid-cols-5 text-center m-auto w-4/5;
+}
+/* .grid-container-2 {
+    display: grid;
+    grid-column-gap: 0px;
+    grid-template-columns: auto auto auto auto auto;
+    padding: 5px;
+    text-align: center;
+    WIDTH: 800px;
+    margin-left: 50px;
+
+} */
+
+.grid-item {
+    @apply text-left p-5;
+}
+
+/* .grid-item-input {
+    border: 1px solid #39c;
+    font-size: 5px;
+} */
+
+/* .totalSale {
+    margin-left: 700px;
+    padding: 10px;
+
+
+}
+
+.buttonSubmit {
+    margin-left: 700px;
+    padding: 10px;
+
+} */
+
+/* body {
+    background-color: #afcfce;
+}
+
+.tableSales {
+    width: 80%;
+    margin: auto;
+    background-color: white;
+}
+
+h1 {
+    text-align: center;
+}
+
+.tdTableSales,
+.thTableSales,
+.trTableSales {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 15px;
+    align-items: center;
+}
+
+.tdTableSales {
+    padding: 10px;
+} */

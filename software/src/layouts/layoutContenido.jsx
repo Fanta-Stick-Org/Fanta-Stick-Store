@@ -3,7 +3,7 @@ import Header from 'components/header';
 
 const LayoutContenido = ({ children }) => {
     return (
-        <div>
+        <div className='flex flex-col justify-between h-screen'>
             <Header />
             <main>{children}</main>
             <Footer />

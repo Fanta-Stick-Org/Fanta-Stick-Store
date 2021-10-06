@@ -1,7 +1,6 @@
 import 'styles/login.css';
 /* import scriptLogin from '../js/login'; */
 import logo from 'img/Logo azul.png';
-import React from 'react'
 
 const Login = () => {
     return (

@@ -4,39 +4,37 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
-        <div>
-            <header id='headerMain'>
-                <div className="logo">
-                    <Link to='/'><img src={logo} alt="Logo-Fanta-Stick-Org"></img></Link>
-                </div>
-                <nav className="menu">
-                    <ul>
-                        <li><Link to='/'>Inicio</Link></li>
-                        <li><Link to='/'>Productos</Link>
-                            <ul>
-                                <li><Link to='/registerProduct'>Registrar</Link></li>
-                                <li><Link to='/listProducts'>Listar</Link></li>
-                                <li><Link to='/updateProduct'>Actualizar</Link></li>
-                            </ul>
-                        </li>
-                        <li><Link to='/main-page'>Ventas</Link>
-                            <ul>
-                                <li><Link to='/registerProduct'>Registrar</Link></li>
-                                <li><Link to='/listProducts'>Listar</Link></li>
-                                <li><Link to='/updateProduct'>Actualizar</Link></li>
-                            </ul>
-                        </li>
-                        <li><Link to='/main-page'>Usuarios</Link>
-                            <ul>
-                                <li><Link to='/registerProduct'>Registrar</Link></li>
-                                <li><Link to='/listProducts'>Listar</Link></li>
-                                <li><Link to='/updateProduct'>Actualizar</Link></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </nav>
-            </header>
-        </div>
+        <header id='headerMain'>
+            <div className="logo">
+                <Link to='/'><img src={logo} alt="Logo-Fanta-Stick-Org"></img></Link>
+            </div>
+            <nav className="menu">
+                <ul>
+                    <li><Link to='/'>Inicio</Link></li>
+                    <li><Link to='/'>Productos</Link>
+                        <ul>
+                            <li><Link to='/registerProduct'>Registrar</Link></li>
+                            <li><Link to='/listProducts'>Listar</Link></li>
+                            <li><Link to='/updateProduct'>Actualizar</Link></li>
+                        </ul>
+                    </li>
+                    <li><Link to='/main-page'>Ventas</Link>
+                        <ul>
+                            <li><Link to='/registerSale'>Registrar</Link></li>
+                            <li><Link to='/listSales'>Listar</Link></li>
+                            <li><Link to='/updateSale'>Actualizar</Link></li>
+                        </ul>
+                    </li>
+                    <li><Link to='/main-page'>Usuarios</Link>
+                        <ul>
+                            <li><Link to='/registerProduct'>Registrar</Link></li>
+                            <li><Link to='/listProducts'>Listar</Link></li>
+                            <li><Link to='/updateProduct'>Actualizar</Link></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
     )
 }
 

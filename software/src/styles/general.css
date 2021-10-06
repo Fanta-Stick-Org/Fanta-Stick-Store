@@ -3,7 +3,7 @@
 /* Body */
 .containerSection {
     background-color: #afcfce;
-    @apply mb-auto;
+    @apply h-auto;
 }
 
 #tittle{
@@ -13,11 +13,11 @@
 
 .form{
     font-family: 'Poppins', sans-serif;
-    @apply text-center p-3;
+    @apply text-center p-1;
 }
 
 .texto{
-    @apply pr-2 text-black;
+    @apply pr-2 text-black font-medium;
 }
 
 .input{

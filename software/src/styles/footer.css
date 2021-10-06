@@ -1,8 +1,7 @@
 /* Footer */
 #footerMain {
-    width: 100%;
     background-color: #FB813E;
-    @apply float-right h-auto fixed;
+    @apply float-right w-full h-24;
 }
 
 .menufinal{
