@@ -77,15 +77,15 @@ const FormProducto = () => {
                     </div>
                     <div className="formGeneral">
                         <label className="textoGeneral" for="qtyProduct">Cantidad</label><br />
-                        <input className="inputGeneral" type="text" id="qtyProduct" name="qtyProduct" placeholder="Cantidad"></input>
+                        <input className="inputGeneral" type="number" id="qtyProduct" name="qtyProduct" placeholder="Cantidad"></input>
                     </div>
                     <div className="formGeneral">
                         <label className="textoGeneral" for="priceProduct">Precio Unitario</label>
-                        <input className="inputGeneral" type="text" id="priceProduct" name="priceProduct" placeholder="Precio Unitario"></input>
+                        <input className="inputGeneral" type="number" id="priceProduct" name="priceProduct" placeholder="Precio Unitario"></input>
                     </div>
                     <div className="formGeneral">
                         <label className="textoGeneral" for="priceProduct">Precio Total</label>
-                        <input className="inputGeneral" type="text" id="totalPriceProducts" name="totalPriceProducts" placeholder="Precio Total"></input>
+                        <input className="inputGeneral" type="number" id="totalPriceProducts" name="totalPriceProducts" placeholder="Precio Total"></input>
                     </div>
                 </div>
 

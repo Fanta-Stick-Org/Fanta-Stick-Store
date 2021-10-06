@@ -27,24 +27,32 @@ const FormProducto = () => {
         <div>
             <form id="form-register-products">
                 <div className="formGeneral">
-                    <label className="textoForm" htmlFor="idProducto">Id Producto </label>
-                    <input onChange={(e) => { setIdProducto(e.target.value) }} className="inputGeneral" name="idProducto" type="text" id="idProducto" placeholder="Ej: 001" required></input>
+                    <label className="textoForm" htmlFor="idUsuario">Id Usuario </label>
+                    <input onChange={(e) => { setIdProducto(e.target.value) }} className="inputGeneral" name="idUsuario" type="text" id="idUsuario" placeholder="Ej: 001" required></input>
                 </div>
                 <div className="formGeneral">
-                    <label className="textoForm" htmlFor="descripcion">Descripción </label>
-                    <input onChange={(e) => { setDescripProducto(e.target.value) }} className="inputGeneral" name="descripcion" type="text" id="descripcion"
+                    <label className="textoForm" htmlFor="nombre">Nombre </label>
+                    <input onChange={(e) => { setDescripProducto(e.target.value) }} className="inputGeneral" name="nombre" type="text" id="nombre"
                         placeholder="Ej: Modelo, Marca..." required></input>
                 </div>
                 <div className="formGeneral">
-                    <label className="textoForm" htmlFor="valorUnitario">Valor Unitario </label>
-                    <input onChange={(e) => { setValorUnitarioo(e.target.value) }} className="inputGeneral" name="valorUnitario" type="number" id="valorUnitario" placeholder="Ej: 10.000" required></input>
+                    <label className="textoForm" htmlFor="email">Email </label>
+                    <input onChange={(e) => { setValorUnitarioo(e.target.value) }} className="inputGeneral" name="email" type="number" id="email" placeholder="Ej: 10.000" required></input>
+                </div>
+                <div className="formGeneral">
+                    <label className="textoForm" htmlFor="roles">Roles </label>
+                    <select onChange={(e) => { setEstadoProducto(e.target.value) }} className="inputGeneral" name="roles" type="text" id="roles" required>
+                        <option value="noAsignado">No asignado </option>
+                        <option value="vendedor">Vendedor </option>
+                        <option value="administrador">Administrador</option>
+                    </select>
                 </div>
                 <div className="formGeneral">
                     <label className="textoForm" htmlFor="estado">Estado </label>
                     <select onChange={(e) => { setEstadoProducto(e.target.value) }} className="inputGeneral" name="estado" type="text" id="estado" required>
-                        <option value="seleccione">Seleccione...</option>
-                        <option value="disponible">Disponible</option>
-                        <option value="noDisponible">No Disponible</option>
+                        <option value="pendiente">Pendiente </option>
+                        <option value="no Autorizado">No autorizado</option>
+                        <option value="autorizado">Autorizado</option>
                     </select>
                 </div>
                 <div className="formSubmit">

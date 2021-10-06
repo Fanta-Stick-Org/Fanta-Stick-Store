@@ -31,6 +31,7 @@ const VeriProductos = () => {
                                 <div>
                                     <label class="textoGeneral" for="estado"></label>
                                     <select class="inputGeneral" name="estado" type="text" id="estado" placeholder="Ej: 001">
+                                        <option value="seleccione">Seleccione...</option>
                                         <option value="disponible">Disponible</option>
                                         <option value="noDisponible">No Disponible</option>
                                     </select>
@@ -46,6 +47,7 @@ const VeriProductos = () => {
                                 <div>
                                     <label className="textoGeneral" for="estado"></label>
                                     <select className="inputGeneral" name="estado" type="text" id="estado" placeholder="Ej: 001">
+                                        <option value="seleccione">Seleccione...</option>
                                         <option value="disponible">Disponible</option>
                                         <option value="noDisponible">No Disponible</option>
                                     </select>
@@ -61,6 +63,7 @@ const VeriProductos = () => {
                                 <div>
                                     <label className="textoGeneral" for="estado"></label>
                                     <select className="inputGeneral" name="estado" type="text" id="estado" placeholder="">
+                                        <option value="seleccione">Seleccione...</option>
                                         <option value="disponible">Disponible</option>
                                         <option value="noDisponible">No Disponible</option>
                                     </select>
