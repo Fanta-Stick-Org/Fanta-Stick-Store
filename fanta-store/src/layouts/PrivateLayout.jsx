@@ -5,10 +5,12 @@ import React from 'react'
 
 const PrivateLayout = ({ children }) => {
     return (
-        <div className='flex w-screen h-screen'>
-            <div className='flex flex-nowrap h-full w-full'>
+        <div className='flex flex-col w-screen h-screen'>
+            <div className='flex flex-nowrap w-full h-full bg-yellow-600 bg-opacity-75'>
                 <Sidebar />
-                <main className='flex w-full bg-blue-200 overflow-y-scroll'>{children}</main>
+                <main className='flex w-full h-full bg-blue-200 overflow-y-scroll items-center justify-center'>
+                    {children}
+                </main>
             </div>
         </div>
     )

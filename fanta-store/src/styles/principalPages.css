@@ -1,15 +1,15 @@
 @import url('general.css');
 
-#contentIndex{
+#contentPrincipal{
     @apply grid grid-cols-2 h-full;
 }
 
-.itemIndex{
+.itemPrincipal{
     @apply p-3 text-justify mb-20 self-center;
 }
 
-.itemIndex img{
-    @apply max-w-md h-auto ml-32 mt-5;
+.itemPrincipal img{
+    @apply max-w-sm h-auto ml-32 mt-5 mr-20;
 }
 
 p{

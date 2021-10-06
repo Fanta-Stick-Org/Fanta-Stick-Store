@@ -8,15 +8,49 @@ import PrivateLayout from 'layouts/PrivateLayout';
 import AuhtLayout from 'layouts/AuhtLayout';
 import Productos from 'pages/admin/Productos';
 import Ventas from 'pages/admin/Ventas';
+import ListProductos from 'pages/admin/productos/ListProductos';
+import ActuProductos from 'pages/admin/productos/ActuProductos';
+import RegisProducto from 'pages/admin/productos/RegisProducto';
+import VeriProductos from 'pages/admin/productos/VeriProductos';
+import RegisVentas from 'pages/admin/ventas/RegisVentas';
+import ListVentas from 'pages/admin/ventas/ListVentas';
+import ActuVentas from 'pages/admin/ventas/ActuVentas';
+import VeriVentas from 'pages/admin/ventas/VeriVentas'
 
 
 function App() {
   return (
     <Router>
       <Switch>
-        <Route path={['/admin', '/admin/productos', '/admin/ventas']}>
+        <Route path={['/admin', '/admin/productos', '/admin/ventas', '/admin/productos/registrar', '/admin/productos/listar',
+          '/admin/productos/actualizar', '/admin/productos/verificar', '/admin/ventas/registrar', '/admin/ventas/listar',
+          '/admin/ventas/actualizar', '/admin/ventas/verificar']}>
           <PrivateLayout>
             <Switch>
+              <Route path='/admin/productos/registrar'>
+                <RegisProducto />
+              </Route>
+              <Route path='/admin/productos/listar'>
+                <ListProductos />
+              </Route>
+              <Route path='/admin/productos/actualizar'>
+                <ActuProductos />
+              </Route>
+              <Route path='/admin/productos/verificar'>
+                <VeriProductos />
+              </Route>
+              <Route path='/admin/ventas/registrar'>
+                <RegisVentas />
+              </Route>
+              <Route path='/admin/ventas/listar'>
+                <ListVentas />
+              </Route>
+              <Route path='/admin/ventas/actualizar'>
+                <ActuVentas />
+              </Route>
+              <Route path='/admin/ventas/verificar'>
+                <VeriVentas/>
+              </Route>
               <Route path='/admin/productos'>
                 <Productos />
               </Route>

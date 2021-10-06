@@ -1,0 +1,31 @@
+formSubmitList{
+    @apply text-center pb-5 mb-5;
+}
+
+.table-container{
+    @apply text-center pt-10;
+}
+
+#table-list{
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    @apply text-center border-collapse bg-blue-200;
+}
+
+th, td{
+    @apply border border-solid border-gray-100 p-3;
+}
+
+th{
+    background-color: #d36d34;
+    @apply text-white;
+    
+}
+
+tr:nth-child(even){
+    @apply bg-gray-200;
+}
+
+tr:hover{
+    background-color: #FB813E;
+}

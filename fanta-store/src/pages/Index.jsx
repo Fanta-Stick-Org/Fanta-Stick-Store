@@ -12,7 +12,7 @@ const Index = () => {
                     <p>Este proyecto es hecho por el Fanta-Stick-Org 👩🏻‍💻👨🏻‍💻. <br></br>
                         para llevar a cabo la gestión de las ventas físicas y online ✅. <br></br><br></br>
                         Cordialmente. @<a href="https://github.com/Fanta-Stick-Org/Fanta-Stick-Store" className='linkGeneral'>Fanta-Stick
-                            Team</a> ❤.</p>
+                            Team</a> 💜.</p>
                 </div>
             </div>
         </div>
