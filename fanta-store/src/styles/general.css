@@ -5,7 +5,7 @@
 
 .inputGeneral {
     font-family: 'Poppins', sans-serif;
-    @apply appearance-none w-full relative block px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:z-10 sm:text-sm transition-all;
+    @apply appearance-none w-full relative block px-3 py-2 mb-1 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-md focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:z-10 sm:text-sm transition-all;
 }
 
 .btnGeneral {
