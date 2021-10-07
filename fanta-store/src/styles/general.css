@@ -40,3 +40,8 @@
     font-family: 'Poppins', sans-serif;
     @apply font-medium text-blue-700 hover:text-white transition-all;
 }
+
+.linkGeneralBlue {
+    font-family: 'Poppins', sans-serif;
+    @apply font-medium text-blue-900 hover:text-blue-600 transition-all pb-4;
+}

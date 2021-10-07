@@ -1,7 +1,7 @@
 @import url('general.css');
 
 #contentPrincipal{
-    @apply grid grid-cols-2 h-full;
+    @apply grid grid-cols-2;
 }
 
 .itemPrincipal{

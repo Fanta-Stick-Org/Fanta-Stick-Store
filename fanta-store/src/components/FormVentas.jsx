@@ -3,10 +3,11 @@ import React, { useEffect, useState } from 'react'
 const FormProducto = () => {
 
 
-    const [idsale, setIdsale] = useState('');
+    // EXPLICACION USEEFFECT Y USESTATE    
+    /* const [idsale, setIdsale] = useState('');
     const [descripProducto, setDescripProducto] = useState('');
     const [valorUnitario, setValorUnitarioo] = useState('');
-    const [estadoProducto, setEstadoProducto] = useState('');
+    const [estadoProducto, setEstadoProducto] = useState(''); */
 
     /* useEffect(() => {
         console.log('hola soy useeffect y se ejecuta al inicio porque el array esta vacio');
@@ -16,12 +17,14 @@ const FormProducto = () => {
         console.log('el valor de la variable es ', idProducto);
     }, [idProducto]) //guarda el valor de la variable en cada camibio */
 
-    const enviarDatosAlBackend = () => {
+/*     const enviarDatosAlBackend = () => {
         console.log('El valor de la variable idProducto es ', idsale);
         console.log('El valor de la variable descripProducto es ', descripProducto);
         console.log('El valor de la variable valorUnitario es ', valorUnitario);
         console.log('El valor de la variable estadoProducto es ', estadoProducto);
-    }; //me almacena el valor del input especificado en una variable
+    }; //me almacena el valor del input especificado en una variable */
+
+    const [mostrarCamposAdicionales, setMostrarCamposAdicionales] = useState(false);
 
     return (
         <div className='pb-32'>
@@ -65,8 +68,13 @@ const FormProducto = () => {
                     </div>
                 </div>
 
+                <div className='flex flex-col w-96'>
+                    <button onClick={()=> setMostrarCamposAdicionales(!mostrarCamposAdicionales)} type='button' className='linkGeneralBlue'>Formulario para Registar la Venta</button>
+                </div>
 
-                <div className="flex flex-col w-96">
+                {
+                    mostrarCamposAdicionales &&
+                    <div className="flex flex-col w-96">
                     <div className="formGeneral">
                         <label className="textoGeneral" for="idProduct">Codigo del Producto</label>
                         <input className="inputGeneral" type="text" id="idProduct" name="idProduct" placeholder="Codigo del Producto"></input>
@@ -88,13 +96,16 @@ const FormProducto = () => {
                         <input className="inputGeneral" type="number" id="totalPriceProducts" name="totalPriceProducts" placeholder="Precio Total"></input>
                     </div>
                 </div>
+                }
+
+                
 
                 {/* <button className="button+">+</button>
                 <br />
                 
                 <br /><br /> */}
                 <div className="formSubmit">
-                    <button onClick={enviarDatosAlBackend} value="Login" id="btn-form-submit" type="button" className='btnGeneral'>Enviar</button>
+                    <button /* onClick={enviarDatosAlBackend} */ value="Login" id="btn-form-submit" type="button" className='btnGeneral'>Enviar</button>
                 </div>
             </form>
         </div>

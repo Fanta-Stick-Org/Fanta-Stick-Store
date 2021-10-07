@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 const FormProducto = () => {
 
 
-    const [idProducto, setIdProducto] = useState('');
+    const [idProducto, setIdProducto] = useState('001'); //valor por defecto
     const [descripProducto, setDescripProducto] = useState('');
     const [valorUnitario, setValorUnitarioo] = useState('');
     const [estadoProducto, setEstadoProducto] = useState('');
@@ -28,7 +28,7 @@ const FormProducto = () => {
             <form id="form-register-products">
                 <div className="formGeneral">
                     <label className="textoForm" htmlFor="idProducto">Id Producto </label>
-                    <input onChange={(e) => { setIdProducto(e.target.value) }} className="inputGeneral" name="idProducto" type="text" id="idProducto" placeholder="Ej: 001" required></input>
+                    <input onChange={(e) => { setIdProducto(e.target.value) }} name="idProducto" type="text" id="idProducto" value={idProducto} className="inputGeneral" required placeholder="Ej: 001"></input>
                 </div>
                 <div className="formGeneral">
                     <label className="textoForm" htmlFor="descripcion">Descripción </label>
