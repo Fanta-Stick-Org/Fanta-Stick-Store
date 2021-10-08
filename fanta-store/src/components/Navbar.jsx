@@ -1,42 +1,40 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import logo from 'media/Logo blanco.png'
+import ImagenLogo from './ImagenLogo'
 
 const Navbar = () => {
     return (
         <nav className='bg-yellow-600 bg-opacity-75'>
             <ul className='flex w-full justify-between my-4'>
                 <li className='w-32 mx-10'>
-                    <Link to='/'><img src={logo} alt="Logo-Fanta-Stick-Org"></img></Link>
+                    <Link to='/'><ImagenLogo /></Link>
                 </li>
                 {/* <li><Link to='/'>Inicio</Link></li>
-                <li><Link to='/'>Productos</Link>
+                <li><Link to='/admin/productos'>Productos</Link>
                     <ul>
-                        <li><Link to='/registerProduct'>Registrar</Link></li>
-                        <li><Link to='/listProducts'>Listar</Link></li>
-                        <li><Link to='/updateProduct'>Actualizar</Link></li>
+                        <li><Link to='/admin/productos/registrar'>Registrar</Link></li>
+                        <li><Link to='/admin/productos/listar'>Listar</Link></li>
+                        <li><Link to='/admin/productos/actualizar'>Actualizar</Link></li>
                     </ul>
                 </li>
-                <li><Link to='/main-page'>Ventas</Link>
+                <li><Link to='/admin/ventas'>Ventas</Link>
                     <ul>
-                        <li><Link to='/registerSale'>Registrar</Link></li>
-                        <li><Link to='/listSales'>Listar</Link></li>
-                        <li><Link to='/updateSale'>Actualizar</Link></li>
+                        <li><Link to='/admin/ventas/registrar'>Registrar</Link></li>
+                        <li><Link to='/admin/ventas/listar'>Listar</Link></li>
+                        <li><Link to='/admin/ventas/actualizar'>Actualizar</Link></li>
                     </ul>
                 </li>
-                <li><Link to='/main-page'>Usuarios</Link>
+                <li><Link to='/admin/usuarios'>Usuarios</Link>
                     <ul>
-                        <li><Link to='/registerProduct'>Registrar</Link></li>
-                        <li><Link to='/listProducts'>Listar</Link></li>
-                        <li><Link to='/updateProduct'>Actualizar</Link></li>
+                        <li><Link to='/admin/usuarios/actualizar'>Actualizar</Link></li>
                     </ul>
                 </li> */}
                 <li className='px-16 py-6'>
                     <Link to='/login'>
                         <button className='btnGeneral'>
                             Iniciar Sesion
-                        </button></Link>
-
+                        </button>
+                    </Link>
                 </li>
             </ul>
         </nav>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { /* useEffect, */ useState } from 'react'
 
 const FormProducto = () => {
 
@@ -15,7 +15,7 @@ const FormProducto = () => {
 
     /* useEffect(() => {
         console.log('el valor de la variable es ', idProducto);
-    }, [idProducto]) //guarda el valor de la variable en cada camibio */
+    }, [idProducto]) //guarda el valor de la variable en cada cambio */
 
 /*     const enviarDatosAlBackend = () => {
         console.log('El valor de la variable idProducto es ', idsale);
@@ -69,7 +69,7 @@ const FormProducto = () => {
                 </div>
 
                 <div className='flex flex-col w-96'>
-                    <button onClick={()=> setMostrarCamposAdicionales(!mostrarCamposAdicionales)} type='button' className='linkGeneralBlue'>Formulario para Registar la Venta</button>
+                    <button onClick={()=> setMostrarCamposAdicionales(!mostrarCamposAdicionales)} type='button' className='linkGeneralBlue'>Formulario completo</button>
                 </div>
 
                 {
