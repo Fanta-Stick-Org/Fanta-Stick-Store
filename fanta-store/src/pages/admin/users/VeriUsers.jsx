@@ -29,19 +29,19 @@ const VeriUsers = () => {
     }, [])
 
     return (
-        <div className='h-full pt-10'>
-            <h1 className='tituloGeneral'>Administrador de Usuarios</h1>
-            <div className="flex items-center justify-center justify-items-start p-2">
-                <input className="inputGeneralList" type="=text" name="" placeholder="Buscar" />
-                <div className="flex items-center justify-items-end pl-2">
-                    <button className='btnGeneralList' /* onClick={() => setMostrarTable(!mostarTable)} */><i class="fas fa-search"></i></button>
+            <div className='h-full pt-10'>
+                <h1 className='tituloGeneral'>Administrador de Usuarios</h1>
+                <div className="flex items-center justify-center justify-items-start p-2">
+                    <input className="inputGeneralList" type="=text" name="" placeholder="Buscar" />
+                    <div className="flex items-center justify-items-end pl-2">
+                        <button className='btnGeneralList' /* onClick={() => setMostrarTable(!mostarTable)} */><i class="fas fa-search"></i></button>
+                    </div>
                 </div>
-            </div>
-            <TablaUsuarios listaUsuarios = {usuarios}/>
-            {/* {mostarTable &&
+                <TablaUsuarios listaUsuarios={usuarios} />
+                {/* {mostarTable &&
                 <TablaUsuarios listaUsuarios = {usuarios}/>
             } */}
-        </div>
+            </div>
     )
 }
 

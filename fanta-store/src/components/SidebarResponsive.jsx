@@ -1,4 +1,4 @@
-import React, { useEffect, useState, Link } from 'react'
+import React, { useState} from 'react'
 import ResponsiveRoute from './ResponsiveRoute'
 
 const SidebarResponsive = () => {
@@ -8,7 +8,7 @@ const SidebarResponsive = () => {
         <div className='sm:hidden bg-blue-200' onClick={() => setMostrarNavegacion(!mostrarNavegacion)}>
             <i className={`mx-2 pt-3 fas fa-${mostrarNavegacion ? `times` : `bars`} hover:text-yellow-600 `}></i>
             {mostrarNavegacion &&
-                <ul className='bg-gray-900'>
+                <ul className='bg-gray-300 hover:text-white'>
                     <ResponsiveRoute ruta='/admin/perfil' nombre='Perfil' />
                     <ResponsiveRoute ruta='/admin/productos' nombre='Productos' />
                     <ResponsiveRoute ruta='/admin/ventas' nombre='Ventas' />

@@ -76,19 +76,24 @@ const VeriProductos = () => {
     }, [])
 
     return (
-        <div className='h-full pt-10'>
-            <h1 className='tituloGeneral'>Administrador de productos</h1>
-            <div className="flex items-center justify-center justify-items-start p-2">
-                <input className="inputGeneralList" type="=text" name="" placeholder="Buscar" />
-                <div className="flex items-center justify-items-end pl-2">
-                    <button className='btnGeneralList' /* onClick={() => setMostrarTable(!mostarTable)} */><i class="fas fa-search"></i></button>
-                </div>
+        <>
+            <div className='px-6'>
+                <a href='/admin/productos' className='btnGeneralNav'><i class="fas fa-arrow-left"></i></a>
             </div>
-            <TablaProductos listaProductos={productos} />
-            {/* {mostarTable &&
+            <div className='h-full pt-10'>
+                <h1 className='tituloGeneral'>Administrador de productos</h1>
+                <div className="flex items-center justify-center justify-items-start p-2">
+                    <input className="inputGeneralList" type="=text" name="" placeholder="Buscar" />
+                    <div className="flex items-center justify-items-end pl-2">
+                        <button className='btnGeneralList' /* onClick={() => setMostrarTable(!mostarTable)} */><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+                <TablaProductos listaProductos={productos} />
+                {/* {mostarTable &&
                 <TablaProductos listaProductos={productos} />
             } */}
-        </div>
+            </div>
+        </>
     )
 }
 

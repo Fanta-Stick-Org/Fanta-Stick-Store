@@ -30,16 +30,21 @@ const VeriVentas = () => {
     }, [])
 
     return (
-        <div className='h-full pt-10'>
-            <h1 className='tituloGeneral'>Administrador de Ventas</h1>
-            <div className="flex items-center justify-center justify-items-start p-2">
-                <input className="inputGeneralList" type="=text" name="" placeholder="Buscar" />
-                <div className="flex items-center justify-items-end pl-2">
-                    <button className='btnGeneralList' /* onClick={()=>setMostrarTable(!mostarTable)} */><i class="fas fa-search"></i></button>
-                </div>
+        <>
+            <div className='px-6'>
+                <a href='/admin/ventas' className='btnGeneralNav'><i class="fas fa-arrow-left"></i></a>
             </div>
-            <TablaVentasCompletas ListVentas={ventas}/>
-        </div>
+            <div className='h-full pt-10'>
+                <h1 className='tituloGeneral'>Administrador de Ventas</h1>
+                <div className="flex items-center justify-center justify-items-start p-2">
+                    <input className="inputGeneralList" type="=text" name="" placeholder="Buscar" />
+                    <div className="flex items-center justify-items-end pl-2">
+                        <button className='btnGeneralList' /* onClick={()=>setMostrarTable(!mostarTable)} */><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+                <TablaVentasCompletas ListVentas={ventas} />
+            </div>
+        </>
     )
 }
 

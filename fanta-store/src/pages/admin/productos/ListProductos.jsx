@@ -80,16 +80,21 @@ const ListProductos = () => {
     }, [])
 
     return (
-        <div className='h-full pt-10'>
-            <h1 className="tituloGeneral">Listado de Productos</h1>
-            <div className="flex items-center justify-center pt-2">
-                <button value="list" id="btn-list-submit" type="submit" className='btnGeneral' onClick={() => setMostrarTable(!mostarTable)}>Listar</button>
+        <>
+            <div className='px-6'>
+                <a href='/admin/productos' className='btnGeneralNav'><i class="fas fa-arrow-left"></i></a>
             </div>
-            {/* <TablaProductos listaProductos={productos}/> */}
-            {mostarTable &&
-                <TablaProductos listaProductos={productos} />
-            }
-        </div>
+            <div className='h-full pt-10'>
+                <h1 className="tituloGeneral">Listado de Productos</h1>
+                <div className="flex items-center justify-center pt-2">
+                    <button value="list" id="btn-list-submit" type="submit" className='btnGeneral' onClick={() => setMostrarTable(!mostarTable)}>Listar</button>
+                </div>
+                {/* <TablaProductos listaProductos={productos}/> */}
+                {mostarTable &&
+                    <TablaProductos listaProductos={productos} />
+                }
+            </div>
+        </>
     )
 }
 
