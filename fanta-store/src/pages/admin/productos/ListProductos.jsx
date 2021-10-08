@@ -3,7 +3,11 @@ import 'styles/list.css'
 
 const ListProductos = () => {
 
-    /* const [mostarTable, setMostrarTable] = useState(false); */
+    const [mostarTable, setMostrarTable] = useState(false);
+
+    useEffect(() => {
+        console.log(mostarTable)
+    }, [mostarTable])
 
     //json quemado productos
     const productosBack = [
@@ -79,12 +83,12 @@ const ListProductos = () => {
         <div className='h-full pt-10'>
             <h1 className="tituloGeneral">Listado de Productos</h1>
             <div className="flex items-center justify-center pt-2">
-                <button value="list" id="btn-list-submit" type="submit" className='btnGeneral' /* onClick={() => setMostrarTable(!mostarTable)} */>Listar</button>
+                <button value="list" id="btn-list-submit" type="submit" className='btnGeneral' onClick={() => setMostrarTable(!mostarTable)}>Listar</button>
             </div>
-            <TablaProductos listaProductos={productos}/>
-            {/* {mostarTable &&
+            {/* <TablaProductos listaProductos={productos}/> */}
+            {mostarTable &&
                 <TablaProductos listaProductos={productos} />
-            } */}
+            }
         </div>
     )
 }

@@ -4,7 +4,7 @@ import ImagenLogo from './ImagenLogo'
 
 const Sidebar = () => {
     return (
-        <nav className='hidden sm:flex sm:w-64 h-full flex-col text-center p-4 justify-between'>
+        <nav className='hidden sm:flex flex-col sm:w-64 text-center p-4 justify-between'>
             <div>
                 <div className='w-44 mx-5 my-10'>
                     <Link to='/admin'><ImagenLogo /></Link>
