@@ -148,6 +148,7 @@ form {
       border-collapse: collapse;
       padding: 15px;
       align-items: center;
+      text-align: center;
   }
 .tdTableSales{
       padding: 10px;
