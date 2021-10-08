@@ -3,10 +3,10 @@ import 'styles/list.css'
 
 const VeriProductos = () => {
 
-    const [mostarTable, setMostrarTable] = useState(false);
+    /* const [mostarTable, setMostrarTable] = useState(false); */
 
     //json quemado
-    let productosBack = [
+    const productosBack = [
         {
             idProducto: '001',
             descripcion: 'Computador Portátil LENOVO 14',
@@ -81,12 +81,13 @@ const VeriProductos = () => {
             <div className="flex items-center justify-center justify-items-start p-2">
                 <input className="inputGeneralList" type="=text" name="" placeholder="Buscar" />
                 <div className="flex items-center justify-items-end pl-2">
-                    <button className='btnGeneralList' onClick={() => setMostrarTable(!mostarTable)}><i class="fas fa-search"></i></button>
+                    <button className='btnGeneralList' /* onClick={() => setMostrarTable(!mostarTable)} */><i class="fas fa-search"></i></button>
                 </div>
             </div>
-            {mostarTable &&
+            <TablaProductos listaProductos={productos} />
+            {/* {mostarTable &&
                 <TablaProductos listaProductos={productos} />
-            }
+            } */}
         </div>
     )
 }
