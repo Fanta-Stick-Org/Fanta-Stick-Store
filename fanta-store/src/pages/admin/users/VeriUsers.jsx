@@ -5,27 +5,27 @@ const VeriUsers = () => {
     /* const [mostarTable, setMostrarTable] = useState(false); */
 
     //json quemado usuarios
-    const usuariosBack = [
+    /* const usuariosBack = [
         {
-            idUsuario: 'google1',
-            nombre: 'David Echavarria',
-            email: 'davide@test.com',
-            roles: 'Administrador',
-            estado: 'Autorizado'
+            "idUsuario": "google1",
+            "nombre": "David Echavarria",
+            "email": "davide@test.com",
+            "roles": "Administrador",
+            "estado": "Autorizado"
         },
         {
-            idUsuario: 'google2',
-            nombre: 'Kevin Baquero',
-            email: 'ksbaquero@test.com',
-            roles: 'Vendedor',
-            estado: 'No autorizado'
+            "idUsuario": "google2",
+            "nombre": "Kevin Baquero",
+            "email": "ksbaquero@test.com",
+            "roles": "Vendedorr",
+            "estado": "No autorizado"
         },
-    ];
+    ]; */
 
     const [usuarios, setUsuarios] = useState([]);
 
     useEffect(() => {
-        setUsuarios(usuariosBack); //se asigna el json a la variable usuarios
+        setUsuarios(/* usuariosBack */); //se asigna el json a la variable usuarios
     }, [])
 
     return (

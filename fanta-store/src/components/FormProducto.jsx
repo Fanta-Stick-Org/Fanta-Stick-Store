@@ -1,31 +1,41 @@
 import React, { /* useEffect, useState, */ useRef } from 'react'
 import { ToastContainer, toast } from 'react-toastify'; //para las alertas
 import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios';
 
 const FormProducto = () => {
 
-
-    /* useEffect(() => {
-        console.log('hola soy useeffect y se ejecuta al inicio porque el array esta vacio');
-    },[]) // se ejecuta al inicio*/
-
-    /* useEffect(() => {
-        console.log('el valor de la variable es ', idProducto); //necesita un estada para cada variable
-    }, [idProducto]) //guarda el valor de la variable en cada camibio */
-
     const form = useRef(null);
-    
-    const submitForm = (e) => {
-        e.preventDefault(); 
+
+    const submitForm = async (e) => {
+        e.preventDefault();
         const formData = new FormData(form.current);
-        const nuevoproducto = {}; 
+
+        const nuevoProducto = {};
         formData.forEach((value, key) => {
-            nuevoproducto[key] = value;
-        })
-        //se guarda en la base de datos si sale bien el toast debe mostrar .success
-        console.log('datos guardados', nuevoproducto)
-        toast.success('Producto registrado con éxito!!');
-        //se guarda en la base de datos si sale error el toast debe cambiar a .error
+            nuevoProducto[key] = value;
+        });
+
+        console.log('el nuevo producto: ',nuevoProducto)
+
+        const options = {
+            method: 'POST',
+            url: '', //url de mi base de datos
+            headers: { 'Content-Type': 'application/json' },
+            data: { idproducto: nuevoProducto.idproducto, descripcion: nuevoProducto.descripcion, 
+                valorUnitario: nuevoProducto.valorUnitario, estado: nuevoProducto.estado},
+        };
+
+        await axios
+            .request(options)
+            .then(function (response) {
+                console.log(response.data);
+                toast.success('Producto agregado con éxito!!'); //se guarda en la base de datos si sale bien el toast debe mostrar .success
+            })
+            .catch(function (error) {
+                console.error(error);
+                toast.error('Error agregando el producto'); //se guarda en la base de datos si sale error el toast debe cambiar a .error
+            });
     };
 
     return (
@@ -33,11 +43,11 @@ const FormProducto = () => {
             <form ref={form} onSubmit={submitForm} id="form-register-products">
                 <div className="formGeneral">
                     <label className="textoForm" htmlFor="idProducto">Id Producto </label>
-                    <input name="idProducto" type="text" id="idProducto" className="inputGeneral" required placeholder="Ej: 0001"></input>
+                    <input name="idProducto" type="text" className="inputGeneral" required placeholder="Ej: 0001"></input>
                 </div>
                 <div className="formGeneral">
                     <label className="textoForm" htmlFor="descripcion">Descripción </label>
-                    <input name="descripcion" type="text" id="descripcion" className="inputGeneral" placeholder="Ej: Producto marca tamaño" required></input>
+                    <input name="descripcion" type="text" className="inputGeneral" placeholder="Ej: Producto marca tamaño" required></input>
                 </div>
                 <div className="formGeneral">
                     <label className="textoForm" htmlFor="valorUnitario">Valor Unitario </label>
@@ -52,10 +62,10 @@ const FormProducto = () => {
                     </select>
                 </div>
                 <div className="formSubmit">
-                    <button onClick={submitForm} id="btn-form-submit" type="button" className='btnGeneral'>Enviar</button>
+                    <button onClick={submitForm} id="btn-form-submit" type="submit" className='btnGeneral'>Enviar</button>
                 </div>
             </form>
-            <ToastContainer position="bottom-right" autoClose={2500}/>
+            <ToastContainer position="bottom-right" autoClose={2500} />
         </div>
     )
 }

@@ -18,7 +18,7 @@ const Sidebar = () => {
             </div>
             <div>
                 <button className='btnGeneral'>
-                    <i class="fas fa-sign-out-alt pt-1 pr-2"> </i>
+                    <i className="fas fa-sign-out-alt pt-1 pr-2"> </i>
                     Cerrar Sesion
                 </button>
             </div>
@@ -30,7 +30,7 @@ const Ruta = ({ icono, ruta, nombre }) => {
     return (
         <Link to={ruta}>
             <button className='hover:bg-yellow-600 hover:bg-opacity-80 p-1 m-1 w-full text-left items-center rounded-md'>
-                <i class={`${icono} w-7`}> </i>
+                <i className={`${icono} w-7`}> </i>
                 {nombre}
             </button>
         </Link>

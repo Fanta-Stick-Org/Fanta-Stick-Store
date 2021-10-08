@@ -2,7 +2,7 @@
 
 import Sidebar from 'components/Sidebar'
 import SidebarResponsive from 'components/SidebarResponsive'
-import React, { Link } from 'react'
+import React from 'react'
 
 const PrivateLayout = ({ children }) => {
     return (

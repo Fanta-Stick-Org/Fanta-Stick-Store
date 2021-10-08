@@ -4,35 +4,35 @@ const VeriVentas = () => {
 
     /* const [mostarTable, setMostrarTable] = useState(false); */
 
-    const ventasBack = [
+    /* const ventasBack = [
         {
-            idVenta: 'fact-001',
-            fechaVenta: '03/10/2021 06:00',
-            idCliente: '1010101010',
-            nombreCliente: 'Martin Rivera',
-            estado: 'En proceso',
-            valorTotal: 2299000,
+            "idVenta": "fact-001",
+            "fechaVenta": "03/10/2021 06:00",
+            "idCliente": "1010101010",
+            "nombreCliente": "Martin Rivera",
+            "estado": "En proceso",
+            "valorTotal": "2299000",
         },
         {
-            idVenta: 'fact-002',
-            fechaVenta: '04/10/2021 12:00',
-            idCliente: '1212323123',
-            nombreCliente: 'Juan Paez',
-            estado: 'Entregada',
-            valorTotal: 3398000,
+            "idVenta": "fact-002",
+            "fechaVenta": "04/10/2021 12:00",
+            "idCliente": "1212323123",
+            "nombreCliente": "Juan Paez",
+            "estado": "Entregada",
+            "valorTotal": "3398000",
         },
-    ];
+    ]; */
 
     const [ventas, setVentas] = useState([]);
 
     useEffect(() => {
-        setVentas(ventasBack); //se asigna el json a la variable productos
+        setVentas(/* ventasBack */); //se asigna el json a la variable productos
     }, [])
 
     return (
         <>
             <div className='px-6'>
-                <a href='/admin/ventas' className='btnGeneralNav'><i class="fas fa-arrow-left"></i></a>
+                <a href='/admin/ventas' className='btnGeneralNav'><i className="fas fa-arrow-left"></i></a>
             </div>
             <div className='h-full pt-10'>
                 <h1 className='tituloGeneral'>Administrador de Ventas</h1>

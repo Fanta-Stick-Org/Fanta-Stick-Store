@@ -5,7 +5,7 @@ const RegisProducto = () => {
     return (
         <>
             <div className='px-6'>
-                <a href='/admin/productos' className='btnGeneralNav'><i class="fas fa-arrow-left"></i></a>
+                <a href='/admin/productos' className='btnGeneralNav'><i className="fas fa-arrow-left"></i></a>
             </div>
             <div className='flex flex-col sm:flex-row flex-nowrap justify-center'>
                 <section className="flex flex-col">

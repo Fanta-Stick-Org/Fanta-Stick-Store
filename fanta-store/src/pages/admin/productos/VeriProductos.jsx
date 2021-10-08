@@ -6,7 +6,7 @@ const VeriProductos = () => {
     /* const [mostarTable, setMostrarTable] = useState(false); */
 
     //json quemado
-    const productosBack = [
+    /* const productosBack = [
         {
             idProducto: '001',
             descripcion: 'Computador Portátil LENOVO 14',
@@ -67,18 +67,18 @@ const VeriProductos = () => {
             valorUnitario: 89900,
             estado: 'No Disponible'
         },
-    ];
+    ]; */
 
     const [productos, setProductos] = useState([]);
 
     useEffect(() => {
-        setProductos(productosBack); //se asigna el json al estado productos
+        setProductos(/* productosBack */); //se asigna el json al estado productos
     }, [])
 
     return (
         <>
             <div className='px-6'>
-                <a href='/admin/productos' className='btnGeneralNav'><i class="fas fa-arrow-left"></i></a>
+                <a href='/admin/productos' className='btnGeneralNav'><i className="fas fa-arrow-left"></i></a>
             </div>
             <div className='h-full pt-10'>
                 <h1 className='tituloGeneral'>Administrador de productos</h1>

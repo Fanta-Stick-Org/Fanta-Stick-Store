@@ -5,33 +5,33 @@ const ListVentas = () => {
 
 
     //json quemado productos
-    const ventasBack = [
+    /* const ventasBack = [
         {
-            idProducto: '001',
-            descripcion: 'Computador Portátil LENOVO 14',
-            cantidad: 1,
-            valorUnitario: 2299000,
-            valorTotal: 2299000,
+            "idProducto": "001",
+            "descripcion": "Computador Portátil LENOVO 14",
+            "cantidad": "1",
+            "valorUnitario": "2299000",
+            "valorTotal": "2299000",
         },
         {
-            idProducto: '002',
-            descripcion: 'Computador Portatil HP 14',
-            cantidad: 2,
-            valorUnitario: 1699000,
-            valorTotal: 3398000,
+            "idProducto": "002",
+            "descripcion": "Computador Portatil HP 14",
+            "cantidad": "2",
+            "valorUnitario": "1699000",
+            "valorTotal": "3398000",
         },
-    ];
+    ]; */
 
     const [ventas, setVentas] = useState([]);
 
     useEffect(() => {
-        setVentas(ventasBack); //se asigna el json a la variable productos
+        setVentas(/* ventasBack */); //se asigna el json a la variable productos
     }, [])
 
     return (
         <>
             <div className='px-6'>
-                <a href='/admin/ventas' className='btnGeneralNav'><i class="fas fa-arrow-left"></i></a>
+                <a href='/admin/ventas' className='btnGeneralNav'><i className="fas fa-arrow-left"></i></a>
             </div>
             <div className='h-full pt-10'>
                 <h1 className="tituloGeneral">Listado de Ventas</h1>

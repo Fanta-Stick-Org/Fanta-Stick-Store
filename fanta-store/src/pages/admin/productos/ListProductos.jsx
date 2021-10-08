@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import 'styles/list.css'
+import axios from 'axios'
 
 const ListProductos = () => {
 
@@ -9,80 +10,29 @@ const ListProductos = () => {
         console.log(mostarTable)
     }, [mostarTable])
 
-    //json quemado productos
-    const productosBack = [
-        {
-            idProducto: '001',
-            descripcion: 'Computador Portátil LENOVO 14',
-            valorUnitario: 2299000,
-            estado: 'Disponible'
-        },
-        {
-            idProducto: '002',
-            descripcion: 'Computador Portatil HP 14',
-            valorUnitario: 1699000,
-            estado: 'No Disponible'
-        },
-        {
-            idProducto: '003',
-            descripcion: 'Computador Portátil ACER 15.6',
-            valorUnitario: 1815000,
-            estado: 'Disponible'
-        },
-        {
-            idProducto: '004',
-            descripcion: 'Computador Portátil ASUS 14',
-            valorUnitario: 1049000,
-            estado: 'No Disponible'
-        },
-        {
-            idProducto: '005',
-            descripcion: 'iMac 21.5" Retina 4K 3.0Ghz',
-            valorUnitario: 5999000,
-            estado: 'Disponible'
-        },
-        {
-            idProducto: '006',
-            descripcion: 'Tablet LENOVO 10',
-            valorUnitario: 789000,
-            estado: 'Disponible'
-        },
-        {
-            idProducto: '007',
-            descripcion: 'Tablet SAMSUNG 10.4',
-            valorUnitario: 699000,
-            estado: 'Disponible'
-        },
-        {
-            idProducto: '008',
-            descripcion: 'Monitor HP 21.5',
-            valorUnitario: 521000,
-            estado: 'Disponible'
-        },
-        {
-            idProducto: '009',
-            descripcion: 'Monitor ACER Gamer 27',
-            valorUnitario: 1199000,
-            estado: 'Disponible'
-        },
-        {
-            idProducto: '010',
-            descripcion: 'Combo LOGITECH Teclado + Mouse',
-            valorUnitario: 89900,
-            estado: 'No Disponible'
-        },
-    ];
-
     const [productos, setProductos] = useState([]);
 
     useEffect(() => {
-        setProductos(productosBack); //se asigna el json a la variable productos
-    }, [])
+        const obtenerProductos = async () => {
+            const options = { method: 'GET', url: '' };
+            await axios
+                .request(options)
+                .then(function (response) {
+                    setProductos(response.data);
+                })
+                .catch(function (error) {
+                    console.error(error);
+                });
+        };
+        if (mostarTable) {
+            obtenerProductos();
+        }
+    }, [mostarTable])
 
     return (
         <>
             <div className='px-6'>
-                <a href='/admin/productos' className='btnGeneralNav'><i class="fas fa-arrow-left"></i></a>
+                <a href='/admin/productos' className='btnGeneralNav'><i className="fas fa-arrow-left"></i></a>
             </div>
             <div className='h-full pt-10'>
                 <h1 className="tituloGeneral">Listado de Productos</h1>
