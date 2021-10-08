@@ -1,16 +1,9 @@
-import React/* , {useEffect, useState} */ from 'react'
+import React, { useEffect, useState, Link } from 'react'
 
 const SidebarResponsive = () => {
-   /*  const [mostrarNavegacion, setMostrarNavegacion] = useState(false); */
     return (
-        <div className='sm:hidden bg-blue-200' /* onClick={setMostrarNavegacion(!mostrarNavegacion)} */>
-            <i className={`fas fa-bars hover:text-yellow-600`}></i> {/* ${mostrarNavegacion ? 'times' : 'bars'} */}
-            {/* {mostrarNavegacion &&
-                <div>
-                    mostrar otra cosa
-                </div>
-            } */}
-            
+        <div className='sm:hidden bg-blue-200'>
+            <i className={`mx-2 pt-2 fas fa-bars hover:text-yellow-600 `}></i>
         </div>
     )
 }

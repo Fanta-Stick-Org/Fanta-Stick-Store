@@ -6,12 +6,12 @@ import React from 'react'
 
 const PublicLayout = ({ children }) => {
     return (
-        <div className='flex flex-col justify-between h-full'>
+        <div className='flex flex-col justify-between w-screen h-screen'>
             <Navbar />
-            <div className='h-full overflow-y-scroll bg-blue-200'>
+            <div className='flex flex-col sm:flex-row flex-nowrap w-screen h-full overflow-y-scroll bg-blue-200'>
                 <main className='h-full'>{children}</main>
-                <Footer />
             </div>
+            <Footer />
         </div>
     )
 }

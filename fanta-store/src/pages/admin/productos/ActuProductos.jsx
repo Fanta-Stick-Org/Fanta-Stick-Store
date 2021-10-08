@@ -3,8 +3,8 @@ import FormProducto from 'components/FormProducto'
 
 const ActuProductos = () => {
     return (
-        <div>
-            <section className="flex flex-col w-96">
+        <div className='flex flex-col sm:flex-row flex-nowrap justify-center'>
+            <section className="flex flex-col">
                 <h1 className="tituloGeneral">Actualizar Productos</h1>
                 <FormProducto />
             </section>

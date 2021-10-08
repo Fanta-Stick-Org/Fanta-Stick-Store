@@ -5,7 +5,7 @@ import ImagenLogo from './ImagenLogo'
 const Navbar = () => {
     return (
         <nav className='bg-yellow-600 bg-opacity-75'>
-            <ul className='flex w-full justify-between my-4'>
+            <ul className='flex sm:flex-row w-full justify-between my-4'>
                 <li className='w-32 mx-10'>
                     <Link to='/'><ImagenLogo /></Link>
                 </li>

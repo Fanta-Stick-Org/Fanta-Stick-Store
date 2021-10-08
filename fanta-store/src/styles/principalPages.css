@@ -1,7 +1,7 @@
 @import url('general.css');
 
 #contentPrincipal{
-    @apply grid grid-cols-2;
+    @apply flex flex-col sm:flex-row flex-nowrap w-screen max-w-max h-full;
 }
 
 .itemPrincipal{
@@ -9,10 +9,10 @@
 }
 
 .itemPrincipal img{
-    @apply max-w-sm h-auto ml-32 mt-5 mr-20;
+    @apply flex flex-col md:ml-32 mt-5 mr-20 sm:flex-row h-auto sm:max-w-xs;
 }
 
 p{
     font-family: 'Poppins', sans-serif;
-    @apply text-xl font-medium;
+    @apply text-xl font-medium sm:flex-row h-auto sm:max-w-sm md:max-w-md;
 }

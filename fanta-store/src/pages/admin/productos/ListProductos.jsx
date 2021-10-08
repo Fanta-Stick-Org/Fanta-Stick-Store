@@ -78,7 +78,7 @@ const ListProductos = () => {
     return (
         <div className='h-full pt-10'>
             <h1 className="tituloGeneral">Listado de Productos</h1>
-            <div className="flex items-center justify-between justify-items-end pt-2">
+            <div className="flex items-center justify-center pt-2">
                 <button value="list" id="btn-list-submit" type="submit" className='btnGeneral' /* onClick={() => setMostrarTable(!mostarTable)} */>Listar</button>
             </div>
             <TablaProductos listaProductos={productos}/>
@@ -94,7 +94,7 @@ const TablaProductos = ({ listaProductos }) => {
         console.log('este es el listado de productos en el componente de tabla', listaProductos);
     }, [listaProductos]);
     return (
-        <div className='flex flex-col items-center justify-center'>
+        <div className='flex flex-col sm:flex-row flex-nowrap items-center justify-center'>
             <div className='table-container'>
                 <table id="table-list">
                     <thead>

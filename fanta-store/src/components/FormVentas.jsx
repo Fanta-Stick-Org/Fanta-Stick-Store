@@ -27,9 +27,9 @@ const FormProducto = () => {
     const [mostrarCamposAdicionales, setMostrarCamposAdicionales] = useState(false);
 
     return (
-        <div className='pb-32'>
+        <div className='flex sm:flex-col flex-row flex-nowrap justify-center sm:max-w-screen-sm h-full'>
             <form name="registrarVenta" id="form-register-sales">
-                <div className='flex flex-col w-96'>
+                <div className='flex flex-col'>
                     <div className="formGeneral">
                         <label for="idSale" className="textoGeneral">Codigo de Venta</label>
                         <input id='idSale' type="text" className="inputGeneral" name="idSale" placeholder="Id de Venta"></input>
@@ -48,13 +48,13 @@ const FormProducto = () => {
                         <label for="stateSale" className="textoGeneral">Estado de la Venta</label><br />
 
                         <input type="radio" id="stateSaleCancel" name="stateSale" value="Cancelada" className="input"></input>
-                        <label for="stateSaleCancel" className="textoGeneral"> Cancelada</label> <br />
+                        <label for="stateSaleCancel" className="textoGeneral"> En proceso</label> <br />
 
                         <input type="radio" id="stateSalePend" name="stateSale" value="Pendiente" className="input"></input>
-                        <label for="stateSalePend" className="textoGeneral"> Pendiente</label><br />
+                        <label for="stateSalePend" className="textoGeneral"> Cancelada</label><br />
 
                         <input type="radio" id="stateSaleClosed" name="stateSale" value="Cerrada" className="input"></input>
-                        <label for="stateSaleClosed" className="textoGeneral"> Cerrada</label><br />
+                        <label for="stateSaleClosed" className="textoGeneral"> Entregada</label><br />
                     </div>
 
                     <div className="formGeneral">
@@ -68,13 +68,13 @@ const FormProducto = () => {
                     </div>
                 </div>
 
-                <div className='flex flex-col w-96'>
+                <div className='flex flex-col'>
                     <button onClick={()=> setMostrarCamposAdicionales(!mostrarCamposAdicionales)} type='button' className='linkGeneralBlue'>Formulario completo</button>
                 </div>
 
                 {
                     mostrarCamposAdicionales &&
-                    <div className="flex flex-col w-96">
+                    <div className="flex flex-col">
                     <div className="formGeneral">
                         <label className="textoGeneral" for="idProduct">Codigo del Producto</label>
                         <input className="inputGeneral" type="text" id="idProduct" name="idProduct" placeholder="Codigo del Producto"></input>

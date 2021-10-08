@@ -1,4 +1,6 @@
-formSubmitList{
+@import url('general.css');
+
+.formSubmitList{
     @apply text-center pb-5 mb-5;
 }
 
