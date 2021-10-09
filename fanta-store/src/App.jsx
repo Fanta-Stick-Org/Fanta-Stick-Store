@@ -29,45 +29,45 @@ function App() {
           '/admin/ventas/actualizar', '/admin/ventas/verificar', '/admin/usuarios', '/admin/usuarios/actualizar']}>
           <PrivateLayout>
             <Switch>
-              <Route path='/admin/usuarios/actualizar'>
-                <ActuUsers/>
-              </Route>
-              <Route path='/admin/productos/registrar'>
-                <RegisProducto />
-              </Route>
-              <Route path='/admin/productos/listar'>
-                <ListProductos />
-              </Route>
-              <Route path='/admin/productos/actualizar'>
-                <ActuProductos />
-              </Route>
-              <Route path='/admin/productos/verificar'>
-                <VeriProductos />
-              </Route>
-              <Route path='/admin/ventas/registrar'>
-                <RegisVentas />
-              </Route>
-              <Route path='/admin/ventas/listar'>
-                <ListVentas />
-              </Route>
-              <Route path='/admin/ventas/actualizar'>
-                <ActuVentas />
-              </Route>
-              <Route path='/admin/ventas/verificar'>
-                <VeriVentas />
-              </Route>
-              <Route path='/admin/productos'>
-                <Productos />
-              </Route>
-              <Route path='/admin/ventas'>
-                <Ventas />
-              </Route>
-              <Route path='/admin/usuarios'>
-                <VeriUsers />
-              </Route>
-              <Route path='/admin'>
-                <Principal />
-              </Route>
+                <Route path='/admin/usuarios/actualizar'>
+                  <ActuUsers />
+                </Route>
+                <Route path='/admin/productos/registrar'>
+                  <RegisProducto />
+                </Route>
+                <Route path='/admin/productos/listar'>
+                  <ListProductos />
+                </Route>
+                <Route path='/admin/productos/actualizar'>
+                  <ActuProductos />
+                </Route>
+                <Route path='/admin/productos/verificar'>
+                  <VeriProductos />
+                </Route>
+                <Route path='/admin/ventas/registrar'>
+                  <RegisVentas />
+                </Route>
+                <Route path='/admin/ventas/listar'>
+                  <ListVentas />
+                </Route>
+                <Route path='/admin/ventas/actualizar'>
+                  <ActuVentas />
+                </Route>
+                <Route path='/admin/ventas/verificar'>
+                  <VeriVentas />
+                </Route>
+                <Route path='/admin/productos'>
+                  <Productos />
+                </Route>
+                <Route path='/admin/ventas'>
+                  <Ventas />
+                </Route>
+                <Route path='/admin/usuarios'>
+                  <VeriUsers />
+                </Route>
+                <Route path='/admin'>
+                  <Principal />
+                </Route>
             </Switch>
           </PrivateLayout>
         </Route>

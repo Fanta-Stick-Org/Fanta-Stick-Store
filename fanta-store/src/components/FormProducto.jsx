@@ -1,56 +1,71 @@
-import React, { useEffect, useState } from 'react'
+import React, { /* useEffect, useState, */ useRef } from 'react'
+import { ToastContainer, toast } from 'react-toastify'; //para las alertas
+import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios';
 
 const FormProducto = () => {
 
+    const form = useRef(null);
 
-    const [idProducto, setIdProducto] = useState('001'); //valor por defecto
-    const [descripProducto, setDescripProducto] = useState('');
-    const [valorUnitario, setValorUnitarioo] = useState('');
-    const [estadoProducto, setEstadoProducto] = useState('');
+    const submitForm = async (e) => {
+        e.preventDefault();
+        const formData = new FormData(form.current);
 
-    /* useEffect(() => {
-        console.log('hola soy useeffect y se ejecuta al inicio porque el array esta vacio');
-    },[]) // se ejecuta al inicio*/
+        const nuevoProducto = {};
+        formData.forEach((value, key) => {
+            nuevoProducto[key] = value;
+        });
 
-    /* useEffect(() => {
-        console.log('el valor de la variable es ', idProducto);
-    }, [idProducto]) //guarda el valor de la variable en cada camibio */
+        console.log('el nuevo producto: ',nuevoProducto)
 
-    const enviarDatosAlBackend = () => {
-        console.log('El valor de la variable idProducto es ', idProducto);
-        console.log('El valor de la variable descripProducto es ', descripProducto);
-        console.log('El valor de la variable valorUnitario es ', valorUnitario);
-        console.log('El valor de la variable estadoProducto es ', estadoProducto);
-    }; //me almacena el valor del input especificado en una variable
+        const options = {
+            method: 'POST',
+            url: '', //url de mi base de datos
+            headers: { 'Content-Type': 'application/json' },
+            data: { idproducto: nuevoProducto.idproducto, descripcion: nuevoProducto.descripcion, 
+                valorUnitario: nuevoProducto.valorUnitario, estado: nuevoProducto.estado},
+        };
+
+        await axios
+            .request(options)
+            .then(function (response) {
+                console.log(response.data);
+                toast.success('Producto agregado con éxito!!'); //se guarda en la base de datos si sale bien el toast debe mostrar .success
+            })
+            .catch(function (error) {
+                console.error(error);
+                toast.error('Error agregando el producto'); //se guarda en la base de datos si sale error el toast debe cambiar a .error
+            });
+    };
 
     return (
-        <div>
-            <form id="form-register-products">
+        <div className='flex sm:flex-col flex-row flex-nowrap justify-center sm:max-w-screen-sm h-full'>
+            <form ref={form} onSubmit={submitForm} id="form-register-products">
                 <div className="formGeneral">
                     <label className="textoForm" htmlFor="idProducto">Id Producto </label>
-                    <input onChange={(e) => { setIdProducto(e.target.value) }} name="idProducto" type="text" id="idProducto" value={idProducto} className="inputGeneral" required placeholder="Ej: 001"></input>
+                    <input name="idProducto" type="text" className="inputGeneral" required placeholder="Ej: 0001"></input>
                 </div>
                 <div className="formGeneral">
                     <label className="textoForm" htmlFor="descripcion">Descripción </label>
-                    <input onChange={(e) => { setDescripProducto(e.target.value) }} className="inputGeneral" name="descripcion" type="text" id="descripcion"
-                        placeholder="Ej: Modelo, Marca..." required></input>
+                    <input name="descripcion" type="text" className="inputGeneral" placeholder="Ej: Producto marca tamaño" required></input>
                 </div>
                 <div className="formGeneral">
                     <label className="textoForm" htmlFor="valorUnitario">Valor Unitario </label>
-                    <input onChange={(e) => { setValorUnitarioo(e.target.value) }} className="inputGeneral" name="valorUnitario" type="number" id="valorUnitario" placeholder="Ej: 10.000" required></input>
+                    <input name="valorUnitario" type="number" id="valorUnitario" min={0} className="inputGeneral" placeholder="Ej: 10.000" required></input>
                 </div>
                 <div className="formGeneral">
                     <label className="textoForm" htmlFor="estado">Estado </label>
-                    <select onChange={(e) => { setEstadoProducto(e.target.value) }} className="inputGeneral" name="estado" type="text" id="estado" required>
-                        <option value="seleccione">Seleccione...</option>
+                    <select name="estado" type="text" id="estado" defaultValue={0} required className="inputGeneral">
+                        <option value={0} disabled>Seleccione...</option>
                         <option value="disponible">Disponible</option>
                         <option value="noDisponible">No Disponible</option>
                     </select>
                 </div>
                 <div className="formSubmit">
-                    <button onClick={enviarDatosAlBackend} value="Login" id="btn-form-submit" type="button" className='btnGeneral'>Enviar</button>
+                    <button onClick={submitForm} id="btn-form-submit" type="submit" className='btnGeneral'>Enviar</button>
                 </div>
             </form>
+            <ToastContainer position="bottom-right" autoClose={4000} />
         </div>
     )
 }
