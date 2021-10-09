@@ -2,10 +2,13 @@ import {
     useState,
     useEffect,
 } from 'react'
+import {
+    useLocation
+} from 'react-router'
 
-const useActiveRoute = (locacion, ruta) => {
+const useActiveRoute = (ruta) => {
 
-
+    const locacion = useLocation();
     const [isActive, setIsActive] = useState(false);
 
     useEffect(() => {

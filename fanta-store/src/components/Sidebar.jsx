@@ -1,4 +1,3 @@
-import { useLocation } from 'react-router'
 import useActiveRoute from 'hooks/useActiveRoute'
 import React from 'react'
 import { Link } from 'react-router-dom'
@@ -30,9 +29,7 @@ const Sidebar = () => {
 
 const Ruta = ({ icono, ruta, nombre }) => {
 
-    const locacion = useLocation();
-
-    const isActive = useActiveRoute(locacion, ruta);
+    const isActive = useActiveRoute(ruta);
 
     return (
         <Link to={ruta}>

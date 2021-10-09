@@ -48,10 +48,17 @@
 
 .btnGeneralNav {
     font-family: 'Poppins', sans-serif;
-    @apply w-auto justify-start py-2 px-6 border border-transparent font-semibold rounded-md text-white text-xl bg-yellow-600 bg-opacity-80 hover:bg-yellow-700 hover:bg-opacity-75 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all;
+    @apply w-auto justify-start py-2 px-6 border border-transparent font-semibold rounded-md text-white text-xl 
+    bg-yellow-600 bg-opacity-80 hover:bg-yellow-700 hover:bg-opacity-75 focus:outline-none focus:ring-2 
+    focus:ring-offset-2 focus:ring-indigo-500 transition-all;
 }
 
 .linkGeneralNav {
     font-family: 'Poppins', sans-serif;
     @apply font-medium text-blue-700 hover:bg-indigo-400 hover:text-white p-2 px-6 rounded-md transition-all float-right;
+}
+
+.linkGeneralList {
+    font-family: 'Poppins', sans-serif;
+    @apply font-medium border-2 border-gray-300 text-gray-700 hover:bg-yellow-700 hover:bg-opacity-50 hover:text-white hover:border-white p-2 px-3 rounded-md transition-all;
 }

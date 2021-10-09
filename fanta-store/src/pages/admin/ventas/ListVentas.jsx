@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect/* , useState */ } from 'react'
 import 'styles/list.css'
 
 const ListVentas = () => {
 
-    const [ventas, setVentas] = useState([]);
+    /* const [ventas, setVentas] = useState([]); */
 
     useEffect(() => {
-        setVentas(); //se asigna el json a la variable productos
+        //setVentas(); //se asigna el json a la variable productos
     }, [])
 
     return (
@@ -23,13 +23,13 @@ const ListVentas = () => {
                         <span className='textoForm'>Total Venta</span>
                     </div>
                 </div>
-                <TablaVentas ListVentas={ventas} />
+                {/* <TablaVentas ListVentas={ventas} /> */}
             </div>
         </>
     )
 }
 
-const TablaVentas = ({ ListVentas }) => {
+/* const TablaVentas = ({ ListVentas }) => {
     useEffect(() => {
         console.log('este es el listado de productos en el componente de tabla', ListVentas);
     }, [ListVentas]);
@@ -49,7 +49,7 @@ const TablaVentas = ({ ListVentas }) => {
                     <tbody>
                         {ListVentas.map((venta) => {
                             return (
-                                <tr>
+                                <tr key={nanoid()}>
                                     <td>{venta.idProducto}</td>
                                     <td>{venta.descripcion}</td>
                                     <td>{venta.cantidad}</td>
@@ -63,6 +63,6 @@ const TablaVentas = ({ ListVentas }) => {
             </div>
         </div>
     );
-};
+}; */
 
 export default ListVentas

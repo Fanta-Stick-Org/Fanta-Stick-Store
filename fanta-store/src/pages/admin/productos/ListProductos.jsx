@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from 'react'
 import 'styles/list.css'
 import axios from 'axios'
+import { nanoid } from 'nanoid';
 
 const ListProductos = () => {
 
     const [mostarTable, setMostrarTable] = useState(false);
 
-    useEffect(() => {
-        console.log(mostarTable)
-    }, [mostarTable])
+    //useEffect(() => {
+        /* console.log(mostarTable) */ //muestra si el mostrar table es true o false
+    //}, [mostarTable])
 
     const [productos, setProductos] = useState([]);
 
     useEffect(() => {
         const obtenerProductos = async () => {
-            const options = { method: 'GET', url: '' }; //https://vast-waters-45728.herokuapp.com/vehicle/ db profe
+            const options = { method: 'GET', url: 'https://vast-waters-45728.herokuapp.com/vehicle/' }; //https://vast-waters-45728.herokuapp.com/vehicle/ db profe
             await axios
                 .request(options)
                 .then(function (response) {
@@ -34,7 +35,7 @@ const ListProductos = () => {
             <div className='px-6'>
                 <a href='/admin/productos' className='btnGeneralNav'><i className="fas fa-arrow-left"></i></a>
             </div>
-            <div className='h-full pt-10'>
+            <div className='w-full h-full pt-10'>
                 <h1 className="tituloGeneral">Listado de Productos</h1>
                 <div className="flex items-center justify-center pt-2">
                     <button value="list" id="btn-list-submit" type="submit" className='btnGeneral' onClick={() => setMostrarTable(!mostarTable)}>Listar</button>
@@ -50,10 +51,10 @@ const ListProductos = () => {
 
 const TablaProductos = ({ listaProductos }) => {
     useEffect(() => {
-        console.log('este es el listado de productos en el componente de tabla', listaProductos);
+        console.log('listado de productos', listaProductos);
     }, [listaProductos]);
     return (
-        <div className='flex flex-col sm:flex-row flex-nowrap items-center justify-center'>
+        <div className='flex flex-col sm:flex-row flex-nowrap items-center justify-center w-full'>
             <div className='table-container'>
                 <table id="table-list">
                     <thead>
@@ -67,7 +68,7 @@ const TablaProductos = ({ listaProductos }) => {
                     <tbody>
                         {listaProductos.map((producto) => {
                             return (
-                                <tr>
+                                <tr key={nanoid()}>
                                     <td>{producto.idProducto}</td>
                                     <td>{producto.descripcion}</td>
                                     <td>{producto.valorUnitario}</td>

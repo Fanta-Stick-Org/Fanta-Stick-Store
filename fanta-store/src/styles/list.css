@@ -5,23 +5,23 @@
 }
 
 .table-container{
+    width: 90%;
     @apply text-center pt-10 pb-24;
 }
 
 #table-list{
     font-family: 'Poppins', sans-serif;
     width: 100%;
-    @apply text-center border-collapse bg-gray-100;
-}
-
-th, td{
-    @apply border border-solid border-gray-100 p-3;
+    @apply text-left border-collapse bg-gray-100;
 }
 
 th{
-    background-color: #d36d34;
-    @apply text-white;
-    
+    /* background-color: #d36d34; */
+    @apply border-2 border-solid border-gray-300 bg-green-500 p-4 py-5 text-white;;
+}
+
+td{
+    @apply border border-solid border-gray-200 p-4;
 }
 
 tr:nth-child(even){
@@ -30,4 +30,5 @@ tr:nth-child(even){
 
 tr:hover{
     background-color: #FB813E;
+    @apply bg-gray-300 hover:bg-opacity-30 cursor-pointer;
 }
