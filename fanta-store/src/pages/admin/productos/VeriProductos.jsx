@@ -2,10 +2,11 @@ import React, { useState, useEffect, useRef } from 'react'
 import 'styles/list.css'
 import axios from 'axios'
 import { nanoid } from 'nanoid';
+import { Tooltip } from '@material-ui/core';
+import Dialog from '@mui/material/Dialog';
 
 const VeriProductos = () => {
 
-    const [mostarTable, setMostrarTable] = useState(false);
     const [productos, setProductos] = useState([]);
     const [ejecutarConsulta, setEjecutarConsulta] = useState(true);
 
@@ -28,11 +29,15 @@ const VeriProductos = () => {
         }
     }, [ejecutarConsulta])
 
+    const [mostarTable, setMostrarTable] = useState(false);
+
     useEffect(() => {
         if (mostarTable) {
             setEjecutarConsulta(true)
         }
     }, [mostarTable])
+
+    const [busqueda, setBusqueda] = useState('');
 
     return (
         <>
@@ -42,25 +47,34 @@ const VeriProductos = () => {
             <div className='h-full pt-10'>
                 <h1 className='tituloGeneral'>Administrador de productos</h1>
                 <div className="flex items-center justify-center justify-items-start p-2">
-                    <input className="inputGeneralList" type="=text" name="" placeholder="Buscar" />
+                    <input className="inputGeneralList" onChange={(e) => setBusqueda(e.target.value)} value={busqueda} type="=text" name="" placeholder="Buscar" />
                     <div className="flex items-center justify-items-end pl-2">
                         <button className='btnGeneralList' onClick={() => setMostrarTable(!mostarTable)}><i className="fas fa-search"></i></button>
                     </div>
                 </div>
                 {mostarTable &&
-                    <TablaProductos listaProductos={productos} setEjecutarConsulta={setEjecutarConsulta} />
+                    <TablaProductos listaProductos={productos} setEjecutarConsulta={setEjecutarConsulta} busqueda={busqueda} />
                 }
             </div>
         </>
     )
 }
 
-const TablaProductos = ({ listaProductos, setEjecutarConsulta }) => {
+const TablaProductos = ({ listaProductos, setEjecutarConsulta, busqueda }) => {
     const form = useRef(null);
 
     useEffect(() => {
         console.log('listado de productos', listaProductos);
     }, [listaProductos]);
+
+    useEffect(() => {
+        console.log('busqueda', busqueda)
+        console.log('lista productos comp', listaProductos )
+        console.log('lista productos filtrada', listaProductos.filter((elemento) => {
+            console.log('elemento', elemento)
+            return elemento.name.includes(busqueda);
+        })) 
+    }, [busqueda])
 
     const submitEdit = async (e) => {
         e.preventDefault();
@@ -108,10 +122,12 @@ const TablaProductos = ({ listaProductos, setEjecutarConsulta }) => {
 const FilaProducto = (producto, setEjecutarConsulta) => {
 
     const [edit, setEdit] = useState(false);
+    const [openDialog, setOpenDialog] = useState(false);
 
     const eliminarProducto = async () => {
         //request para delete en db
         //en el funcion response debe ir el toast y el setEjecutarConsulta(true)
+        //despues del axios setOpedDialog(false);
     }
     return (
         <tr>
@@ -135,20 +151,48 @@ const FilaProducto = (producto, setEjecutarConsulta) => {
             <td>
                 <div className='flex w-full justify-evenly'>
                     {edit ? (
-                        <button type='submit'>
-                            <i onClick={() => setEdit(!edit)} className='fas fa-check p-2 border-2 border-green-300 rounded-md 
-                            text-green-500 hover:text-green-700 hover:bg-green-500 hover:bg-opacity-20 hover:border-green-100'></i>
-                        </button>
+                        <>
+                            <Tooltip title='Confirmar Edición' arrow placement='bottom'>
+                                <button type='submit'>
+                                    <i onClick={() => setEdit(!edit)} className='fas fa-check p-2 border-2 border-green-300 rounded-md 
+                                    text-green-500 hover:text-green-700 hover:bg-green-500 hover:bg-opacity-20 hover:border-green-50
+                                    transition-all'></i>
+                                </button>
+                            </Tooltip>
+                            <Tooltip title='Cancelar Edición' arrow placement='bottom'>
+                                <i onClick={() => setEdit(!edit)} className='fas fa-ban p-2 border-2 border-red-300 rounded-md 
+                                text-red-600 hover:text-red-700 hover:bg-green-500 hover:bg-opacity-20 hover:border-red-100
+                                transition-all'></i>
+                            </Tooltip>
+                        </>
                     ) : (
-                        <i onClick={() => setEdit(!edit)} className='fas fa-pencil-alt p-2 border-2 border-gray-300 rounded-md 
-                            text-yellow-600 hover:text-yellow-800 hover:bg-green-500 hover:bg-opacity-20 hover:border-green-100'></i>
+                        <>
+                            <Tooltip title='Editar Producto' arrow placement='bottom'>
+                                <i onClick={() => setEdit(!edit)} className='fas fa-pencil-alt p-2 border-2 border-gray-300 rounded-md 
+                                text-yellow-600 hover:text-yellow-800 hover:bg-green-500 hover:bg-opacity-20 hover:border-green-100-100
+                                transition-all'></i>
+                            </Tooltip>
+                            <Tooltip title='Eliminar Producto' arrow placement='bottom'>
+                                <i onClick={() => setOpenDialog(true)} className='fas fa-trash p-2 border-2 border-red-300 rounded-md
+                                text-red-600 hover:text-red-700 hover:bg-green-500 hover:bg-opacity-20 hover:border-red-100
+                                transition-all'></i>
+                            </Tooltip>
+                        </>
                     )}
-
-                    <i onClick={() => eliminarProducto()} className='fas fa-trash p-2 border-2 border-gray-300 rounded-md text-red-600 hover:text-red-700 
-                    hover:bg-green-500 hover:bg-opacity-20 hover:border-green-100'></i>
                     {/* <a href={`/admin/productos/actualizar/${producto.idProducto}`} className='linkGeneralList'><i className='fas fa-pencil-alt'></i></a>
                                             <a href={`/admin/productos/actualizar/${producto.idProducto}`} className='linkGeneralList text-red-600'><i className='fas fa-trash'></i></a> */}
                 </div>
+                <Dialog open={openDialog}>
+                    <div className='flex flex-col p-8 bg-gray-200 shadow-md rounded-sm'>
+                        <h1 className='text-gray-900 text-lg font-medium'>¿Está seguro de querer eliminar este producto?</h1>
+                        <div className='flex w-full items-center justify-center mt-4'>
+                            <button onClick={() => eliminarProducto()} className='mx-2 px-4 py-2 bg-green-400 hover:bg-green-500 
+                            transition-all text-white rounded-md shadow-md '>Sí</button>
+                            <button onClick={() => setOpenDialog(false)} className='mx-2 px-4 py-2 bg-red-400 hover:bg-red-500 
+                            transition-all text-white rounded-md shadow-md'>No</button>
+                        </div>
+                    </div>
+                </Dialog>
             </td>
         </tr>
     )

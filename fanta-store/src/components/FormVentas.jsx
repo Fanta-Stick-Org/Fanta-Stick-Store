@@ -63,7 +63,7 @@ const FormVentas = () => {
                     </div>
                     <div className="formGeneral">
                         <label for="dateSale" className="textoGeneral">Fecha de venta </label>
-                        <input type="datetime-local" className="inputGeneral" name="dateSale" placeholder="Fecha de Venta"></input>
+                        <input type='datetime-local' className="inputGeneral" name="dateSale" placeholder="Fecha de Venta"></input>
                     </div>
 
                     <div className="formGeneral">
@@ -85,7 +85,7 @@ const FormVentas = () => {
                     </div>
 
                     <div className="formGeneral">
-                        <label for="idCustomer" className="textoGeneral">Codigo Cliente</label>
+                        <label for="idCustomer" className="textoGeneral">Id Cliente</label>
                         <input type="text" id="idCustomer" name="idCustomer" placeholder="Id del Cliente" className="inputGeneral"></input>
                     </div>
                     <div className="formGeneral">

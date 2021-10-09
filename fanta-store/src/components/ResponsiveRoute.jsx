@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const ResponsiveRoute = ({ruta, nombre}) => {
     return (
         <Link to={ruta}>
-            <li className='text-gray-900 hover:text-white border border-gray-400 p-1 pl-3'>{nombre}</li>
+            <li className='text-white hover:text-white border-2 border-gray-300 p-1 pl-3'>{nombre}</li>
         </Link>
     )
 }

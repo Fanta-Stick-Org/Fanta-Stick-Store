@@ -4,21 +4,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const FormUsers = () => {
 
-    /* useEffect(() => {
-        console.log('hola soy useeffect y se ejecuta al inicio porque el array esta vacio');
-    },[]) // se ejecuta al inicio*/
-
-    /* useEffect(() => {
-        console.log('el valor de la variable es ', idProducto);
-    }, [idProducto]) //guarda el valor de la variable en cada camibio */
-
-    /* const enviarDatosAlBackend = () => {
-        console.log('El valor de la variable idProducto es ', idProducto);
-        console.log('El valor de lsa variable descripProducto es ', descripProducto);
-        console.log('El valor de la variable valorUnitario es ', valorUnitario);
-        console.log('El valor de la variable estadoProducto es ', estadoProducto);
-    }; //me almacena el valor del input especificado en una variable */
-
     const form = useRef(null);
 
     const submitForm = (e) => {

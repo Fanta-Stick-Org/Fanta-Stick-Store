@@ -23,17 +23,17 @@
 
 .btnGeneral {
     font-family: 'Poppins', sans-serif;
-    @apply group relative w-auto flex justify-center py-2 px-6 border border-transparent font-semibold rounded-md text-white text-xl bg-yellow-600 bg-opacity-80 hover:bg-yellow-700 hover:bg-opacity-75 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all;
+    @apply group relative w-auto flex justify-center py-2 px-6 border border-transparent font-semibold rounded-md shadow-md text-white text-xl bg-yellow-600 bg-opacity-80 hover:bg-yellow-700 hover:bg-opacity-75 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all;
 }
 
 .btnGeneralList {
     font-family: 'Poppins', sans-serif;
-    @apply group relative w-2/6 flex justify-center py-2 px-6 border border-transparent font-semibold rounded-md text-white text-xl bg-yellow-600 bg-opacity-80 hover:bg-yellow-700 hover:bg-opacity-75 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all;
+    @apply group relative w-2/6 flex justify-center py-2 px-6 border border-transparent font-semibold rounded-md shadow-md text-white text-xl bg-yellow-600 bg-opacity-80 hover:bg-yellow-700 hover:bg-opacity-75 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all;
 }
 
 .btnGoogle {
     font-family: 'Poppins', sans-serif;
-    @apply group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-gray-700 bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500;
+    @apply group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md shadow-md text-gray-700 bg-gray-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500;
 }
 
 .linkGeneral {
@@ -50,7 +50,7 @@
     font-family: 'Poppins', sans-serif;
     @apply w-auto justify-start py-2 px-6 border border-transparent font-semibold rounded-md text-white text-xl 
     bg-yellow-600 bg-opacity-80 hover:bg-yellow-700 hover:bg-opacity-75 focus:outline-none focus:ring-2 
-    focus:ring-offset-2 focus:ring-indigo-500 transition-all;
+    focus:ring-offset-2 focus:ring-indigo-500 transition-all shadow-md;
 }
 
 .linkGeneralNav {
@@ -60,5 +60,6 @@
 
 .linkGeneralList {
     font-family: 'Poppins', sans-serif;
-    @apply font-medium border-2 border-gray-300 text-gray-700 hover:bg-yellow-700 hover:bg-opacity-50 hover:text-white hover:border-white p-2 px-3 rounded-md transition-all;
+    @apply font-medium border-2 border-gray-300 text-gray-700 hover:bg-yellow-700 hover:bg-opacity-50 hover:text-white
+    hover:border-white p-2 px-3 rounded-md transition-all;
 }
