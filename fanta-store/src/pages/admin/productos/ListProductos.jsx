@@ -1,46 +1,33 @@
 import React, { useState, useEffect } from 'react'
 import 'styles/list.css'
-import axios from 'axios'
 import { nanoid } from 'nanoid';
+import 'react-toastify/dist/ReactToastify.css';
+import { obtenerProductos } from 'utils/api';
 
 const ListProductos = () => {
 
     const [mostarTable, setMostrarTable] = useState(false);
-
-    //useEffect(() => {
-        /* console.log(mostarTable) */ //muestra si el mostrar table es true o false
-    //}, [mostarTable])
-
     const [productos, setProductos] = useState([]);
+    const [ejecutarConsulta, setEjecutarConsulta] = useState(true);
 
     useEffect(() => {
-        const obtenerProductos = async () => {
-            const options = { method: 'GET', url: 'https://vast-waters-45728.herokuapp.com/vehicle/' }; //https://vast-waters-45728.herokuapp.com/vehicle/ db profe
-            await axios
-                .request(options)
-                .then(function (response) {
-                    setProductos(response.data);
-                })
-                .catch(function (error) {
-                    console.error(error);
-                });
-        };
+        // FUNCION PARA EL GET EN UTILS/API
         if (mostarTable) {
-            obtenerProductos();
+            obtenerProductos(setProductos, setEjecutarConsulta);
         }
     }, [mostarTable])
 
     return (
         <>
             <div className='px-6'>
-                <a href='/admin/productos' className='btnGeneralNav'><i className="fas fa-arrow-left"></i></a>
+                <a href='/admin/productos/' className='btnGeneralNav'><i className="fas fa-arrow-left"></i></a>
             </div>
             <div className='w-full h-full pt-10'>
                 <h1 className="tituloGeneral">Listado de Productos</h1>
                 <div className="flex items-center justify-center pt-2">
-                    <button value="list" id="btn-list-submit" type="submit" className='btnGeneral' onClick={() => setMostrarTable(!mostarTable)}>Listar</button>
+                    <button value="list" id="btn-list-submit" type="submit" className='btnGeneral' 
+                    onClick={() => setMostrarTable(!mostarTable)}>Listar</button>
                 </div>
-                {/* <TablaProductos listaProductos={productos}/> */}
                 {mostarTable &&
                     <TablaProductos listaProductos={productos} />
                 }
@@ -69,10 +56,10 @@ const TablaProductos = ({ listaProductos }) => {
                         {listaProductos.map((producto) => {
                             return (
                                 <tr key={nanoid()}>
-                                    <td>{producto.idProducto}</td>
-                                    <td>{producto.descripcion}</td>
-                                    <td>{producto.valorUnitario}</td>
-                                    <td>{producto.estado}</td>
+                                    <td>{producto.name}</td>
+                                    <td>{producto.brand}</td>
+                                    <td>{producto.model}</td>
+                                    <td>{producto.created}</td>
                                 </tr>
                             )
                         })}

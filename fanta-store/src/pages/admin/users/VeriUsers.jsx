@@ -34,7 +34,7 @@ const VeriUsers = () => {
                 <div className="flex items-center justify-center justify-items-start p-2">
                     <input className="inputGeneralList" type="=text" name="" placeholder="Buscar" />
                     <div className="flex items-center justify-items-end pl-2">
-                        <button className='btnGeneralList' /* onClick={() => setMostrarTable(!mostarTable)} */><i class="fas fa-search"></i></button>
+                        <button className='btnGeneralList' /* onClick={() => setMostrarTable(!mostarTable)} */><i className="fas fa-search"></i></button>
                     </div>
                 </div>
                 {/* <TablaUsuarios listaUsuarios={usuarios} /> */}

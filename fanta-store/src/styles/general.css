@@ -60,6 +60,5 @@
 
 .linkGeneralList {
     font-family: 'Poppins', sans-serif;
-    @apply font-medium border-2 border-gray-300 text-gray-700 hover:bg-yellow-700 hover:bg-opacity-50 hover:text-white
-    hover:border-white p-2 px-3 rounded-md transition-all;
+    @apply font-medium text-blue-800 hover:text-blue-500 transition-all;
 }

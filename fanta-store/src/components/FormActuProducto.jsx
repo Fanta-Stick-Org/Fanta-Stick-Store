@@ -1,9 +1,9 @@
-import React, { /* useEffect, useState, */ useRef } from 'react'
+import React, { useRef } from 'react'
 import { ToastContainer, toast } from 'react-toastify'; //para las alertas
 import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 
-const FormProducto = () => {
+const FormActuProducto = () => {
 
     const form = useRef(null);
 
@@ -23,7 +23,8 @@ const FormProducto = () => {
             url: 'https://vast-waters-45728.herokuapp.com/vehicle/create/', //url de mi base de datos
             headers: { 'Content-Type': 'application/json' },
             data: {
-                name: nuevoProducto.name, brand: nuevoProducto.brand, model: nuevoProducto.model
+                idproducto: nuevoProducto.name, descripcion: nuevoProducto.descripcion,
+                valorUnitario: nuevoProducto.valorUnitario, estado: nuevoProducto.estado
             },
         };
 
@@ -39,31 +40,37 @@ const FormProducto = () => {
             });
     };
 
+    /* let productosFilter = [llenarForm()]
+
+    useEffect(() => {
+        console.log('array form', productosFilter);
+    }, [productosFilter]) */
+
     return (
         <div className='flex sm:flex-col flex-row flex-nowrap justify-center sm:max-w-screen-sm h-full'>
             <form ref={form} onSubmit={submitForm} id="form-register-products">
                 <div className="formGeneral">
                     <label className="textoForm" htmlFor="idProducto">Id Producto </label>
-                    <input name="name" type="text" className="inputGeneral"  placeholder="Ej: 0001" required></input>
+                    <input name="idProducto" type="text" value='' className="inputGeneral" required placeholder="Ej: 0001"></input>
                 </div>
                 <div className="formGeneral">
                     <label className="textoForm" htmlFor="descripcion">Descripción </label>
-                    <input name="brand" type="text" className="inputGeneral" placeholder="Ej: Producto marca tamaño" required></input>
+                    <input name="descripcion" type="text" className="inputGeneral" placeholder="Ej: Producto marca tamaño" required></input>
                 </div>
                 <div className="formGeneral">
                     <label className="textoForm" htmlFor="valorUnitario">Valor Unitario </label>
-                    <input name="model" type="number" id="valorUnitario" min={1999} className="inputGeneral" placeholder="Ej: 10.000" required></input>
+                    <input name="valorUnitario" type="number" id="valorUnitario" min={0} className="inputGeneral" placeholder="Ej: 10.000" required></input>
                 </div>
-                {/* <div className="formGeneral">
+                <div className="formGeneral">
                     <label className="textoForm" htmlFor="estado">Estado </label>
                     <select name="estado" type="text" id="estado" defaultValue={0} required className="inputGeneral">
                         <option value={0} disabled>Seleccione...</option>
                         <option value="disponible">Disponible</option>
                         <option value="noDisponible">No Disponible</option>
                     </select>
-                </div> */}
+                </div>
                 <div className="formSubmit">
-                    <button id="btn-form-submit" type="submit" className='btnGeneral'>Enviar</button>
+                    <button onClick={submitForm} id="btn-form-submit" type="submit" className='btnGeneral'>Enviar</button>
                 </div>
             </form>
             <ToastContainer position="bottom-right" autoClose={4000} closeOnClick />
@@ -71,4 +78,4 @@ const FormProducto = () => {
     )
 }
 
-export default FormProducto
+export default FormActuProducto
