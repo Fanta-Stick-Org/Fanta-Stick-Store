@@ -16,17 +16,21 @@ const FormProducto = () => {
             nuevoProducto[key] = value;
         });
 
-        console.log('el nuevo producto: ',nuevoProducto)
+        console.log('el nuevo producto: ', nuevoProducto)
 
         const options = {
             method: 'POST',
-            url: '', //url de mi base de datos
+            url: 'http://localhost:4000/productos/create-product',
             headers: { 'Content-Type': 'application/json' },
-            data: { idproducto: nuevoProducto.idproducto, descripcion: nuevoProducto.descripcion, 
-                valorUnitario: nuevoProducto.valorUnitario, estado: nuevoProducto.estado},
+            data: {
+                idProducto: nuevoProducto.idProducto,
+                descripcion: nuevoProducto.descripcion,
+                valorUnitario: nuevoProducto.valorUnitario,
+                estado: nuevoProducto.estado
+            },
         };
 
-        await axios
+       await axios
             .request(options)
             .then(function (response) {
                 console.log(response.data);
@@ -65,7 +69,7 @@ const FormProducto = () => {
                     <button onClick={submitForm} id="btn-form-submit" type="submit" className='btnGeneral'>Enviar</button>
                 </div>
             </form>
-            <ToastContainer position="bottom-right" autoClose={2500} />
+            <ToastContainer position="bottom-right" autoClose={4000} />
         </div>
     )
 }
