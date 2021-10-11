@@ -9,7 +9,6 @@ import AuhtLayout from 'layouts/AuhtLayout'
 import Productos from 'pages/admin/Productos'
 import Ventas from 'pages/admin/Ventas'
 import ListProductos from 'pages/admin/productos/ListProductos'
-import ActuProductos from 'pages/admin/productos/ActuProductos'
 import RegisProducto from 'pages/admin/productos/RegisProducto'
 import VeriProductos from 'pages/admin/productos/VeriProductos'
 import RegisVentas from 'pages/admin/ventas/RegisVentas'
@@ -17,7 +16,6 @@ import ListVentas from 'pages/admin/ventas/ListVentas'
 import ActuVentas from 'pages/admin/ventas/ActuVentas'
 import VeriVentas from 'pages/admin/ventas/VeriVentas'
 import VeriUsers from 'pages/admin/users/VeriUsers'
-import ActuUsers from 'pages/admin/users/ActuUsers'
 import Perfil from 'pages/Perfil'
 import Vehiculos from 'pages/admin/productos/Vehiculos'
 
@@ -27,23 +25,17 @@ function App() {
     <Router>
       <Switch>
         <Route path={['/admin', '/admin/productos', '/admin/ventas', '/admin/perfil', '/admin/productos/registrar', '/admin/productos/listar',
-          '/admin/productos/actualizar', '/admin/productos/verificar', '/admin/ventas/registrar', '/admin/ventas/listar',
-          '/admin/ventas/actualizar', '/admin/ventas/verificar', '/admin/usuarios', '/admin/usuarios/actualizar']}>
+          '/admin/productos/actualizar', '/admin/productos/maestro', '/admin/ventas/registrar', '/admin/ventas/listar',
+          '/admin/ventas/actualizar', '/admin/ventas/verificar', '/admin/usuarios/maestro',]}>
           <PrivateLayout>
             <Switch>
-              <Route path='/admin/usuarios/actualizar'>
-                <ActuUsers />
-              </Route>
               <Route path='/admin/productos/registrar'>
                 <RegisProducto />
               </Route>
               <Route path='/admin/productos/listar'>
                 <ListProductos />
               </Route>
-              <Route path='/admin/productos/actualizar'>
-                <ActuProductos />
-              </Route>
-              <Route path='/admin/productos/verificar'>
+              <Route path='/admin/productos/maestro'>
                 <VeriProductos />
               </Route>
               <Route path='/admin/ventas/registrar'>
@@ -58,14 +50,14 @@ function App() {
               <Route path='/admin/ventas/verificar'>
                 <VeriVentas />
               </Route>
+              <Route path='/admin/usuarios/maestro'>
+                <VeriUsers />
+              </Route>
               <Route path='/admin/productos'>
                 <Productos />
               </Route>
               <Route path='/admin/ventas'>
                 <Ventas />
-              </Route>
-              <Route path='/admin/usuarios'>
-                <VeriUsers />
               </Route>
               <Route path='/admin/perfil'>
                 <Vehiculos />

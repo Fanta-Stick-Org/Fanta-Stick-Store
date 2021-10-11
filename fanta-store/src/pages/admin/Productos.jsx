@@ -8,7 +8,7 @@ const Productos = () => {
         <>
             <div className='flex flex-row justify-end mb-28'>
                 <div className='px-8'>
-                    <Link to='/admin/productos/verificar/' className='linkGeneralNav'>Verificar</Link>
+                    <Link to='/admin/productos/maestro/' className='linkGeneralNav'>Maestro</Link>
                     <Link to='/admin/productos/listar/' className='linkGeneralNav'>Listar</Link>
                     <Link to='/admin/productos/registrar/' className='linkGeneralNav'>Registrar</Link>
                 </div>
