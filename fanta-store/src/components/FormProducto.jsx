@@ -1,7 +1,7 @@
-import React, { /* useEffect, useState, */ useRef } from 'react'
-import { ToastContainer, toast } from 'react-toastify'; //para las alertas
+import React, { useRef } from 'react'
+import { ToastContainer } from 'react-toastify'; //para las alertas
 import 'react-toastify/dist/ReactToastify.css';
-import axios from 'axios';
+import { registrarProductos } from 'utils/api';
 
 const FormProducto = () => {
 
@@ -18,25 +18,7 @@ const FormProducto = () => {
 
         console.log('el nuevo producto: ', nuevoProducto)
 
-        const options = {
-            method: 'POST',
-            url: 'https://vast-waters-45728.herokuapp.com/vehicle/create/', //url de mi base de datos
-            headers: { 'Content-Type': 'application/json' },
-            data: {
-                name: nuevoProducto.name, brand: nuevoProducto.brand, model: nuevoProducto.model
-            },
-        };
-
-        await axios
-            .request(options)
-            .then(function (response) {
-                console.log(response.data);
-                toast.success('Producto agregado con éxito!!'); //se guarda en la base de datos si sale bien el toast debe mostrar .success
-            })
-            .catch(function (error) {
-                console.error(error);
-                toast.error('Error agregando el producto'); //se guarda en la base de datos si sale error el toast debe cambiar a .error
-            });
+        registrarProductos(nuevoProducto);
     };
 
     return (
@@ -44,7 +26,7 @@ const FormProducto = () => {
             <form ref={form} onSubmit={submitForm} id="form-register-products">
                 <div className="formGeneral">
                     <label className="textoForm" htmlFor="idProducto">Id Producto </label>
-                    <input name="name" type="text" className="inputGeneral"  placeholder="Ej: 0001" required></input>
+                    <input name="name" type="text" className="inputGeneral" placeholder="Ej: 0001" required></input>
                 </div>
                 <div className="formGeneral">
                     <label className="textoForm" htmlFor="descripcion">Descripción </label>

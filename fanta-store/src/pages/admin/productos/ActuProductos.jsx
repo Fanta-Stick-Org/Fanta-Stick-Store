@@ -1,5 +1,5 @@
 import React from 'react'
-import FormActuProducto from 'components/FormActuProducto'
+import FormProducto from 'components/FormProducto'
 
 const ActuProductos = () => {
     return (
@@ -10,7 +10,7 @@ const ActuProductos = () => {
             <div className='flex flex-col sm:flex-row flex-nowrap justify-center'>
                 <section className="flex flex-col">
                     <h1 className="tituloGeneral">Actualizar Productos</h1>
-                    <FormActuProducto />
+                    <FormProducto />
                 </section>
             </div>
         </>

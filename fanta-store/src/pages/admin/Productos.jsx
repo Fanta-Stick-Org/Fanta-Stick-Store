@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import producLogo from 'media/producto.png'
 import 'styles/principalPages.css'
 
@@ -7,10 +8,9 @@ const Productos = () => {
         <>
             <div className='flex flex-row justify-end mb-28'>
                 <div className='px-8'>
-                    <a href='/admin/productos/actualizar' className='linkGeneralNav'>Actualizar</a>
-                    <a href='/admin/productos/verificar' className='linkGeneralNav'>Verificar</a>
-                    <a href='/admin/productos/listar' className='linkGeneralNav'>Listar</a>
-                    <a href='/admin/productos/registrar' className='linkGeneralNav'>Registrar</a>
+                    <Link to='/admin/productos/verificar/' className='linkGeneralNav'>Verificar</Link>
+                    <Link to='/admin/productos/listar/' className='linkGeneralNav'>Listar</Link>
+                    <Link to='/admin/productos/registrar/' className='linkGeneralNav'>Registrar</Link>
                 </div>
             </div>
             <div>

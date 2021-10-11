@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-/* import 'styles/list.css' */
+import { Link } from 'react-router-dom';
 import axios from 'axios'
 import { ToastContainer, toast } from 'react-toastify'; //para las alertas
 import { obtenerProductos } from 'utils/api';
@@ -7,6 +7,7 @@ import { nanoid } from 'nanoid';
 import { Tooltip } from '@material-ui/core';
 import Dialog from '@mui/material/Dialog';
 import 'react-toastify/dist/ReactToastify.css';
+import { eliminarProducto } from 'utils/api';
 
 const VeriProductos = () => {
 
@@ -38,7 +39,7 @@ const VeriProductos = () => {
     return (
         <>
             <div className='px-6'>
-                <a href='/admin/productos/' className='btnGeneralNav'><i className="fas fa-arrow-left"></i></a>
+                <Link to='/admin/productos/' className='btnGeneralNav'><i className="fas fa-arrow-left"></i></Link>
             </div>
             <div className='h-full pt-10'>
                 <h1 className='tituloGeneral'>Administrador de productos</h1>
@@ -126,7 +127,7 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
         //enviar la info al backend
         const options = {
             method: 'PATCH',
-            url: `https://vast-waters-45728.herokuapp.com/vehicle/update`,
+            url: `https://vast-waters-45728.herokuapp.com/vehicle/${producto._id}/`,
             headers: { 'Content-Type': 'application/json' },
             data: { ...infoNuevoProducto },
         };
@@ -145,27 +146,6 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
             });
     };
 
-    const eliminarProducto = async () => {
-        //ELIMINAR DE DB
-        const options = {
-            method: 'DELETE',
-            url: 'https://vast-waters-45728.herokuapp.com/vehicle/delete/',
-            headers: { 'Content-Type': 'application/json' },
-            data: { id: producto._id },
-        };
-        await axios
-            .request(options)
-            .then(function (response) {
-                console.log(response.data);
-                setEjecutarConsulta(true);
-                toast.success('vehículo eliminado con éxito');
-            })
-            .catch(function (error) {
-                console.error(error);
-                toast.error('Error eliminando el vehículo');
-            });
-        setOpenDialog(false);
-    }
     return (
         <tr>
             {edit ? (
@@ -232,7 +212,7 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
                     <div className='flex flex-col p-8 bg-gray-200 shadow-md rounded-sm'>
                         <h1 className='text-gray-900 text-lg font-medium'>¿Está seguro de querer eliminar este producto?</h1>
                         <div className='flex w-full items-center justify-center mt-4'>
-                            <button onClick={() => eliminarProducto()} className='mx-2 px-4 py-2 bg-green-400 hover:bg-green-500 
+                            <button onClick={() => eliminarProducto(producto, setEjecutarConsulta)} className='mx-2 px-4 py-2 bg-green-400 hover:bg-green-500 
                             transition-all text-white rounded-md shadow-md '>Sí</button>
                             <button onClick={() => setOpenDialog(false)} className='mx-2 px-4 py-2 bg-red-400 hover:bg-red-500 
                             transition-all text-white rounded-md shadow-md'>No</button>
