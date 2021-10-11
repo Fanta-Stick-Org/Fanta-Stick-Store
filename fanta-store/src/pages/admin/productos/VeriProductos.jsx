@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
-import axios from 'axios'
-import { ToastContainer, toast } from 'react-toastify'; //para las alertas
+import { ToastContainer } from 'react-toastify'; //para las alertas
+import 'react-toastify/dist/ReactToastify.css';
 import { obtenerProductos } from 'utils/api';
 import { nanoid } from 'nanoid';
 import { Tooltip } from '@material-ui/core';
 import Dialog from '@mui/material/Dialog';
-import 'react-toastify/dist/ReactToastify.css';
 import { eliminarProducto } from 'utils/api';
+import { actualizarProducto } from 'utils/api';
 
 const VeriProductos = () => {
 
@@ -42,7 +42,7 @@ const VeriProductos = () => {
                 <Link to='/admin/productos/' className='btnGeneralNav'><i className="fas fa-arrow-left"></i></Link>
             </div>
             <div className='h-full pt-10'>
-                <h1 className='tituloGeneral'>Administrador de productos</h1>
+                <h1 className='tituloGeneral'>Administrador de Productos</h1>
                 <div className="flex items-center justify-center justify-items-start p-2">
                     <input className="inputGeneralList" onChange={(e) => setBusqueda(e.target.value)} value={busqueda} type="=text" name="" placeholder="Buscar" />
                     <div className="flex items-center justify-items-end pl-2">
@@ -123,29 +123,6 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
         model: producto.model,
     });
 
-    const actualizarProducto = async () => {
-        //enviar la info al backend
-        const options = {
-            method: 'PATCH',
-            url: `https://vast-waters-45728.herokuapp.com/vehicle/${producto._id}/`,
-            headers: { 'Content-Type': 'application/json' },
-            data: { ...infoNuevoProducto },
-        };
-
-        await axios
-            .request(options)
-            .then(function (response) {
-                console.log(response.data);
-                toast.success('Producto modificado con éxito');
-                setEdit(false);
-                setEjecutarConsulta(true);
-            })
-            .catch(function (error) {
-                toast.error('Error modificando el producto');
-                console.error(error);
-            });
-    };
-
     return (
         <tr>
             {edit ? (
@@ -181,7 +158,7 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
                         <>
                             <Tooltip title='Confirmar Edición' arrow placement='bottom'>
                                 <button type='submit'>
-                                    <i onClick={() => actualizarProducto()} className='fas fa-check p-2 border-2 border-green-300 rounded-md 
+                                    <i onClick={() => actualizarProducto(infoNuevoProducto, setEjecutarConsulta, setEdit)} className='fas fa-check p-2 border-2 border-green-300 rounded-md 
                                     text-green-500 hover:text-green-700 hover:bg-green-500 hover:bg-opacity-20 hover:border-green-50
                                     transition-all'></i>
                                 </button>

@@ -26,7 +26,7 @@ const FormProducto = () => {
             <form ref={form} onSubmit={submitForm} id="form-register-products">
                 <div className="formGeneral">
                     <label className="textoForm" htmlFor="idProducto">Id Producto </label>
-                    <input name="name" type="text" className="inputGeneral" placeholder="Ej: 0001" required></input>
+                    <input name="name" type="text" className="inputGeneral"  placeholder="Ej: 0001" required></input>
                 </div>
                 <div className="formGeneral">
                     <label className="textoForm" htmlFor="descripcion">Descripción </label>

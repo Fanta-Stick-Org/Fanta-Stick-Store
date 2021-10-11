@@ -139,7 +139,7 @@ const FilaVehiculo = ({ vehiculo, setEjecutarConsulta }) => {
     //enviar la info al backend
     const options = {
       method: 'PATCH',
-      url: `https://vast-waters-45728.herokuapp.com/vehicle/${vehiculo._id}/`,
+      url: `https://vast-waters-45728.herokuapp.com/vehicle/editar/`,
       headers: { 'Content-Type': 'application/json' },
       data: { ...infoNuevoVehiculo },
     };

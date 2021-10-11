@@ -1,16 +1,34 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { Link } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'; //para las alertas
+import 'react-toastify/dist/ReactToastify.css';
+import { registrarProductos } from 'utils/api';
 
 const Registro = () => {
+
+    const form = useRef(null);
+
+    const submitForm = (e) => {
+        e.preventDefault();
+        const formData = new FormData(form.current);
+        const nuevousuario = {};
+        formData.forEach((value, key) => {
+            nuevousuario[key] = value;
+        })
+        //se guarda en la base de datos si sale bien el toast debe mostrar .success
+        console.log('datos guardados', nuevousuario)
+        registrarProductos(nuevousuario);
+
+    };
     return (
         <>
             <h2 className='tituloGeneral'>Crea tu cuenta</h2>
-            <form className='mt-8 space-y-6'>
+            <form ref={form} onSubmit={submitForm} className='mt-8 space-y-6'>
                 <div className='rounded-md shadow-sm grid grid-cols-2 gap-2'>
                     <label htmlFor='nombre'>
                         Nombre
                         <input
-                            name='nombre'
+                            name='name'
                             type='text'
                             autoComplete='email'
                             required
@@ -21,7 +39,7 @@ const Registro = () => {
                     <label htmlFor='apellido'>
                         Apellido
                         <input
-                            name='apellido'
+                            name='brand'
                             type='text'
                             required
                             className='inputGeneral'
@@ -31,14 +49,15 @@ const Registro = () => {
                     <label htmlFor='telefono'>
                         Teléfono
                         <input
-                            name='telefono'
-                            type='tel'
+                            name='model'
+                            type='number'
+                            /* type='tel' */
                             required
                             className='inputGeneral'
                             placeholder='3066151012'
                         />
                     </label>
-                    <label htmlFor='nacimiento'>
+                    {/* <label htmlFor='nacimiento'>
                         Fecha de Nacimiento
                         <input
                             name='nacimiento'
@@ -64,18 +83,15 @@ const Registro = () => {
                             required
                             className='inputGeneral'
                         />
-                    </label>
+                    </label> */}
                 </div>
 
                 <div>
                     <button type='submit' className='btnGeneral'>
                         <span className='absolute left-0 inset-y-0 flex items-center pl-3'>
-                            {/* <LockClosedIcon
-                                className='h-5 w-5 text-indigo-500 group-hover:text-indigo-400'
-                                aria-hidden='true'
-                            /> */}
+                            Registrar
                         </span>
-                        <Link to='/admin'>Regístrate</Link>
+                        {/* <Link to='/admin'>Regístrate</Link> */}
                     </button>
                 </div>
 
@@ -86,6 +102,7 @@ const Registro = () => {
                     </Link>
                 </div>
             </form>
+            <ToastContainer position="bottom-right" autoClose={4000} closeOnClick />
         </>
     )
 }

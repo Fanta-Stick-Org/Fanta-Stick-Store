@@ -1,6 +1,7 @@
-import React, { /* useEffect, useState, */ useRef } from 'react'
-import { /* ToastContainer, */ toast } from 'react-toastify'; //para las alertas
+import React, { useRef } from 'react'
+import { ToastContainer } from 'react-toastify'; //para las alertas
 import 'react-toastify/dist/ReactToastify.css';
+import { registrarProductos } from 'utils/api';
 
 const FormUsers = () => {
 
@@ -15,8 +16,8 @@ const FormUsers = () => {
         })
         //se guarda en la base de datos si sale bien el toast debe mostrar .success
         console.log('datos guardados', nuevousuario)
-        toast.success('Producto registrado con éxito!!');
-        //se guarda en la base de datos si sale error el toast debe cambiar a .error
+        registrarProductos(nuevousuario);
+
     };
 
     return (
@@ -24,17 +25,17 @@ const FormUsers = () => {
             <form ref={form} onSubmit={submitForm} id="form-register-products">
                 <div className="formGeneral">
                     <label className="textoForm" htmlFor="idUsuario">Id Usuario </label>
-                    <input className="inputGeneral" name="idUsuario" type="text" id="idUsuario" placeholder="" required></input>
+                    <input className="inputGeneral" name="name" type="text" id="idUsuario" placeholder="" required></input>
                 </div>
                 <div className="formGeneral">
                     <label className="textoForm" htmlFor="nombre">Nombre </label>
-                    <input className="inputGeneral" name="nombre" type="text" id="nombre" placeholder="" required></input>
+                    <input className="inputGeneral" name="brand" type="text" id="nombre" placeholder="" required></input>
                 </div>
                 <div className="formGeneral">
                     <label className="textoForm" htmlFor="email">Email </label>
-                    <input className="inputGeneral" name="email" type="email" id="email" placeholder="dev@test.com" required></input>
+                    <input className="inputGeneral" name="mddel" type='number' /* type="email" */ id="email" placeholder="dev@test.com" required></input>
                 </div>
-                <div className="formGeneral">
+                {/*  <div className="formGeneral">
                     <label className="textoForm" htmlFor="roles">Roles </label>
                     <select className="inputGeneral" name="roles" type="text" id="roles" defaultValue={0} required>
                         <option value={0} disabled>Seleccione...</option>
@@ -51,11 +52,12 @@ const FormUsers = () => {
                         <option value="no Autorizado">No autorizado</option>
                         <option value="autorizado">Autorizado</option>
                     </select>
-                </div>
+                </div> */}
                 <div className="formSubmit">
-                    <button onClick={submitForm} value="Login" id="btn-form-submit" type="button" className='btnGeneral'>Enviar</button>
+                    <button value="Login" id="btn-form-submit" type="submit" className='btnGeneral'>Enviar</button>
                 </div>
             </form>
+            <ToastContainer position="bottom-right" autoClose={4000} closeOnClick />
         </div>
     )
 }
