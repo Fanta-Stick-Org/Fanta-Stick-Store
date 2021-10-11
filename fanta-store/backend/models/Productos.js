@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 const ProductsSchema = new Schema({
 
-    idProducto: {
+    _id: {
         type: String,
         // required: true
       },

@@ -14,7 +14,7 @@ const ListProductos = () => {
 
     useEffect(() => {
         const obtenerProductos = async () => {
-            const options = { method: 'GET', url: '' };
+            const options = { method: 'GET', url: 'http://localhost:4000/productos/'};
             await axios
                 .request(options)
                 .then(function (response) {
@@ -68,7 +68,7 @@ const TablaProductos = ({ listaProductos }) => {
                         {listaProductos.map((producto) => {
                             return (
                                 <tr>
-                                    <td>{producto.idProducto}</td>
+                                    <td>{producto._id}</td>
                                     <td>{producto.descripcion}</td>
                                     <td>{producto.valorUnitario}</td>
                                     <td>{producto.estado}</td>

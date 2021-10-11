@@ -29,8 +29,8 @@ router.route('/').get((req, res) => {
 })
 
 // Get Single Product
-router.route('/edit-product/:id').get((req, res) => {
-  productSchema.findById(req.params.id, (error, data) => {
+router.route('/edit-product/:idProducto').get((req, res) => {
+  productSchema.findById(req.params.idProducto, (error, data) => {
     if (error) {
       return next(error)
     } else {

@@ -23,7 +23,7 @@ const FormProducto = () => {
             url: 'http://localhost:4000/productos/create-product',
             headers: { 'Content-Type': 'application/json' },
             data: {
-                idProducto: nuevoProducto.idProducto,
+                _id: nuevoProducto._id,
                 descripcion: nuevoProducto.descripcion,
                 valorUnitario: nuevoProducto.valorUnitario,
                 estado: nuevoProducto.estado
@@ -47,7 +47,7 @@ const FormProducto = () => {
             <form ref={form} onSubmit={submitForm} id="form-register-products">
                 <div className="formGeneral">
                     <label className="textoForm" htmlFor="idProducto">Id Producto </label>
-                    <input name="idProducto" type="text" className="inputGeneral" required placeholder="Ej: 0001"></input>
+                    <input name="_id" type="text" className="inputGeneral" required placeholder="Ej: 0001"></input>
                 </div>
                 <div className="formGeneral">
                     <label className="textoForm" htmlFor="descripcion">Descripción </label>
