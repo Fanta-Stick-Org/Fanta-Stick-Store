@@ -99,11 +99,11 @@ const TablaProductos = ({ listaProductos, setEjecutarConsulta, busqueda }) => {
                     {productosFilter.map((producto) => {
                         return (
                             <>
-                                <div key={nanoid()} className='bg-green-400 hover:bg-gray-400 m-2 shadow-xl flex flex-col p-2 rounded-xl'>
-                                    <span>{producto.name}</span>
-                                    <span>{producto.brand}</span>
-                                    <span>{producto.model}</span>
-                                    <span>{producto.created}</span>
+                                <div className='bg-green-400 hover:bg-gray-400 m-2 shadow-xl flex flex-col p-2 rounded-xl'>
+                                    <span>{producto._id}</span>
+                                    <span>{producto.descripcion}</span>
+                                    <span>{producto.valorUnitario}</span>
+                                    <span>{producto.estado}</span>
                                 </div>
                             </>
                         )
@@ -120,9 +120,9 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
     const [openDialog, setOpenDialog] = useState(false);
     const [infoNuevoProducto, setInfoNuevoProducto] = useState({
         _id: producto._id,
-        name: producto.name,
-        brand: producto.brand,
-        model: producto.model,
+        descripcion: producto.descripcion,
+        valorUnitario: producto.valorUnitario,
+        estado: producto.estado,
     });
 
     return (
@@ -130,37 +130,38 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
             {edit ? (
                 <>
                     <td>{infoNuevoProducto._id}</td>
-                    <td><input className='inputGeneral' type="text" value={infoNuevoProducto.name}
-                        onChange={(e) => setInfoNuevoProducto({ ...infoNuevoProducto, name: e.target.value })}/* disabled */ /></td>
-                    <td><input className='inputGeneral' type="text" value={infoNuevoProducto.brand}
-                        onChange={(e) => setInfoNuevoProducto({ ...infoNuevoProducto, brand: e.target.value })} /></td>
-                    <td><input className='inputGeneral' type="number" value={infoNuevoProducto.model}
-                        onChange={(e) => setInfoNuevoProducto({ ...infoNuevoProducto, model: e.target.value })}/* min={0} */ /></td>
-                    {/* <td>
-                        <select className='inputGeneral' defaultValue={producto.estado}>
+                    <td>
+                        <input className='inputGeneral' type="text" value={infoNuevoProducto.descripcion}
+                            onChange={(e) => setInfoNuevoProducto({ ...infoNuevoProducto, descripcion: e.target.value })} />
+                    </td>
+                    <td><input className='inputGeneral' type="text" value={infoNuevoProducto.valorUnitario}
+                        onChange={(e) => setInfoNuevoProducto({ ...infoNuevoProducto, valorUnitario: e.target.value })} />
+                    </td>
+                    <td>
+                        <select className='inputGeneral' defaultValue={infoNuevoProducto.estado}
+                            onChange={(e) => setInfoNuevoProducto({ ...infoNuevoProducto, estado: e.target.value })}>
                             <option disabled>Seleccione...</option>
-                            <option value="disponible">Disponible</option>
-                            <option value="noDisponible">No Disponible</option>
+                            <option value="Disponible">Disponible</option>
+                            <option value="No Disponible">No Disponible</option>
                         </select>
-                    </td> */}
+                    </td>
                 </>
 
             ) : (
                 <>
-                    <td>{producto._id.slice(20)}</td>
-                    <td>{producto.name}</td>
-                    <td>{producto.brand}</td>
-                    <td>{producto.model}</td>
+                    <td>{producto._id}</td>
+                    <td>{producto.descripcion}</td>
+                    <td>{producto.valorUnitario}</td>
+                    <td>{producto.estado}</td>
                 </>
             )}
-            {/* <td><Link to={`/admin/productos/actualizar/${producto.idProducto}`}>Actualizar</Link></td> */}
             <td>
                 <div className='flex w-full justify-evenly'>
                     {edit ? (
                         <>
                             <Tooltip title='Confirmar Edición' arrow placement='bottom'>
                                 <button type='submit'>
-                                    <i onClick={() => actualizarProducto(infoNuevoProducto, setEjecutarConsulta, setEdit)} className='fas fa-check p-2 border-2 border-green-300 rounded-md 
+                                    <i onClick={() => actualizarProducto(infoNuevoProducto, producto, setEjecutarConsulta, setEdit)} className='fas fa-check p-2 border-2 border-green-300 rounded-md 
                                     text-green-500 hover:text-green-700 hover:bg-green-500 hover:bg-opacity-20 hover:border-green-50
                                     transition-all'></i>
                                 </button>
@@ -173,16 +174,16 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
                         </>
                     ) : (
                         <>
-                            <Tooltip title='Editar Producto' arrow placement='bottom'>
-                                <i onClick={() => setEdit(!edit)} className='fas fa-pencil-alt p-2 border-2 border-gray-300 rounded-md 
+
+                            <i onClick={() => setEdit(!edit)} className='fas fa-pencil-alt p-2 border-2 border-gray-300 rounded-md 
                                 text-yellow-600 hover:text-yellow-800 hover:bg-green-500 hover:bg-opacity-20 hover:border-green-100-100
                                 transition-all'></i>
-                            </Tooltip>
-                            <Tooltip title='Eliminar Producto' arrow placement='bottom'>
-                                <i onClick={() => setOpenDialog(true)} className='fas fa-trash p-2 border-2 border-red-300 rounded-md
+
+
+                            <i onClick={() => setOpenDialog(true)} className='fas fa-trash p-2 border-2 border-red-300 rounded-md
                                 text-red-600 hover:text-red-700 hover:bg-green-500 hover:bg-opacity-20 hover:border-red-100
                                 transition-all'></i>
-                            </Tooltip>
+
                         </>
                     )}
 

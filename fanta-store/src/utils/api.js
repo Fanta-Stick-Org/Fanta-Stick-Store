@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 export const obtenerProductos = async (setProductos, setEjecutarConsulta = () => {}) => {
     const options = {
         method: 'GET',
-        url: 'https://vast-waters-45728.herokuapp.com/vehicle/'
+        url: 'http://localhost:5000/productos'
     };
     await axios
         .request(options)
@@ -25,15 +25,16 @@ export const obtenerProductos = async (setProductos, setEjecutarConsulta = () =>
 export const registrarProductos = async (nuevoProducto) => {
     const options = {
         method: 'POST',
-        url: 'https://vast-waters-45728.herokuapp.com/vehicle/create/', //url de mi base de datos
+        url: 'http://localhost:5000/productos/nuevo', //url de mi base de datos
         headers: {
             'Content-Type': 'application/json'
         },
         data: {
-            name: nuevoProducto.name,
-            brand: nuevoProducto.brand,
-            model: nuevoProducto.model
-        },
+            _id: nuevoProducto._id,
+            descripcion: nuevoProducto.descripcion,
+            valorUnitario: nuevoProducto.valorUnitario,
+            estado: nuevoProducto.estado
+        }
     };
 
     await axios
@@ -49,17 +50,18 @@ export const registrarProductos = async (nuevoProducto) => {
 }
 
 //METODO PATCH
-export const actualizarProducto = async (infoNuevoProducto, setEjecutarConsulta = () => {}, setEdit = () => {}) => {
+export const actualizarProducto = async (infoNuevoProducto, producto, setEjecutarConsulta = () => {}, setEdit = () => {}) => {
     //enviar la info al backend
     const options = {
         method: 'PATCH',
-        url: `https://vast-waters-45728.herokuapp.com/vehicle/${infoNuevoProducto._id}/`, 
+        url: `http://localhost:5000/productos/editar`,
         //`https://vast-waters-45728.herokuapp.com/vehicle/${infoNuevoProducto._id}/`
         headers: {
             'Content-Type': 'application/json'
         },
         data: {
-            ...infoNuevoProducto
+            ...infoNuevoProducto,
+            _id: producto._id
         },
     };
 
@@ -81,12 +83,12 @@ export const actualizarProducto = async (infoNuevoProducto, setEjecutarConsulta 
 export const eliminarProducto = async (producto, setEjecutarConsulta = () => {}) => {
     const options = {
         method: 'DELETE',
-        url: 'https://vast-waters-45728.herokuapp.com/vehicle/delete/',
+        url: 'http://localhost:5000/productos/eliminar',
         headers: {
             'Content-Type': 'application/json'
         },
         data: {
-            id: producto._id
+            _id: producto._id
         },
     };
     await axios

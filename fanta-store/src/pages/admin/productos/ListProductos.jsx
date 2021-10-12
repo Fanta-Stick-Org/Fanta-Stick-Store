@@ -56,10 +56,10 @@ const TablaProductos = ({ listaProductos }) => {
                         {listaProductos.map((producto) => {
                             return (
                                 <tr key={nanoid()}>
-                                    <td>{producto.name}</td>
-                                    <td>{producto.brand}</td>
-                                    <td>{producto.model}</td>
-                                    <td>{producto.created}</td>
+                                    <td>{producto._id}</td>
+                                    <td>{producto.descripcion}</td>
+                                    <td>{producto.valorUnitario}</td>
+                                    <td>{producto.estado}</td>
                                 </tr>
                             )
                         })}
