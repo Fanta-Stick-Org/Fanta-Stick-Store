@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'; //para las alertas
 import 'react-toastify/dist/ReactToastify.css';
-import { registrarProductos } from 'utils/api';
+import { registrarUsuarios } from 'utils/apiUsuarios';
 
 const Registro = () => {
 
@@ -11,13 +11,13 @@ const Registro = () => {
     const submitForm = (e) => {
         e.preventDefault();
         const formData = new FormData(form.current);
-        const nuevousuario = {};
+        const nuevoUsuario = {};
         formData.forEach((value, key) => {
-            nuevousuario[key] = value;
+            nuevoUsuario[key] = value;
         })
         //se guarda en la base de datos si sale bien el toast debe mostrar .success
-        console.log('datos guardados', nuevousuario)
-        registrarProductos(nuevousuario);
+        console.log('datos guardados', nuevoUsuario)
+        registrarUsuarios(nuevoUsuario);
 
     };
     return (
@@ -25,73 +25,63 @@ const Registro = () => {
             <h2 className='tituloGeneral'>Crea tu cuenta</h2>
             <form ref={form} onSubmit={submitForm} className='mt-8 space-y-6'>
                 <div className='rounded-md shadow-sm grid grid-cols-2 gap-2'>
-                    <label htmlFor='nombre'>
-                        Nombre
+                    <label htmlFor='_id'>
+                        Id Usuario
+                        <input
+                            name='_id'
+                            type='text'
+                            className='inputGeneral'
+                            placeholder='1000000000'
+                            required
+                        />
+                    </label>
+                    <label htmlFor='name'>
+                        Nombre Completo
                         <input
                             name='name'
                             type='text'
-                            autoComplete='email'
-                            required
                             className='inputGeneral'
-                            placeholder='Nombre'
-                        />
-                    </label>
-                    <label htmlFor='apellido'>
-                        Apellido
-                        <input
-                            name='brand'
-                            type='text'
+                            placeholder='Juan Murillo'
                             required
-                            className='inputGeneral'
-                            placeholder='Apellido'
-                        />
-                    </label>
-                    <label htmlFor='telefono'>
-                        Teléfono
-                        <input
-                            name='model'
-                            type='number'
-                            /* type='tel' */
-                            required
-                            className='inputGeneral'
-                            placeholder='3066151012'
-                        />
-                    </label>
-                    {/* <label htmlFor='nacimiento'>
-                        Fecha de Nacimiento
-                        <input
-                            name='nacimiento'
-                            type='date'
-                            required
-                            className='inputGeneral'
                         />
                     </label>
                     <label htmlFor='correo'>
                         Correo electrónico
                         <input
-                            name='correo'
+                            name='email'
                             type='email'
-                            required
                             className='inputGeneral'
+                            required
                         />
                     </label>
-                    <label htmlFor='nacimiento'>
+                    <label htmlFor='rol'>
+                        Rol
+                        <select name="rol" type="text" defaultValue={0} className="inputGeneral" required>
+                            <option value={0} disabled>Seleccione...</option>
+                            <option value="Vendedor">Vendedor</option>
+                        </select>
+                    </label>
+                    <label htmlFor='estadoUsuario'>
+                        Estado
+                        <select name="estadoUsuario" type="text" defaultValue={0} className="inputGeneral" required>
+                            <option value={0} disabled>Seleccione...</option>
+                            <option value="Pendiente">Pendiente</option>
+                        </select>
+                    </label>
+                    <label htmlFor='password'>
                         Contraseña
                         <input
-                            name='contraseña'
+                            name='password'
                             type='password'
-                            required
                             className='inputGeneral'
+                            required
                         />
-                    </label> */}
+                    </label>
                 </div>
 
                 <div>
                     <button type='submit' className='btnGeneral'>
-                        <span className='absolute left-0 inset-y-0 flex items-center pl-3'>
-                            Registrar
-                        </span>
-                        {/* <Link to='/admin'>Regístrate</Link> */}
+                        Registrar
                     </button>
                 </div>
 

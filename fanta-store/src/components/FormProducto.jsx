@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { ToastContainer } from 'react-toastify'; //para las alertas
 import 'react-toastify/dist/ReactToastify.css';
-import { registrarProductos } from 'utils/api';
+import { registrarProductos } from 'utils/apiProductos';
 
 const FormProducto = () => {
 
@@ -38,7 +38,7 @@ const FormProducto = () => {
                 </div>
                 <div className="formGeneral">
                     <label className="textoForm" htmlFor="estado">Estado </label>
-                    <select name="estado" type="text" id="estado" defaultValue={0} className="inputGeneral" required>
+                    <select name="estado" type="text" defaultValue={0} className="inputGeneral" required>
                         <option value={0} disabled>Seleccione...</option>
                         <option value="Disponible">Disponible</option>
                         <option value="No Disponible">No Disponible</option>

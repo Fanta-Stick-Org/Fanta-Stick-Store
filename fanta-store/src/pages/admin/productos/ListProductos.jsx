@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import 'styles/list.css'
 import { nanoid } from 'nanoid';
-import { obtenerProductos } from 'utils/api';
+import { obtenerProductos } from 'utils/apiProductos';
 
 const ListProductos = () => {
 

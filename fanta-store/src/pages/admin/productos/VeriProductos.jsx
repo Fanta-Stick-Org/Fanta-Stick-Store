@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify'; //para las alertas
 import 'react-toastify/dist/ReactToastify.css';
-import { obtenerProductos } from 'utils/api';
+import { obtenerProductos } from 'utils/apiProductos';
 import { nanoid } from 'nanoid';
 import { Tooltip } from '@material-ui/core';
 import Dialog from '@mui/material/Dialog';
-import { eliminarProducto } from 'utils/api';
-import { actualizarProducto } from 'utils/api';
+import { eliminarProducto } from 'utils/apiProductos';
+import { actualizarProducto } from 'utils/apiProductos';
 
 const VeriProductos = () => {
 

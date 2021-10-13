@@ -18,10 +18,12 @@ const Sidebar = () => {
                 </div>
             </div>
             <div>
-                <button className='btnGeneral'>
-                    <i className="fas fa-sign-out-alt pt-1 pr-2"> </i>
-                    Cerrar Sesion
-                </button>
+                <Link to='/'>
+                    <button className='btnGeneral'>
+                        <i className="fas fa-sign-out-alt pt-1 pr-2"> </i>
+                        Cerrar Sesion
+                    </button>
+                </Link>
             </div>
         </nav>
     )

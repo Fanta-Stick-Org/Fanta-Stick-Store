@@ -3,7 +3,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import axios from 'axios';
 import { nanoid } from 'nanoid';
 import { Dialog, Tooltip } from '@material-ui/core';
-import { obtenerVehiculos } from 'utils/api';
+import { obtenerVehiculos } from 'utils/apiProductos';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Vehiculos = () => {
