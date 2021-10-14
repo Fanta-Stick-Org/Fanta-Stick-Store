@@ -54,8 +54,8 @@ const FormProducto = () => {
                     </div>
                     <div className="formGeneral">
                         <label className="textoGeneral" htmlFor="estado">Estado </label>
-                        <select name="estado" type="text" defaultValue={0} className="inputGeneral" required>
-                            <option value={0} disabled>Seleccione...</option>
+                        <select name="estado" type="text" defaultValue='' className="inputGeneral" required>
+                            <option value='' disabled>Seleccione...</option>
                             <option value="Disponible">Disponible</option>
                             <option value="No Disponible">No Disponible</option>
                         </select>

@@ -25,6 +25,7 @@ const ListVentas = () => {
             setEjecutarConsulta(false);
         }
     }, [mostarTable])
+    console.log(ventas);
 
     return (
         <>
@@ -76,7 +77,7 @@ const TablaVentas = ({ listaVentas }) => {
                                     <td>{venta.estadoVenta}</td>
                                     <td>{venta.idCliente}</td>
                                     <td>{venta.nameCliente}</td>
-                                    <td>{venta.descripcion.descripcion}</td>
+                                    <td>{venta.descripcion}</td>
                                     <td>{venta.cantidad}</td>
                                     <td>{venta.valorTotal}</td>
                                 </tr>

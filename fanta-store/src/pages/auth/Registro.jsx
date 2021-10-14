@@ -72,15 +72,15 @@ const Registro = () => {
                     </label>
                     <label htmlFor='rol'>
                         Rol
-                        <select name="rol" type="text" defaultValue={0} className="inputGeneral" required>
-                            <option value={0} disabled>Seleccione...</option>
+                        <select name="rol" type="text" defaultValue='' className="inputGeneral" required>
+                            <option value='' disabled>Seleccione...</option>
                             <option value="Vendedor">Vendedor</option>
                         </select>
                     </label>
                     <label htmlFor='estadoUsuario'>
                         Estado
-                        <select name="estadoUsuario" type="text" defaultValue={0} className="inputGeneral" required>
-                            <option value={0} disabled>Seleccione...</option>
+                        <select name="estadoUsuario" type="text" defaultValue='' className="inputGeneral" required>
+                            <option value='' disabled>Seleccione...</option>
                             <option value="Pendiente">Pendiente</option>
                         </select>
                     </label>

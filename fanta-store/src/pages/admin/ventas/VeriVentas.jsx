@@ -117,7 +117,7 @@ const TablaVentas = ({ listaVentas, setEjecutarConsulta, busqueda }) => {
                                 <span>{venta.estadoVenta}</span>
                                 <span>{venta.idCliente}</span>
                                 <span>{venta.nameCliente}</span>
-                                <span>{venta.descripcion.descripcion}</span>
+                                <span>{venta.descripcion}</span>
                                 <span>{venta.cantidad}</span>
                                 <span>{venta.valorTotal}</span>
                             </div>
