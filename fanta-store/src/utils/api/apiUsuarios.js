@@ -5,20 +5,15 @@ import {
 import 'react-toastify/dist/ReactToastify.css';
 
 //METODO GET 
-export const obtenerUsuarios = async (setUsuarios, setEjecutarConsulta = () => {}) => {
+export const obtenerUsuarios = async (successCallback, errorCallback) => {
     const options = {
         method: 'GET',
         url: 'http://localhost:5000/usuarios/'
     };
     await axios
         .request(options)
-        .then(function (response) {
-            setUsuarios(response.data);
-        })
-        .catch(function (error) {
-            console.error(error);
-        });
-    setEjecutarConsulta(false);
+        .then(successCallback)
+        .catch(errorCallback);
 };
 
 //METODO POST

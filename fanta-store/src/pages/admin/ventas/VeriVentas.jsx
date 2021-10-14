@@ -2,12 +2,10 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify'; //para las alertas
 import 'react-toastify/dist/ReactToastify.css';
-import { obtenerVentas } from 'utils/apiVentas';
+import { obtenerVentas, actualizarVenta, eliminarVenta } from 'utils/api/apiVentas';
 import { nanoid } from 'nanoid';
 import { Tooltip } from '@material-ui/core';
 import Dialog from '@mui/material/Dialog';
-import { eliminarVenta } from 'utils/apiVentas';
-import { actualizarVenta } from 'utils/apiVentas';
 
 const VeriUsers = () => {
 
@@ -145,7 +143,7 @@ const Filaventa = ({ venta, setEjecutarConsulta }) => {
                     <td>{infoNuevaVenta._id}</td>
                     <td><input className='inputGeneral' type="datetime-local" value={infoNuevaVenta.fechaVenta}
                         onChange={(e) => setInfoNuevaVenta({ ...infoNuevaVenta, fechaVenta: e.target.value })} disabled /></td>
-                    <td><input className='inputGeneral' type="text" value={infoNuevaVenta.vendedor}
+                    <td><input className='inputGeneral' type="text" value={infoNuevaVenta.vendedor.name}
                         onChange={(e) => setInfoNuevaVenta({ ...infoNuevaVenta, vendedor: e.target.value })} disabled /></td>
                     <td>
                         <select className='inputGeneral' defaultValue={infoNuevaVenta.estadoVenta}
@@ -160,7 +158,7 @@ const Filaventa = ({ venta, setEjecutarConsulta }) => {
                         onChange={(e) => setInfoNuevaVenta({ ...infoNuevaVenta, idCliente: e.target.value })} /></td>
                     <td><input className='inputGeneral' type="text" value={infoNuevaVenta.nameCliente}
                         onChange={(e) => setInfoNuevaVenta({ ...infoNuevaVenta, nameCliente: e.target.value })} /></td>
-                    <td><input className='inputGeneral' type="text" value={infoNuevaVenta.descripcion}
+                    <td><input className='inputGeneral' type="text" value={infoNuevaVenta.descripcion.descripcion}
                         onChange={(e) => setInfoNuevaVenta({ ...infoNuevaVenta, descripcion: e.target.value })} disabled/></td>
                     <td><input className='inputGeneral' type="number" value={infoNuevaVenta.cantidad}
                         onChange={(e) => setInfoNuevaVenta({ ...infoNuevaVenta, cantidad: e.target.value })} /></td>

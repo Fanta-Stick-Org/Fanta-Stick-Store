@@ -2,18 +2,24 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import 'styles/list.css'
 import { nanoid } from 'nanoid';
-import { obtenerProductos } from 'utils/apiProductos';
+import { obtenerProductos } from 'utils/api/apiProductos';
 
 const ListProductos = () => {
 
     const [mostarTable, setMostrarTable] = useState(false);
     const [productos, setProductos] = useState([]);
-    const [, setEjecutarConsulta] = useState(true);
+    const [, setEjecutarConsulta] = useState(false);
 
     useEffect(() => {
         // FUNCION PARA EL GET EN UTILS/API
         if (mostarTable) {
-            obtenerProductos(setProductos, setEjecutarConsulta);
+            obtenerProductos((response) => {
+                setProductos(response.data);
+            },
+            (error) => {
+                console.error(error);
+            });
+        setEjecutarConsulta(false);
         }
     }, [mostarTable])
 
@@ -39,7 +45,7 @@ const ListProductos = () => {
 const TablaProductos = ({ listaProductos }) => {
     useEffect(() => {
         console.log('listado de productos', listaProductos);
-    }, [listaProductos]);
+    }, [listaProductos]); // paara mostrar el array en consola de los productos
     return (
         <div className='flex flex-col sm:flex-row flex-nowrap items-center justify-center w-full'>
             <div className='table-container'>

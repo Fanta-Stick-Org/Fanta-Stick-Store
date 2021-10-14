@@ -2,7 +2,7 @@ import React, { useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { ToastContainer } from 'react-toastify'; //para las alertas
 import 'react-toastify/dist/ReactToastify.css';
-import { registrarUsuarios } from 'utils/apiUsuarios';
+import { registrarUsuarios } from 'utils/api/apiUsuarios';
 
 const Registro = () => {
 

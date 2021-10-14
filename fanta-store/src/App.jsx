@@ -14,7 +14,7 @@ import VeriProductos from 'pages/admin/productos/VeriProductos'
 import RegisVentas from 'pages/admin/ventas/RegisVentas'
 import ListVentas from 'pages/admin/ventas/ListVentas'
 import VeriVentas from 'pages/admin/ventas/VeriVentas'
-import VeriUsers from 'pages/admin/users/VeriUsers'
+import VeriUsuarios from 'pages/admin/users/VeriUsuarios'
 import Perfil from 'pages/Perfil'
 
 
@@ -46,7 +46,7 @@ function App() {
                 <VeriVentas />
               </Route>
               <Route path='/admin/usuarios/maestro'>
-                <VeriUsers />
+                <VeriUsuarios />
               </Route>
               <Route path='/admin/productos'>
                 <Productos />

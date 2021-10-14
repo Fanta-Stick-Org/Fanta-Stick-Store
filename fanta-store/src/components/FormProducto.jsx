@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
-import { ToastContainer } from 'react-toastify'; //para las alertas
+import { ToastContainer, toast } from 'react-toastify'; //para las alertas
 import 'react-toastify/dist/ReactToastify.css';
-import { registrarProductos } from 'utils/apiProductos';
+import { registrarProductos } from 'utils/api/apiProductos';
 
 const FormProducto = () => {
 
@@ -18,7 +18,22 @@ const FormProducto = () => {
 
         console.log('el nuevo producto: ', nuevoProducto)
 
-        registrarProductos(nuevoProducto);
+        await registrarProductos({
+            _id: nuevoProducto._id,
+            descripcion: nuevoProducto.descripcion,
+            valorUnitario: nuevoProducto.valorUnitario,
+            estado: nuevoProducto.estado
+        }, 
+        
+        (response) => {
+            console.log(response.data);
+            toast.success('Producto agregado con éxito!!'); 
+        }, 
+        
+        (error) => {
+            console.error(error);
+            toast.error('Error agregando el producto');
+        });
     };
 
     return (

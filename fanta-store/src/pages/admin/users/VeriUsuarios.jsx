@@ -2,14 +2,12 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify'; //para las alertas
 import 'react-toastify/dist/ReactToastify.css';
-import { obtenerUsuarios } from 'utils/apiUsuarios';
+import { obtenerUsuarios, actualizarUsuario, eliminarUsuario } from 'utils/api/apiUsuarios';
 import { nanoid } from 'nanoid';
 import { Tooltip } from '@material-ui/core';
 import Dialog from '@mui/material/Dialog';
-import { eliminarUsuario } from 'utils/apiUsuarios';
-import { actualizarUsuario } from 'utils/apiUsuarios';
 
-const VeriUsers = () => {
+const VeriUsuarios = () => {
 
     const [usuarios, setUsuarios] = useState([]);
     const [ejecutarConsulta, setEjecutarConsulta] = useState(true);
@@ -22,7 +20,14 @@ const VeriUsers = () => {
         // FUNCION PARA EL GET EN UTILS/API
         console.log('consulta', ejecutarConsulta);
         if (ejecutarConsulta) {
-            obtenerUsuarios(setUsuarios, setEjecutarConsulta);
+            obtenerUsuarios(
+                (response) => {
+                    setUsuarios(response.data);
+                },
+                (error) => {
+                    console.error(error);
+                });
+            setEjecutarConsulta(false);
         }
     }, [ejecutarConsulta])
 
@@ -176,7 +181,7 @@ const Filausuario = ({ usuario, setEjecutarConsulta }) => {
                         <>
                             <Tooltip title='Confirmar Edición' arrow placement='bottom'>
                                 <button type='submit'>
-                                    <i onClick={() => actualizarUsuario(infoNuevoUsuario, usuario ,setEjecutarConsulta, setEdit)} className='fas fa-check p-2 border-2 border-green-300 rounded-md 
+                                    <i onClick={() => actualizarUsuario(infoNuevoUsuario, usuario, setEjecutarConsulta, setEdit)} className='fas fa-check p-2 border-2 border-green-300 rounded-md 
                                     text-green-500 hover:text-green-700 hover:bg-green-500 hover:bg-opacity-20 hover:border-green-50
                                     transition-all'></i>
                                 </button>
@@ -219,4 +224,4 @@ const Filausuario = ({ usuario, setEjecutarConsulta }) => {
     )
 };
 
-export default VeriUsers
+export default VeriUsuarios

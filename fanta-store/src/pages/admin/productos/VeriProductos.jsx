@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify'; //para las alertas
+import { ToastContainer, toast } from 'react-toastify'; //para las alertas
 import 'react-toastify/dist/ReactToastify.css';
-import { obtenerProductos } from 'utils/apiProductos';
+import { obtenerProductos, actualizarProducto, eliminarProducto } from 'utils/api/apiProductos';
 import { nanoid } from 'nanoid';
 import { Tooltip } from '@material-ui/core';
 import Dialog from '@mui/material/Dialog';
-import { eliminarProducto } from 'utils/apiProductos';
-import { actualizarProducto } from 'utils/apiProductos';
 
 const VeriProductos = () => {
 
@@ -19,10 +17,17 @@ const VeriProductos = () => {
     // ue2> si ejecutarconsulta === true llama la funcion obtener productos que trae toda la info de db
     // asigna nuevamente la variable ejecutarconsulta en false
     useEffect(() => {
-        // FUNCION PARA EL GET EN UTILS/API
+        // FUNCION PARA EL GET EN UTILS/API MANDA DOS CALBACKS PARA LOS ESTADOS SUCCESS Y ERROR
         console.log('consulta', ejecutarConsulta);
         if (ejecutarConsulta) {
-            obtenerProductos(setProductos, setEjecutarConsulta);
+            obtenerProductos(
+                (response) => {
+                    setProductos(response.data);
+                },
+                (error) => {
+                    console.error(error);
+                });
+            setEjecutarConsulta(false);
         }
     }, [ejecutarConsulta])
 
@@ -161,7 +166,21 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
                         <>
                             <Tooltip title='Confirmar Edición' arrow placement='bottom'>
                                 <button type='submit'>
-                                    <i onClick={() => actualizarProducto(infoNuevoProducto, producto, setEjecutarConsulta, setEdit)} className='fas fa-check p-2 border-2 border-green-300 rounded-md 
+                                    <i onClick={() => actualizarProducto(producto._id, infoNuevoProducto,
+
+                                        (response) => {
+                                            console.log(response.data);
+                                            toast.success('Producto modificado con éxito');
+                                            setEdit(false);
+                                            setEjecutarConsulta(true);
+                                        },
+
+                                        (error) => {
+                                            toast.error('Error modificando el producto');
+                                            console.error(error);
+                                        }
+
+                                    )} className='fas fa-check p-2 border-2 border-green-300 rounded-md 
                                     text-green-500 hover:text-green-700 hover:bg-green-500 hover:bg-opacity-20 hover:border-green-50
                                     transition-all'></i>
                                 </button>
@@ -192,8 +211,22 @@ const FilaProducto = ({ producto, setEjecutarConsulta }) => {
                     <div className='flex flex-col p-8 bg-gray-200 shadow-md rounded-sm'>
                         <h1 className='text-gray-900 text-lg font-medium'>¿Está seguro de querer eliminar este producto?</h1>
                         <div className='flex w-full items-center justify-center mt-4'>
-                            <button onClick={() => eliminarProducto(producto, setEjecutarConsulta)} className='mx-2 px-4 py-2 bg-green-400 hover:bg-green-500 
+                            <button onClick={() => eliminarProducto(producto._id,
+
+                                (response) => {
+                                    console.log(response.data);
+                                    setEjecutarConsulta(true);
+                                    toast.success('vehículo eliminado con éxito');
+                                },
+
+                                (error) => {
+                                    console.error(error);
+                                    toast.error('Error eliminando el vehículo');
+                                })
+
+                            } className='mx-2 px-4 py-2 bg-green-400 hover:bg-green-500 
                             transition-all text-white rounded-md shadow-md '>Sí</button>
+
                             <button onClick={() => setOpenDialog(false)} className='mx-2 px-4 py-2 bg-red-400 hover:bg-red-500 
                             transition-all text-white rounded-md shadow-md'>No</button>
                         </div>

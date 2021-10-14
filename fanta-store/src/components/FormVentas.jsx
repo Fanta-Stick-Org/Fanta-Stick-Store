@@ -2,9 +2,9 @@ import React, { useEffect, useState, useRef } from 'react'
 import { ToastContainer } from 'react-toastify'; //para las alertas
 import 'react-toastify/dist/ReactToastify.css';
 import { nanoid } from 'nanoid';
-import { obtenerProductos } from '../utils/apiProductos'
-import { obtenerUsuarios } from '../utils/apiUsuarios'
-import { registrarVentas } from 'utils/apiVentas';
+import { obtenerProductos } from '../utils/api/apiProductos'
+import { obtenerUsuarios } from '../utils/api/apiUsuarios'
+import { registrarVentas } from 'utils/api/apiVentas';
 
 const FormVentas = () => {
 
