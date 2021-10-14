@@ -5,15 +5,15 @@ import {
 import 'react-toastify/dist/ReactToastify.css';
 
 //METODO GET 
-export const obtenerProductos = async (setProductos, setEjecutarConsulta = () => {}) => {
+export const obtenerVentas = async (setVentas, setEjecutarConsulta = () => {}) => {
     const options = {
         method: 'GET',
-        url: 'http://localhost:5000/productos/'
+        url: 'http://localhost:5000/ventas/'
     };
     await axios
         .request(options)
         .then(function (response) {
-            setProductos(response.data);
+            setVentas(response.data);
         })
         .catch(function (error) {
             console.error(error);
@@ -22,45 +22,40 @@ export const obtenerProductos = async (setProductos, setEjecutarConsulta = () =>
 };
 
 //METODO POST
-export const registrarProductos = async (nuevoProducto) => {
+export const registrarVentas = async (informacionConsolidada) => {
     const options = {
         method: 'POST',
-        url: 'http://localhost:5000/productos/', //url de mi base de datos
+        url: 'http://localhost:5000/ventas/', //url de mi base de datos
         headers: {
             'Content-Type': 'application/json'
         },
-        data: {
-            _id: nuevoProducto._id,
-            descripcion: nuevoProducto.descripcion,
-            valorUnitario: nuevoProducto.valorUnitario,
-            estado: nuevoProducto.estado
-        }
+        data: informacionConsolidada
     };
 
     await axios
         .request(options)
         .then(function (response) {
             console.log(response.data);
-            toast.success('Producto agregado con éxito!!'); //se guarda en la base de datos si sale bien el toast debe mostrar .success
+            toast.success('Venta agregada con éxito!!'); //se guarda en la base de datos si sale bien el toast debe mostrar .success
         })
         .catch(function (error) {
             console.error(error);
-            toast.error('Error agregando el producto'); //se guarda en la base de datos si sale error el toast debe cambiar a .error
+            toast.error('Error agregando la Venta'); //se guarda en la base de datos si sale error el toast debe cambiar a .error
         });
 }
 
 //METODO PATCH
-export const actualizarProducto = async (infoNuevoProducto, producto, setEjecutarConsulta = () => {}, setEdit = () => {}) => {
+export const actualizarVenta = async (infoNuevaVenta, venta, setEjecutarConsulta = () => {}, setEdit = () => {}) => {
     //enviar la info al backend
     const options = {
         method: 'PATCH',
-        url: `http://localhost:5000/productos/${producto._id}/`,
+        url: `http://localhost:5000/ventas/${venta._id}/`,
         //`https://vast-waters-45728.herokuapp.com/vehicle/${infoNuevoProducto._id}/`
         headers: {
             'Content-Type': 'application/json'
         },
         data: {
-            ...infoNuevoProducto,
+            ...infoNuevaVenta
         },
     };
 
@@ -68,21 +63,21 @@ export const actualizarProducto = async (infoNuevoProducto, producto, setEjecuta
         .request(options)
         .then(function (response) {
             console.log(response.data);
-            toast.success('Producto modificado con éxito');
+            toast.success('Venta modificado con éxito');
             setEdit(false);
             setEjecutarConsulta(true);
         })
         .catch(function (error) {
-            toast.error('Error modificando el producto');
+            toast.error('Error modificando el venta');
             console.error(error);
         });
 };
 
 //METODO DELETE
-export const eliminarProducto = async (producto, setEjecutarConsulta = () => {}) => {
+export const eliminarVenta = async (venta, setEjecutarConsulta = () => {}) => {
     const options = {
         method: 'DELETE',
-        url: `http://localhost:5000/productos/${producto._id}/`,
+        url: `http://localhost:5000/ventas/${venta._id}/`,
         headers: {
             'Content-Type': 'application/json'
         },
@@ -93,10 +88,10 @@ export const eliminarProducto = async (producto, setEjecutarConsulta = () => {})
         .then(function (response) {
             console.log(response.data);
             setEjecutarConsulta(true);
-            toast.success('vehículo eliminado con éxito');
+            toast.success('Venta eliminado con éxito');
         })
         .catch(function (error) {
             console.error(error);
-            toast.error('Error eliminando el vehículo');
+            toast.error('Error eliminando el venta');
         });
 }

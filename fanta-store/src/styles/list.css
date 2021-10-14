@@ -5,7 +5,7 @@
 }
 
 .table-container{
-    width: 90%;
+    width: 100%;
     @apply text-center pt-10 pb-24;
 }
 

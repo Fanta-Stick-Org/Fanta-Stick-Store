@@ -8,7 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 export const obtenerUsuarios = async (setUsuarios, setEjecutarConsulta = () => {}) => {
     const options = {
         method: 'GET',
-        url: 'http://localhost:5000/usuarios'
+        url: 'http://localhost:5000/usuarios/'
     };
     await axios
         .request(options)
@@ -25,7 +25,7 @@ export const obtenerUsuarios = async (setUsuarios, setEjecutarConsulta = () => {
 export const registrarUsuarios = async (nuevoUsuario) => {
     const options = {
         method: 'POST',
-        url: 'http://localhost:5000/usuarios/nuevo', //url de mi base de datos
+        url: 'http://localhost:5000/usuarios/', //url de mi base de datos
         headers: {
             'Content-Type': 'application/json'
         },
@@ -56,14 +56,13 @@ export const actualizarUsuario = async (infoNuevoUsuario, usuario, setEjecutarCo
     //enviar la info al backend
     const options = {
         method: 'PATCH',
-        url: `http://localhost:5000/usuarios/editar`,
+        url: `http://localhost:5000/usuarios/${usuario._id}/`,
         //`https://vast-waters-45728.herokuapp.com/vehicle/${infoNuevoProducto._id}/`
         headers: {
             'Content-Type': 'application/json'
         },
         data: {
-            ...infoNuevoUsuario,
-            _id: usuario._id
+            ...infoNuevoUsuario
         },
     };
 
@@ -85,13 +84,11 @@ export const actualizarUsuario = async (infoNuevoUsuario, usuario, setEjecutarCo
 export const eliminarUsuario = async (usuario, setEjecutarConsulta = () => {}) => {
     const options = {
         method: 'DELETE',
-        url: 'http://localhost:5000/usuarios/eliminar',
+        url: `http://localhost:5000/usuarios/${usuario._id}/`,
         headers: {
             'Content-Type': 'application/json'
         },
-        data: {
-            _id: usuario._id
-        },
+        data: {},
     };
     await axios
         .request(options)

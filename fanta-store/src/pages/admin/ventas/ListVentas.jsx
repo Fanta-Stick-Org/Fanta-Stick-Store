@@ -1,59 +1,74 @@
-import React, { useEffect/* , useState */ } from 'react'
+import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom';
 import 'styles/list.css'
+import { nanoid } from 'nanoid';
+import { obtenerVentas } from 'utils/apiVentas';
 
 const ListVentas = () => {
 
-    /* const [ventas, setVentas] = useState([]); */
+    const [mostarTable, setMostrarTable] = useState(false);
+    const [ventas, setVentas] = useState([]);
+    const [, setEjecutarConsulta] = useState(true);
 
     useEffect(() => {
-        //setVentas(); //se asigna el json a la variable productos
-    }, [])
+        // FUNCION PARA EL GET EN UTILS/API
+        if (mostarTable) {
+            obtenerVentas(setVentas, setEjecutarConsulta);
+        }
+    }, [mostarTable])
 
     return (
         <>
             <div className='px-6'>
-                <a href='/admin/ventas' className='btnGeneralNav'><i className="fas fa-arrow-left"></i></a>
+                <Link to='/admin/ventas/' className='btnGeneralNav'><i className="fas fa-arrow-left"></i></Link>
             </div>
-            <div className='h-full pt-10'>
+            <div className='w-full h-full pt-10'>
                 <h1 className="tituloGeneral">Listado de Ventas</h1>
-                <div className="flex items-center justify-center p-2 pb-6">
-                    <button value="list" id="btn-list-submit" type="submit" className='btnGeneralList'>Listar</button>
-                    <div className="flex items-center justify-items-end p-2">
-                        <input type="text" id="totalSale" name="totalSale" value="100.000" className="inputGeneralList" readOnly placeholder="Total Venta"></input>
-                        <span className='textoForm'>Total Venta</span>
-                    </div>
+                <div className="flex items-center justify-center pt-2">
+                    <button value="list" id="btn-list-submit" type="submit" className='btnGeneral'
+                        onClick={() => setMostrarTable(!mostarTable)}>Listar</button>
                 </div>
-                {/* <TablaVentas ListVentas={ventas} /> */}
+                {mostarTable &&
+                    <TablaVentas listaVentas={ventas} />
+                }
             </div>
         </>
     )
 }
 
-/* const TablaVentas = ({ ListVentas }) => {
+const TablaVentas = ({ listaVentas }) => {
     useEffect(() => {
-        console.log('este es el listado de productos en el componente de tabla', ListVentas);
-    }, [ListVentas]);
+        console.log('listado de ventas', listaVentas);
+    }, [listaVentas]);
     return (
-        <div className='flex flex-col sm:flex-row flex-nowrap items-center justify-center'>
+        <div className='flex flex-col sm:flex-row flex-nowrap items-center justify-center w-full'>
             <div className='table-container'>
                 <table id="table-list">
                     <thead>
                         <tr>
-                            <th>Id del Producto</th>
+                            <th>Id Venta</th>
+                            <th>Fecha Venta</th>
+                            <th>Vendedor</th>
+                            <th>Estado Venta</th>
+                            <th>Id cliente</th>
+                            <th>Nombre cliente</th>
                             <th>Descripción</th>
                             <th>Cantidad</th>
-                            <th>Valor Unitario</th>
-                            <th>Valor Total</th>
+                            <th>Total Venta</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {ListVentas.map((venta) => {
+                        {listaVentas.map((venta) => {
                             return (
                                 <tr key={nanoid()}>
-                                    <td>{venta.idProducto}</td>
-                                    <td>{venta.descripcion}</td>
+                                    <td>{venta._id}</td>
+                                    <td>{venta.fechaVenta}</td>
+                                    <td>{venta.vendedor.name}</td>
+                                    <td>{venta.estadoVenta}</td>
+                                    <td>{venta.idCliente}</td>
+                                    <td>{venta.nameCliente}</td>
+                                    <td>{venta.descripcion.descripcion}</td>
                                     <td>{venta.cantidad}</td>
-                                    <td>{venta.valorUnitario}</td>
                                     <td>{venta.valorTotal}</td>
                                 </tr>
                             )
@@ -63,6 +78,6 @@ const ListVentas = () => {
             </div>
         </div>
     );
-}; */
+};
 
 export default ListVentas
