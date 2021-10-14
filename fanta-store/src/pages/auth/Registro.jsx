@@ -1,6 +1,6 @@
 import React, { useRef } from 'react'
 import { Link } from 'react-router-dom'
-import { ToastContainer } from 'react-toastify'; //para las alertas
+import { ToastContainer, toast } from 'react-toastify'; //para las alertas
 import 'react-toastify/dist/ReactToastify.css';
 import { registrarUsuarios } from 'utils/api/apiUsuarios';
 
@@ -17,8 +17,24 @@ const Registro = () => {
         })
         //se guarda en la base de datos si sale bien el toast debe mostrar .success
         console.log('datos guardados', nuevoUsuario)
-        registrarUsuarios(nuevoUsuario);
+        registrarUsuarios({
+            _id: nuevoUsuario._id,
+            name: nuevoUsuario.name,
+            email: nuevoUsuario.email,
+            rol: nuevoUsuario.rol,
+            estadoUsuario: nuevoUsuario.estadoUsuario,
+            password: nuevoUsuario.password
+        },
 
+            (response) => {
+                console.log(response.data);
+                toast.success('Usuario agregado con éxito!!');
+            },
+
+            (error) => {
+                console.error(error);
+                toast.error('Error agregando el Usuario');
+            });
     };
     return (
         <>

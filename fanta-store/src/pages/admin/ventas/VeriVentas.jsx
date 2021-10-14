@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify'; //para las alertas
+import { ToastContainer, toast } from 'react-toastify'; //para las alertas
 import 'react-toastify/dist/ReactToastify.css';
 import { obtenerVentas, actualizarVenta, eliminarVenta } from 'utils/api/apiVentas';
 import { nanoid } from 'nanoid';
@@ -20,7 +20,16 @@ const VeriUsers = () => {
         // FUNCION PARA EL GET EN UTILS/API
         console.log('consulta', ejecutarConsulta);
         if (ejecutarConsulta) {
-            obtenerVentas(setVentas, setEjecutarConsulta);
+            obtenerVentas(
+                (response) => {
+                    setVentas(response.data);
+                },
+
+                (error) => {
+                    console.error(error);
+                }
+            );
+            setEjecutarConsulta(false);
         }
     }, [ejecutarConsulta])
 
@@ -159,7 +168,7 @@ const Filaventa = ({ venta, setEjecutarConsulta }) => {
                     <td><input className='inputGeneral' type="text" value={infoNuevaVenta.nameCliente}
                         onChange={(e) => setInfoNuevaVenta({ ...infoNuevaVenta, nameCliente: e.target.value })} /></td>
                     <td><input className='inputGeneral' type="text" value={infoNuevaVenta.descripcion.descripcion}
-                        onChange={(e) => setInfoNuevaVenta({ ...infoNuevaVenta, descripcion: e.target.value })} disabled/></td>
+                        onChange={(e) => setInfoNuevaVenta({ ...infoNuevaVenta, descripcion: e.target.value })} disabled /></td>
                     <td><input className='inputGeneral' type="number" value={infoNuevaVenta.cantidad}
                         onChange={(e) => setInfoNuevaVenta({ ...infoNuevaVenta, cantidad: e.target.value })} /></td>
                     <td><input className='inputGeneral' type="number" value={infoNuevaVenta.valorTotal}
@@ -186,7 +195,21 @@ const Filaventa = ({ venta, setEjecutarConsulta }) => {
                         <>
                             <Tooltip title='Confirmar Edición' arrow placement='bottom'>
                                 <button type='submit'>
-                                    <i onClick={() => actualizarVenta(infoNuevaVenta, venta, setEjecutarConsulta, setEdit)} className='fas fa-check p-2 border-2 border-green-300 rounded-md 
+                                    <i onClick={() => actualizarVenta(venta._id, infoNuevaVenta,
+
+                                        (response) => {
+                                            console.log(response.data);
+                                            toast.success('Venta modificado con éxito');
+                                            setEdit(false);
+                                            setEjecutarConsulta(true);
+                                        },
+
+                                        (error) => {
+                                            toast.error('Error modificando el venta');
+                                            console.error(error);
+                                        }
+
+                                    )} className='fas fa-check p-2 border-2 border-green-300 rounded-md 
                                     text-green-500 hover:text-green-700 hover:bg-green-500 hover:bg-opacity-20 hover:border-green-50
                                     transition-all'></i>
                                 </button>
@@ -217,7 +240,20 @@ const Filaventa = ({ venta, setEjecutarConsulta }) => {
                     <div className='flex flex-col p-8 bg-gray-200 shadow-md rounded-sm'>
                         <h1 className='text-gray-900 text-lg font-medium'>¿Está seguro de querer eliminar este venta?</h1>
                         <div className='flex w-full items-center justify-center mt-4'>
-                            <button onClick={() => eliminarVenta(venta, setEjecutarConsulta)} className='mx-2 px-4 py-2 bg-green-400 hover:bg-green-500 
+                            <button onClick={() => eliminarVenta(venta._id,
+
+                                (response) => {
+                                    console.log(response.data);
+                                    setEjecutarConsulta(true);
+                                    toast.success('Venta eliminado con éxito');
+                                },
+
+                                (error) => {
+                                    console.error(error);
+                                    toast.error('Error eliminando el venta');
+                                }
+
+                            )} className='mx-2 px-4 py-2 bg-green-400 hover:bg-green-500 
                             transition-all text-white rounded-md shadow-md '>Sí</button>
                             <button onClick={() => setOpenDialog(false)} className='mx-2 px-4 py-2 bg-red-400 hover:bg-red-500 
                             transition-all text-white rounded-md shadow-md'>No</button>

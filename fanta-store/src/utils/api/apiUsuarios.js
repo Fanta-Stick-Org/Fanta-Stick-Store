@@ -1,7 +1,4 @@
 import axios from "axios";
-import {
-    toast
-} from 'react-toastify'; //para las alertas
 import 'react-toastify/dist/ReactToastify.css';
 
 //METODO GET 
@@ -17,99 +14,52 @@ export const obtenerUsuarios = async (successCallback, errorCallback) => {
 };
 
 //METODO POST
-export const registrarUsuarios = async (nuevoUsuario) => {
+export const registrarUsuarios = async (data, successCallback, errorCallback) => {
     const options = {
         method: 'POST',
         url: 'http://localhost:5000/usuarios/', //url de mi base de datos
         headers: {
             'Content-Type': 'application/json'
         },
-        data: {
-            _id: nuevoUsuario._id,
-            name: nuevoUsuario.name,
-            email: nuevoUsuario.email,
-            rol: nuevoUsuario.rol,
-            estadoUsuario: nuevoUsuario.estadoUsuario,
-            password: nuevoUsuario.password
-        }
+        data,
     };
 
     await axios
         .request(options)
-        .then(function (response) {
-            console.log(response.data);
-            toast.success('Usuario agregado con éxito!!'); //se guarda en la base de datos si sale bien el toast debe mostrar .success
-        })
-        .catch(function (error) {
-            console.error(error);
-            toast.error('Error agregando el Usuario'); //se guarda en la base de datos si sale error el toast debe cambiar a .error
-        });
-}
+        .then(successCallback)
+        .catch(errorCallback);
+};
 
 //METODO PATCH
-export const actualizarUsuario = async (infoNuevoUsuario, usuario, setEjecutarConsulta = () => {}, setEdit = () => {}) => {
+export const actualizarUsuario = async (id, data, successCallback, errorCallback) => {
     //enviar la info al backend
     const options = {
         method: 'PATCH',
-        url: `http://localhost:5000/usuarios/${usuario._id}/`,
+        url: `http://localhost:5000/usuarios/${id}/`,
         //`https://vast-waters-45728.herokuapp.com/vehicle/${infoNuevoProducto._id}/`
         headers: {
             'Content-Type': 'application/json'
         },
-        data: {
-            ...infoNuevoUsuario
-        },
+        data,
     };
 
     await axios
         .request(options)
-        .then(function (response) {
-            console.log(response.data);
-            toast.success('Usuario modificado con éxito');
-            setEdit(false);
-            setEjecutarConsulta(true);
-        })
-        .catch(function (error) {
-            toast.error('Error modificando el usuario');
-            console.error(error);
-        });
+        .then(successCallback)
+        .catch(errorCallback);
 };
 
 //METODO DELETE
-export const eliminarUsuario = async (usuario, setEjecutarConsulta = () => {}) => {
+export const eliminarUsuario = async (id, successCallback, errorCallback) => {
     const options = {
         method: 'DELETE',
-        url: `http://localhost:5000/usuarios/${usuario._id}/`,
+        url: `http://localhost:5000/usuarios/${id}/`,
         headers: {
             'Content-Type': 'application/json'
         },
-        data: {},
     };
     await axios
         .request(options)
-        .then(function (response) {
-            console.log(response.data);
-            setEjecutarConsulta(true);
-            toast.success('Usuario eliminado con éxito');
-        })
-        .catch(function (error) {
-            console.error(error);
-            toast.error('Error eliminando el usuario');
-        });
-}
-
-export const obtenerVehiculos = async (setVehiculos, setEjecutarConsulta = () => {}) => {
-    const options = {
-        method: 'GET',
-        url: 'https://vast-waters-45728.herokuapp.com/vehicle/'
-    };
-    await axios
-        .request(options)
-        .then(function (response) {
-            setVehiculos(response.data);
-        })
-        .catch(function (error) {
-            console.error(error);
-        });
-    setEjecutarConsulta(false);
+        .then(successCallback)
+        .catch(errorCallback);
 };

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify'; //para las alertas
+import { ToastContainer, toast } from 'react-toastify'; //para las alertas
 import 'react-toastify/dist/ReactToastify.css';
 import { obtenerUsuarios, actualizarUsuario, eliminarUsuario } from 'utils/api/apiUsuarios';
 import { nanoid } from 'nanoid';
@@ -181,7 +181,21 @@ const Filausuario = ({ usuario, setEjecutarConsulta }) => {
                         <>
                             <Tooltip title='Confirmar Edición' arrow placement='bottom'>
                                 <button type='submit'>
-                                    <i onClick={() => actualizarUsuario(infoNuevoUsuario, usuario, setEjecutarConsulta, setEdit)} className='fas fa-check p-2 border-2 border-green-300 rounded-md 
+                                    <i onClick={() => actualizarUsuario(usuario._id, infoNuevoUsuario,
+
+                                        (response) => {
+                                            console.log(response.data);
+                                            toast.success('Usuario modificado con éxito');
+                                            setEdit(false);
+                                            setEjecutarConsulta(true);
+                                        },
+
+                                        (error) => {
+                                            toast.error('Error modificando el usuario');
+                                            console.error(error);
+                                        }
+
+                                    )} className='fas fa-check p-2 border-2 border-green-300 rounded-md 
                                     text-green-500 hover:text-green-700 hover:bg-green-500 hover:bg-opacity-20 hover:border-green-50
                                     transition-all'></i>
                                 </button>
@@ -212,7 +226,20 @@ const Filausuario = ({ usuario, setEjecutarConsulta }) => {
                     <div className='flex flex-col p-8 bg-gray-200 shadow-md rounded-sm'>
                         <h1 className='text-gray-900 text-lg font-medium'>¿Está seguro de querer eliminar este usuario?</h1>
                         <div className='flex w-full items-center justify-center mt-4'>
-                            <button onClick={() => eliminarUsuario(usuario, setEjecutarConsulta)} className='mx-2 px-4 py-2 bg-green-400 hover:bg-green-500 
+                            <button onClick={() => eliminarUsuario(usuario._id,
+
+                                (response) => {
+                                    console.log(response.data);
+                                    setEjecutarConsulta(true);
+                                    toast.success('Usuario eliminado con éxito');
+                                },
+
+                                (error) => {
+                                    console.error(error);
+                                    toast.error('Error eliminando el usuario');
+                                }
+
+                            )} className='mx-2 px-4 py-2 bg-green-400 hover:bg-green-500 
                             transition-all text-white rounded-md shadow-md '>Sí</button>
                             <button onClick={() => setOpenDialog(false)} className='mx-2 px-4 py-2 bg-red-400 hover:bg-red-500 
                             transition-all text-white rounded-md shadow-md'>No</button>
@@ -220,7 +247,7 @@ const Filausuario = ({ usuario, setEjecutarConsulta }) => {
                     </div>
                 </Dialog>
             </td>
-        </tr>
+        </tr >
     )
 };
 

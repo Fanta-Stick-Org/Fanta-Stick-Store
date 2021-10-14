@@ -13,7 +13,16 @@ const ListVentas = () => {
     useEffect(() => {
         // FUNCION PARA EL GET EN UTILS/API
         if (mostarTable) {
-            obtenerVentas(setVentas, setEjecutarConsulta);
+            obtenerVentas(
+                (response) => {
+                    setVentas(response.data);
+                },
+
+                (error) => {
+                    console.error(error);
+                }
+            );
+            setEjecutarConsulta(false);
         }
     }, [mostarTable])
 

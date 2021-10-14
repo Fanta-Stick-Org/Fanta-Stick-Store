@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react'
-import { ToastContainer } from 'react-toastify'; //para las alertas
+import { ToastContainer, toast } from 'react-toastify'; //para las alertas
 import 'react-toastify/dist/ReactToastify.css';
 import { nanoid } from 'nanoid';
 import { obtenerProductos } from '../utils/api/apiProductos'
@@ -13,8 +13,20 @@ const FormVentas = () => {
     const form = useRef(null);
 
     useEffect(() => {
-        obtenerProductos(setProductos);
-        obtenerUsuarios(setUsuarios);
+        obtenerProductos(
+            (response) => {
+                setProductos(response.data);
+            },
+            (error) => {
+                console.error(error);
+            });
+        obtenerUsuarios(
+            (response) => {
+                setUsuarios(response.data);
+            },
+            (error) => {
+                console.error(error);
+            });
     }, []);
 
     useEffect(() => {
@@ -49,7 +61,18 @@ const FormVentas = () => {
         };
         console.log('ic', informacionConsolidada);
 
-        registrarVentas(informacionConsolidada);
+        registrarVentas(informacionConsolidada,
+
+            (response) => {
+                console.log(response.data);
+                toast.success('Venta agregada con éxito!!'); //se guarda en la base de datos si sale bien el toast debe mostrar .success
+            },
+
+            (error) => {
+                console.error(error);
+                toast.error('Error agregando la Venta'); //se guarda en la base de datos si sale error el toast debe cambiar a .error
+            }
+        );
     };
 
     return (

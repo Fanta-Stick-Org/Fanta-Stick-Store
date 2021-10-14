@@ -21,7 +21,7 @@ const Ventas = () => {
                         <p>Esta página te permitirá tener opciones de <br></br> navegacion ⏮⏩.
                             Aquí encontrarás las opciones <br></br>
                             de Registrar 🆕, Listar 📑, Verificar ✅ <br></br>
-                            y Actualizar 💭 Ventas , mediante el maestro. <br></br><br></br>
+                            y Actualizar 💭 Ventas, mediante el maestro. <br></br><br></br>
                             Cordialmente. @<a href="https://github.com/Fanta-Stick-Org/Fanta-Stick-Store" className='linkGeneral'>Fanta-Stick
                                 Team</a> 💜.</p>
                     </div>

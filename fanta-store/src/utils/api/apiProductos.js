@@ -58,7 +58,6 @@ export const eliminarProducto = async (id, successCallback, errorCallback) => {
         headers: {
             'Content-Type': 'application/json'
         },
-        data: {},
     };
     await axios
         .request(options)
