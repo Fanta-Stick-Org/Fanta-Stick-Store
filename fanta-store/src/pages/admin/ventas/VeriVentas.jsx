@@ -150,7 +150,7 @@ const Filaventa = ({ venta, setEjecutarConsulta }) => {
             {edit ? (
                 <>
                     <td>{infoNuevaVenta._id}</td>
-                    <td><input className='inputGeneral' type="datetime-local" value={infoNuevaVenta.fechaVenta}
+                    <td><input className='inputGeneral' type="date" value={infoNuevaVenta.fechaVenta}
                         onChange={(e) => setInfoNuevaVenta({ ...infoNuevaVenta, fechaVenta: e.target.value })} disabled /></td>
                     <td><input className='inputGeneral' type="text" value={infoNuevaVenta.vendedor.name}
                         onChange={(e) => setInfoNuevaVenta({ ...infoNuevaVenta, vendedor: e.target.value })} disabled /></td>

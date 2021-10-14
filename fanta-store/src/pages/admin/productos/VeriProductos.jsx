@@ -103,14 +103,12 @@ const TablaProductos = ({ listaProductos, setEjecutarConsulta, busqueda }) => {
                 <div className='flex flex-col w-full m-2 md:hidden'>
                     {productosFilter.map((producto) => {
                         return (
-                            <>
-                                <div className='bg-green-400 hover:bg-gray-400 m-2 shadow-xl flex flex-col p-2 rounded-xl'>
-                                    <span>{producto._id}</span>
-                                    <span>{producto.descripcion}</span>
-                                    <span>{producto.valorUnitario}</span>
-                                    <span>{producto.estado}</span>
-                                </div>
-                            </>
+                            <div key={nanoid()} className='bg-green-400 hover:bg-gray-400 m-2 shadow-xl flex flex-col p-2 rounded-xl'>
+                                <span>{producto._id}</span>
+                                <span>{producto.descripcion}</span>
+                                <span>{producto.valorUnitario}</span>
+                                <span>{producto.estado}</span>
+                            </div>
                         )
                     })}
                 </div>

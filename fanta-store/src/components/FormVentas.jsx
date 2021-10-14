@@ -8,34 +8,50 @@ import { registrarVentas } from 'utils/api/apiVentas';
 
 const FormVentas = () => {
 
+    const form = useRef(null);
     const [usuarios, setUsuarios] = useState([]);
     const [productos, setProductos] = useState([]);
-    const form = useRef(null);
+    const [productosSeleccionados, setProductosSeleccionados] = useState([]);
 
     useEffect(() => {
-        obtenerProductos(
-            (response) => {
-                setProductos(response.data);
-            },
-            (error) => {
-                console.error(error);
-            });
-        obtenerUsuarios(
-            (response) => {
-                setUsuarios(response.data);
-            },
-            (error) => {
-                console.error(error);
-            });
+        const fetchProductos = async () => {
+            await obtenerProductos(
+                (response) => {
+                    setProductos(response.data);
+                },
+                (error) => {
+                    console.error(error);
+                });
+        }
+        const fetchUsuarios = async () => {
+            await obtenerUsuarios(
+                (response) => {
+                    setUsuarios(response.data);
+                },
+                (error) => {
+                    console.error(error);
+                });
+        }
+
+        fetchProductos();
+        fetchUsuarios();
     }, []);
 
-    useEffect(() => {
+    /* useEffect(() => {
         console.log(productos);
     }, [productos]);
 
     useEffect(() => {
         console.log(usuarios);
-    }, [usuarios]);
+    }, [usuarios]); */
+
+    useEffect(() => {
+        console.log('pselec', productosSeleccionados)
+    }, [productosSeleccionados])
+
+    const agregarProducto = () => {
+        setProductosSeleccionados([...productosSeleccionados, CamposProductoAdicional]);
+    }
 
     const submitForm = async (e) => {
         e.preventDefault();
@@ -48,7 +64,7 @@ const FormVentas = () => {
 
         console.log('nv', nuevaVenta);
 
-        const informacionConsolidada = {
+        /* const informacionConsolidada = {
             _id: nuevaVenta._id,
             fechaVenta: nuevaVenta.fechaVenta,
             vendedor: usuarios.filter((el) => el.name === nuevaVenta.vendedor)[0],
@@ -56,12 +72,15 @@ const FormVentas = () => {
             idCliente: nuevaVenta.idCliente,
             nameCliente: nuevaVenta.nameCliente,
             descripcion: productos.filter((el) => el.descripcion === nuevaVenta.descripcion)[0],
-            cantidad: nuevaVenta.cantidad,
-            valorTotal: nuevaVenta.valorTotal //calcularlo en string?
+            valorUnitario: parseInt(productos.filter((el) => el.descripcion === nuevaVenta.valorUnitario)[0]),
+            cantidad: parseInt(nuevaVenta.cantidad, 10),
+            valorTotal: nuevaVenta.valorUnitario * nuevaVenta.cantidad
         };
-        console.log('ic', informacionConsolidada);
+        console.log("vu", productos.valorUnitario)
+        console.log('n', informacionConsolidada.valorUnitario, informacionConsolidada.cantidad)
+        console.log('ic', informacionConsolidada); */
 
-        registrarVentas(informacionConsolidada,
+        /* registrarVentas(informacionConsolidada,
 
             (response) => {
                 console.log(response.data);
@@ -72,7 +91,7 @@ const FormVentas = () => {
                 console.error(error);
                 toast.error('Error agregando la Venta'); //se guarda en la base de datos si sale error el toast debe cambiar a .error
             }
-        );
+        ); */
     };
 
     return (
@@ -85,7 +104,7 @@ const FormVentas = () => {
                     </div>
                     <div className="formGeneral">
                         <label htmlFor="fechaVenta" className="textoGeneral">Fecha de venta</label>
-                        <input type='datetime-local' className="inputGeneral" name="fechaVenta" required></input>
+                        <input type='date' className="inputGeneral" name="fechaVenta" required></input>
                     </div>
                     <div className="formGeneral">
                         <label htmlFor="vendedor" className="textoGeneral">Nombre Vendedor</label>
@@ -111,45 +130,42 @@ const FormVentas = () => {
                     </div>
                     <div className="formGeneral">
                         <label htmlFor="idCliente" className="textoGeneral">Id Cliente</label>
-                        <input type="text" name="idCliente" placeholder="Id del Cliente" className="inputGeneral"></input>
+                        <input type="text" name="idCliente" placeholder="Id del Cliente" className="inputGeneral" required></input>
                     </div>
                     <div className="formGeneral">
                         <label htmlFor="nameCliente" className="textoGeneral">Nombre del Cliente</label>
                         <input type="text" name="nameCliente" placeholder="Nombre del Cliente"
-                            className="inputGeneral"></input>
+                            className="inputGeneral" required></input>
                     </div>
                 </div>
 
-                <div className='grid grid-cols-4 gap-2'>
-                    <div className="formGeneral">
-                        <label className="textoGeneral" htmlFor="descripcion"> Producto</label>
-                        <select name="descripcion" type="text" defaultValue={0} className="inputGeneral" required>
-                            <option value={0} disabled>Seleccione...</option>
-                            {productos.map((producto) => {
-                                return (
-                                    <option key={nanoid()} value={producto.descripcion}>
-                                        {producto.descripcion}
-                                    </option>
-                                );
-                            })}
-                        </select>
-                    </div>
-                    <div className="formGeneral">
-                        <label className="textoGeneral" htmlFor="Cantidad">Cantidad</label>
-                        <input className="inputGeneral" type="number" name="cantidad" min={0} placeholder="Cantidad"></input>
-                    </div>
-                    <div className="formGeneral">
+                <div className='flex flex-col items-center w-full'>
+
+                    {/* <div className="formGeneral">
                         <label className="textoGeneral" htmlFor="valorUnitario">Precio Unitario</label>
-                        <input className="inputGeneral" type="number" name="valorUnitario" min={0} placeholder="Precio Unitario"></input>
+                        <input className="inputGeneral" type="number" name="valorUnitario" min={0} placeholder="Precio Unitario"
+                            required></input>
                     </div>
                     <div className="formGeneral">
                         <label className="textoGeneral" htmlFor="valorTotal">Precio Total</label>
-                        <input className="inputGeneral" type="number" name="valorTotal" min={0} placeholder="Precio Total"></input>
+                        <input className="inputGeneral" type="number" name="valorTotal" min={0} placeholder="Precio Total" required></input>
+                    </div> */}
+
+                    <div>
+                        <button onClick={() => agregarProducto()} className='btnGeneral'>Agregar Producto</button>
                     </div>
+                    {productosSeleccionados.map((CamposProductoAdiciona, index) => {
+                        return (
+                            <div className='flex'>
+                                <CamposProductoAdiciona key={nanoid()} productos={productos} nombre={`producto_${index}`}
+                                    cantidad={`cantidad_${index}`} />
+                            </div>
+                        );
+                    })}
                 </div>
                 <div className='pt-8 flex flex-col items-center'>
                     <div className="formSubmit">
-                        <button value="Login" type="submit" className='btnGeneral'>Enviar</button>
+                        <button type="submit" className='btnGeneral'>Enviar</button>
                     </div>
                 </div>
             </form>
@@ -157,5 +173,29 @@ const FormVentas = () => {
         </div>
     )
 };
+
+const CamposProductoAdicional = ({ productos, nombre, cantidad }) => {
+    return (
+        <>
+            <div className="formGeneral">
+                <label className="textoGeneral" htmlFor="descripcion">Producto</label>
+                <select name={nombre} type="text" defaultValue={-1} className="inputGeneral" required>
+                    <option value={-1} disabled>Seleccione...</option>
+                    {productos.map((producto) => {
+                        return (
+                            <option key={nanoid()} value={producto.descripcion}>
+                                {producto.descripcion}
+                            </option>
+                        );
+                    })}
+                </select>
+            </div>
+            <div className="formGeneral">
+                <label className="textoGeneral" htmlFor="Cantidad">Cantidad</label>
+                <input className="inputGeneral" type="number" name={cantidad} min={0} placeholder="Cantidad" required></input>
+            </div>
+        </>
+    )
+}
 
 export default FormVentas
