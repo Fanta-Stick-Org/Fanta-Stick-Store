@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import ImagenLogo from './ImagenLogo'
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Navbar = () => {
+    const { loginWithRedirect } = useAuth0();
     return (
         <nav className='bg-yellow-600 bg-opacity-75'>
             <ul className='flex sm:flex-row w-full justify-between my-4'>
@@ -30,11 +32,9 @@ const Navbar = () => {
                     </ul>
                 </li> */}
                 <li className='px-16 py-6'>
-                    <Link to='/login'>
-                        <button className='btnGeneral'>
-                            Iniciar Sesion
-                        </button>
-                    </Link>
+                    <button onClick={() => loginWithRedirect()} className='btnGeneral'>
+                        Iniciar Sesion
+                    </button>
                 </li>
             </ul>
         </nav>

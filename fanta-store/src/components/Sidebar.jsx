@@ -2,8 +2,10 @@ import useActiveRoute from 'hooks/useActiveRoute'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import ImagenLogo from './ImagenLogo'
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Sidebar = () => {
+    const { logout } = useAuth0();
     return (
         <nav className='hidden sm:flex flex-col sm:w-64 text-center p-4 justify-between'>
             <div>
@@ -18,12 +20,10 @@ const Sidebar = () => {
                 </div>
             </div>
             <div>
-                <Link to='/'>
-                    <button className='btnGeneral'>
-                        <i className="fas fa-sign-out-alt pt-1 pr-2"> </i>
-                        Cerrar Sesion
-                    </button>
-                </Link>
+                <button onClick={() => logout({ returnTo: window.location.origin })} className='btnGeneral'>
+                    <i className="fas fa-sign-out-alt pt-1 pr-2"> </i>
+                    Cerrar Sesion
+                </button>
             </div>
         </nav>
     )

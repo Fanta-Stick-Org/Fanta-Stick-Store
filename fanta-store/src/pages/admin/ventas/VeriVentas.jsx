@@ -167,10 +167,10 @@ const Filaventa = ({ venta, setEjecutarConsulta }) => {
                         onChange={(e) => setInfoNuevaVenta({ ...infoNuevaVenta, idCliente: e.target.value })} /></td>
                     <td><input className='inputGeneral' type="text" value={infoNuevaVenta.nameCliente}
                         onChange={(e) => setInfoNuevaVenta({ ...infoNuevaVenta, nameCliente: e.target.value })} /></td>
-                    <td><input className='inputGeneral' type="text" value={infoNuevaVenta.descripcion.descripcion}
+                    <td><input className='inputGeneral' type="text" value={infoNuevaVenta.descripcion}
                         onChange={(e) => setInfoNuevaVenta({ ...infoNuevaVenta, descripcion: e.target.value })} disabled /></td>
                     <td><input className='inputGeneral' type="number" value={infoNuevaVenta.cantidad}
-                        onChange={(e) => setInfoNuevaVenta({ ...infoNuevaVenta, cantidad: e.target.value })} /></td>
+                        onChange={(e) => setInfoNuevaVenta({ ...infoNuevaVenta, cantidad: e.target.value })} disabled /></td>
                     <td><input className='inputGeneral' type="number" value={infoNuevaVenta.valorTotal}
                         onChange={(e) => setInfoNuevaVenta({ ...infoNuevaVenta, valorTotal: e.target.value })} /></td>
                 </>
@@ -183,7 +183,7 @@ const Filaventa = ({ venta, setEjecutarConsulta }) => {
                     <td>{venta.estadoVenta}</td>
                     <td>{venta.idCliente}</td>
                     <td>{venta.nameCliente}</td>
-                    <td>{venta.descripcion.descripcion}</td>
+                    <td>{venta.descripcion}</td>
                     <td>{venta.cantidad}</td>
                     <td>{venta.valorTotal}</td>
                 </>

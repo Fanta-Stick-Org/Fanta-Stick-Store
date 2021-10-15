@@ -25,7 +25,8 @@ const ListVentas = () => {
             setEjecutarConsulta(false);
         }
     }, [mostarTable])
-    console.log(ventas);
+    console.log('ventas',ventas);
+    console.log('accediendo',ventas.fechaVenta);
 
     return (
         <>
