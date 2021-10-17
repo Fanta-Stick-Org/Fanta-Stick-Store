@@ -1,11 +1,17 @@
 import axios from "axios";
 import 'react-toastify/dist/ReactToastify.css';
 
+const getToken = () => {
+    return `Bearer ${localStorage.getItem('token')}`;
+}
 //METODO GET 
 export const obtenerProductos = async (successCallback, errorCallback) => {
     const options = {
         method: 'GET',
-        url: 'http://localhost:5000/productos/'
+        url: 'http://localhost:5000/productos/',
+        headers: {
+            Authorization: getToken()
+        }
     };
     await axios
         .request(options)
@@ -18,9 +24,10 @@ export const obtenerProductos = async (successCallback, errorCallback) => {
 export const registrarProductos = async (data, successCallback, errorCallback) => {
     const options = {
         method: 'POST',
-        url: 'http://localhost:5000/productos/', //url de mi base de datos
+        url: 'http://localhost:5000/productos/',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json', 
+            Authorization: getToken()
         },
         data
     };
@@ -33,13 +40,12 @@ export const registrarProductos = async (data, successCallback, errorCallback) =
 
 //METODO PATCH
 export const actualizarProducto = async (id, data, successCallback, errorCallback) => {
-    //enviar la info al backend
     const options = {
         method: 'PATCH',
         url: `http://localhost:5000/productos/${id}/`,
-        //`https://vast-waters-45728.herokuapp.com/vehicle/${infoNuevoProducto._id}/`
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            Authorization: getToken()
         },
         data,
     };
@@ -56,7 +62,8 @@ export const eliminarProducto = async (id, successCallback, errorCallback) => {
         method: 'DELETE',
         url: `http://localhost:5000/productos/${id}/`,
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            Authorization: getToken()
         },
     };
     await axios

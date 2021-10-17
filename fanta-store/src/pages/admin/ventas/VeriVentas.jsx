@@ -6,6 +6,7 @@ import { obtenerVentas, actualizarVenta, eliminarVenta } from 'utils/api/apiVent
 import { nanoid } from 'nanoid';
 import { Tooltip } from '@material-ui/core';
 import Dialog from '@mui/material/Dialog';
+import ReactLoading from 'react-loading';
 
 const VeriUsers = () => {
 
@@ -13,6 +14,7 @@ const VeriUsers = () => {
     const [ejecutarConsulta, setEjecutarConsulta] = useState(true);
     const [mostarTable, setMostrarTable] = useState(false);
     const [busqueda, setBusqueda] = useState('');
+    const [loading, setLoading] = useState(false);
 
     // ue2> si ejecutarconsulta === true llama la funcion obtener ventas que trae toda la info de db
     // asigna nuevamente la variable ejecutarconsulta en false
@@ -20,16 +22,22 @@ const VeriUsers = () => {
         // FUNCION PARA EL GET EN UTILS/API
         console.log('consulta', ejecutarConsulta);
         if (ejecutarConsulta) {
-            obtenerVentas(
-                (response) => {
-                    setVentas(response.data);
-                },
+            const fetchVentas = async () => {
+                setLoading(true);
+                await obtenerVentas(
+                    (response) => {
+                        setVentas(response.data);
+                        setLoading(false);
+                    },
 
-                (error) => {
-                    console.error(error);
-                }
-            );
-            setEjecutarConsulta(false);
+                    (error) => {
+                        console.error(error);
+                        setLoading(false);
+                    }
+                );
+                setEjecutarConsulta(false);
+            }
+            fetchVentas();
         }
     }, [ejecutarConsulta])
 
@@ -57,7 +65,7 @@ const VeriUsers = () => {
                     </div>
                 </div>
                 {mostarTable &&
-                    <TablaVentas listaVentas={ventas} setEjecutarConsulta={setEjecutarConsulta}
+                    <TablaVentas loading={loading} listaVentas={ventas} setEjecutarConsulta={setEjecutarConsulta}
                         busqueda={busqueda} />
                 }
                 <ToastContainer position="bottom-right" autoClose={4000} closeOnClick />
@@ -66,7 +74,7 @@ const VeriUsers = () => {
     )
 };
 
-const TablaVentas = ({ listaVentas, setEjecutarConsulta, busqueda }) => {
+const TablaVentas = ({ loading, listaVentas, setEjecutarConsulta, busqueda }) => {
     const [ventasFilter, setVentasFilter] = useState(listaVentas);
 
     //reacciona al cambio en poductosFilter convierte el objeto listaVentas en un string
@@ -83,29 +91,34 @@ const TablaVentas = ({ listaVentas, setEjecutarConsulta, busqueda }) => {
         <div className='flex flex-col items-center justify-center'>
             <div className='table-container'>
                 <div className='hidden md:block'>
-                    <table id="table-list">
-                        <thead>
-                            <tr>
-                                <th>Id Venta</th>
-                                <th>Fecha Venta</th>
-                                <th>Vendedor</th>
-                                <th>Estado Venta</th>
-                                <th>Id cliente</th>
-                                <th>Nombre cliente</th>
-                                <th>Descripción</th>
-                                <th>Cantidad</th>
-                                <th>Total Venta</th>
-                                <th>Opciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {ventasFilter.map((venta) => {
-                                return (
-                                    <Filaventa key={nanoid()} venta={venta} setEjecutarConsulta={setEjecutarConsulta} />
-                                )
-                            })}
-                        </tbody>
-                    </table>
+                    {loading ?
+                        (
+                            <div className='flex justify-center items-center'>
+                                <ReactLoading type='cylon' color='#07f3eb' height={667} width={375} />
+                            </div>
+                        ) : (
+                            <table id="table-list">
+                                <thead>
+                                    <tr>
+                                        <th>Id Venta</th>
+                                        <th>Fecha Venta</th>
+                                        <th>Vendedor</th>
+                                        <th>Estado Venta</th>
+                                        <th>Id cliente</th>
+                                        <th>Nombre cliente</th>
+                                        <th>Total Venta</th>
+                                        <th>Opciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {ventasFilter.map((venta) => {
+                                        return (
+                                            <Filaventa key={nanoid()} venta={venta} setEjecutarConsulta={setEjecutarConsulta} />
+                                        )
+                                    })}
+                                </tbody>
+                            </table>
+                        )}
                 </div>
                 <div className='flex flex-col w-full m-2 md:hidden'>
                     {ventasFilter.map((venta) => {
@@ -117,8 +130,6 @@ const TablaVentas = ({ listaVentas, setEjecutarConsulta, busqueda }) => {
                                 <span>{venta.estadoVenta}</span>
                                 <span>{venta.idCliente}</span>
                                 <span>{venta.nameCliente}</span>
-                                <span>{venta.descripcion}</span>
-                                <span>{venta.cantidad}</span>
                                 <span>{venta.valorTotal}</span>
                             </div>
                         )
@@ -140,8 +151,6 @@ const Filaventa = ({ venta, setEjecutarConsulta }) => {
         estadoVenta: venta.estadoVenta,
         idCliente: venta.idCliente,
         nameCliente: venta.nameCliente,
-        descripcion: venta.descripcion,
-        cantidad: venta.cantidad,
         valorTotal: venta.valorTotal
     });
 
@@ -151,7 +160,7 @@ const Filaventa = ({ venta, setEjecutarConsulta }) => {
                 <>
                     <td>{infoNuevaVenta._id}</td>
                     <td><input className='inputGeneral' type="date" value={infoNuevaVenta.fechaVenta}
-                        onChange={(e) => setInfoNuevaVenta({ ...infoNuevaVenta, fechaVenta: e.target.value })} disabled /></td>
+                        onChange={(e) => setInfoNuevaVenta({ ...infoNuevaVenta, fechaVenta: e.target.value })} /></td>
                     <td><input className='inputGeneral' type="text" value={infoNuevaVenta.vendedor.name}
                         onChange={(e) => setInfoNuevaVenta({ ...infoNuevaVenta, vendedor: e.target.value })} disabled /></td>
                     <td>
@@ -167,10 +176,6 @@ const Filaventa = ({ venta, setEjecutarConsulta }) => {
                         onChange={(e) => setInfoNuevaVenta({ ...infoNuevaVenta, idCliente: e.target.value })} /></td>
                     <td><input className='inputGeneral' type="text" value={infoNuevaVenta.nameCliente}
                         onChange={(e) => setInfoNuevaVenta({ ...infoNuevaVenta, nameCliente: e.target.value })} /></td>
-                    <td><input className='inputGeneral' type="text" value={infoNuevaVenta.descripcion}
-                        onChange={(e) => setInfoNuevaVenta({ ...infoNuevaVenta, descripcion: e.target.value })} disabled /></td>
-                    <td><input className='inputGeneral' type="number" value={infoNuevaVenta.cantidad}
-                        onChange={(e) => setInfoNuevaVenta({ ...infoNuevaVenta, cantidad: e.target.value })} disabled /></td>
                     <td><input className='inputGeneral' type="number" value={infoNuevaVenta.valorTotal}
                         onChange={(e) => setInfoNuevaVenta({ ...infoNuevaVenta, valorTotal: e.target.value })} /></td>
                 </>
@@ -183,8 +188,8 @@ const Filaventa = ({ venta, setEjecutarConsulta }) => {
                     <td>{venta.estadoVenta}</td>
                     <td>{venta.idCliente}</td>
                     <td>{venta.nameCliente}</td>
-                    <td>{venta.descripcion}</td>
-                    <td>{venta.cantidad}</td>
+                    {/* <td>{venta.descripcion}</td>
+                    <td>{venta.cantidad}</td> */}
                     <td>{venta.valorTotal}</td>
                 </>
             )}

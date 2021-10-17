@@ -24,7 +24,8 @@ function App() {
     <Auth0Provider
       domain="fanta-stick.us.auth0.com"
       clientId="AlYD5aX6HvZTKucwiUQBAa9kF6QgmVq4"
-      redirectUri='http://localhost:3000/admin'
+      redirectUri="http://localhost:3000/admin"
+      audience='https://api-autenticacion-fanta-store'
     >
       <Router>
         <Switch>

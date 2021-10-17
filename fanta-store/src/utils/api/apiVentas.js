@@ -1,11 +1,18 @@
 import axios from "axios";
 import 'react-toastify/dist/ReactToastify.css';
 
+const getToken = () => {
+    return `Bearer ${localStorage.getItem('token')}`;
+}
+
 //METODO GET 
 export const obtenerVentas = async (successCallback, errorCallback) => {
     const options = {
         method: 'GET',
-        url: 'http://localhost:5000/ventas/'
+        url: 'http://localhost:5000/ventas/',
+        headers: {
+            Authorization: getToken()
+        }
     };
     await axios
         .request(options)
@@ -19,7 +26,8 @@ export const registrarVentas = async (data, successCallback, errorCallback) => {
         method: 'POST',
         url: 'http://localhost:5000/ventas/', //url de mi base de datos
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            Authorization: getToken()
         },
         data,
     };
@@ -32,13 +40,12 @@ export const registrarVentas = async (data, successCallback, errorCallback) => {
 
 //METODO PATCH
 export const actualizarVenta = async (id, data, successCallback, errorCallback) => {
-    //enviar la info al backend
     const options = {
         method: 'PATCH',
         url: `http://localhost:5000/ventas/${id}/`,
-        //`https://vast-waters-45728.herokuapp.com/vehicle/${infoNuevoProducto._id}/`
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            Authorization: getToken()
         },
         data,
     };
@@ -55,7 +62,8 @@ export const eliminarVenta = async (id, successCallback, errorCallback) => {
         method: 'DELETE',
         url: `http://localhost:5000/ventas/${id}/`,
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            Authorization: getToken()
         },
     };
     await axios

@@ -6,6 +6,7 @@ import { obtenerProductos, actualizarProducto, eliminarProducto } from 'utils/ap
 import { nanoid } from 'nanoid';
 import { Tooltip } from '@material-ui/core';
 import Dialog from '@mui/material/Dialog';
+import ReactLoading from 'react-loading';
 
 const VeriProductos = () => {
 
@@ -13,6 +14,7 @@ const VeriProductos = () => {
     const [ejecutarConsulta, setEjecutarConsulta] = useState(true);
     const [mostarTable, setMostrarTable] = useState(false);
     const [busqueda, setBusqueda] = useState('');
+    const [loading, setLoading] = useState(false);
 
     // ue2> si ejecutarconsulta === true llama la funcion obtener productos que trae toda la info de db
     // asigna nuevamente la variable ejecutarconsulta en false
@@ -20,14 +22,19 @@ const VeriProductos = () => {
         // FUNCION PARA EL GET EN UTILS/API MANDA DOS CALBACKS PARA LOS ESTADOS SUCCESS Y ERROR
         console.log('consulta', ejecutarConsulta);
         if (ejecutarConsulta) {
-            obtenerProductos(
-                (response) => {
+            const fetchProductos = async () => {
+                setLoading(true);
+                await obtenerProductos((response) => {
                     setProductos(response.data);
+                    setLoading(false);
                 },
-                (error) => {
-                    console.error(error);
-                });
-            setEjecutarConsulta(false);
+                    (error) => {
+                        console.error(error);
+                        setLoading(false);
+                    });
+                setEjecutarConsulta(false);
+            }
+            fetchProductos();
         }
     }, [ejecutarConsulta])
 
@@ -55,7 +62,7 @@ const VeriProductos = () => {
                     </div>
                 </div>
                 {mostarTable &&
-                    <TablaProductos listaProductos={productos} setEjecutarConsulta={setEjecutarConsulta}
+                    <TablaProductos loading={loading} listaProductos={productos} setEjecutarConsulta={setEjecutarConsulta}
                         busqueda={busqueda} />
                 }
                 <ToastContainer position="bottom-right" autoClose={4000} closeOnClick />
@@ -64,7 +71,7 @@ const VeriProductos = () => {
     )
 };
 
-const TablaProductos = ({ listaProductos, setEjecutarConsulta, busqueda }) => {
+const TablaProductos = ({ loading, listaProductos, setEjecutarConsulta, busqueda }) => {
     const [productosFilter, setProdutosFilter] = useState(listaProductos);
 
     //reacciona al cambio en poductosFilter convierte el objeto listaproductos en un string
@@ -81,24 +88,31 @@ const TablaProductos = ({ listaProductos, setEjecutarConsulta, busqueda }) => {
         <div className='flex flex-col items-center justify-center'>
             <div className='table-container'>
                 <div className='hidden md:block'>
-                    <table id="table-list">
-                        <thead>
-                            <tr>
-                                <th>Id Producto</th>
-                                <th>Descripción</th>
-                                <th>Valor Unitario</th>
-                                <th>Estado</th>
-                                <th>Opciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {productosFilter.map((producto) => {
-                                return (
-                                    <FilaProducto key={nanoid()} producto={producto} setEjecutarConsulta={setEjecutarConsulta} />
-                                )
-                            })}
-                        </tbody>
-                    </table>
+                    {loading ?
+                        (
+                            <div className='flex justify-center items-center'>
+                                <ReactLoading type='cylon' color='#07f3eb' height={667} width={375} />
+                            </div>
+                        ) : (
+                            <table id="table-list">
+                                <thead>
+                                    <tr>
+                                        <th>Id Producto</th>
+                                        <th>Descripción</th>
+                                        <th>Valor Unitario</th>
+                                        <th>Estado</th>
+                                        <th>Opciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {productosFilter.map((producto) => {
+                                        return (
+                                            <FilaProducto key={nanoid()} producto={producto} setEjecutarConsulta={setEjecutarConsulta} />
+                                        )
+                                    })}
+                                </tbody>
+                            </table>
+                        )}
                 </div>
                 <div className='flex flex-col w-full m-2 md:hidden'>
                     {productosFilter.map((producto) => {

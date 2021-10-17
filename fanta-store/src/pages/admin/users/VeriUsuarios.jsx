@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify'; //para las alertas
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { obtenerUsuarios, actualizarUsuario, eliminarUsuario } from 'utils/api/apiUsuarios';
 import { nanoid } from 'nanoid';
 import { Tooltip } from '@material-ui/core';
 import Dialog from '@mui/material/Dialog';
+import ReactLoading from 'react-loading';
 
 const VeriUsuarios = () => {
 
@@ -13,6 +14,7 @@ const VeriUsuarios = () => {
     const [ejecutarConsulta, setEjecutarConsulta] = useState(true);
     const [mostarTable, setMostrarTable] = useState(false);
     const [busqueda, setBusqueda] = useState('');
+    const [loading, setLoading] = useState(false);
 
     // ue2> si ejecutarconsulta === true llama la funcion obtener usuarios que trae toda la info de db
     // asigna nuevamente la variable ejecutarconsulta en false
@@ -20,14 +22,20 @@ const VeriUsuarios = () => {
         // FUNCION PARA EL GET EN UTILS/API
         console.log('consulta', ejecutarConsulta);
         if (ejecutarConsulta) {
-            obtenerUsuarios(
-                (response) => {
-                    setUsuarios(response.data);
-                },
-                (error) => {
-                    console.error(error);
-                });
-            setEjecutarConsulta(false);
+            const fetchUsuarios = async () => {
+                setLoading(true);
+                await obtenerUsuarios(
+                    (response) => {
+                        setUsuarios(response.data);
+                        setLoading(false);
+                    },
+                    (error) => {
+                        console.error(error);
+                        setLoading(false);
+                    });
+                setEjecutarConsulta(false);
+            }
+            fetchUsuarios();
         }
     }, [ejecutarConsulta])
 
@@ -55,7 +63,7 @@ const VeriUsuarios = () => {
                     </div>
                 </div>
                 {mostarTable &&
-                    <TablaUsuarios listaUsuarios={usuarios} setEjecutarConsulta={setEjecutarConsulta}
+                    <TablaUsuarios loading={loading} listaUsuarios={usuarios} setEjecutarConsulta={setEjecutarConsulta}
                         busqueda={busqueda} />
                 }
                 <ToastContainer position="bottom-right" autoClose={4000} closeOnClick />
@@ -64,7 +72,7 @@ const VeriUsuarios = () => {
     )
 };
 
-const TablaUsuarios = ({ listaUsuarios, setEjecutarConsulta, busqueda }) => {
+const TablaUsuarios = ({ loading, listaUsuarios, setEjecutarConsulta, busqueda }) => {
     const [usuariosFilter, setUsuariosFilter] = useState(listaUsuarios);
 
     //reacciona al cambio en poductosFilter convierte el objeto listaUsuarios en un string
@@ -81,26 +89,33 @@ const TablaUsuarios = ({ listaUsuarios, setEjecutarConsulta, busqueda }) => {
         <div className='flex flex-col items-center justify-center'>
             <div className='table-container'>
                 <div className='hidden md:block'>
-                    <table id="table-list">
-                        <thead>
-                            <tr>
-                                <th>Id Usuario</th>
-                                <th>Nombre</th>
-                                <th>Email</th>
-                                <th>Rol</th>
-                                <th>Estado Usuario</th>
-                                <th>Contraseña</th>
-                                <th>Opciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {usuariosFilter.map((usuario) => {
-                                return (
-                                    <Filausuario key={nanoid()} usuario={usuario} setEjecutarConsulta={setEjecutarConsulta} />
-                                )
-                            })}
-                        </tbody>
-                    </table>
+                    {loading ?
+                        (
+                            <div className='flex justify-center items-center'>
+                                <ReactLoading type='cylon' color='#07f3eb' height={667} width={375} />
+                            </div>
+                        ) : (
+                            <table id="table-list">
+                                <thead>
+                                    <tr>
+                                        <th>Id Usuario</th>
+                                        <th>Nombre</th>
+                                        <th>Email</th>
+                                        <th>Rol</th>
+                                        <th>Estado Usuario</th>
+                                        <th>Contraseña</th>
+                                        <th>Opciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {usuariosFilter.map((usuario) => {
+                                        return (
+                                            <Filausuario key={nanoid()} usuario={usuario} setEjecutarConsulta={setEjecutarConsulta} />
+                                        )
+                                    })}
+                                </tbody>
+                            </table>
+                        )}
                 </div>
                 <div className='flex flex-col w-full m-2 md:hidden'>
                     {usuariosFilter.map((usuario) => {
@@ -149,6 +164,7 @@ const Filausuario = ({ usuario, setEjecutarConsulta }) => {
                             <option disabled>Seleccione...</option>
                             <option value="Vendedor">Vendedor</option>
                             <option value="Administrador">Administrador</option>
+                            <option value="Gerente">Gerente</option>
                         </select>
                     </td>
                     <td>
