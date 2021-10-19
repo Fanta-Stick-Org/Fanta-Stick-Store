@@ -3,10 +3,12 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { useEffect } from "react";
 import ReactLoading from 'react-loading';
 import { obtenerInfoUsuario } from '../utils/api/apiUsuarios'
+import { useUser } from 'context/userContext';
 
 const PrivateRoute = ({ children }) => {
 
     const { isAuthenticated, isLoading, getAccessTokenSilently } = useAuth0();
+    const { setUserData } = useUser();
 
     useEffect(() => {
         const fetchAuth0Token = async () => {
@@ -25,6 +27,7 @@ const PrivateRoute = ({ children }) => {
             await obtenerInfoUsuario(
                 (response) => {
                     console.log('response', response)
+                    setUserData(response.data);
                 },
                 (error) => {
                     console.log('error', error)
@@ -34,7 +37,7 @@ const PrivateRoute = ({ children }) => {
         if (isAuthenticated) {
             fetchAuth0Token();
         }
-    }, [isAuthenticated, getAccessTokenSilently])
+    }, [isAuthenticated, getAccessTokenSilently, setUserData])
 
     if (isLoading) {
         return (

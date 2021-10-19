@@ -26,7 +26,7 @@ export const obtenerInfoUsuario = async (successCallback, errorCallback) => {
         url: 'http://localhost:5000/usuarios/self',
         headers: {
             //PASO 3 > ENVIARLE EL TOKEN AL BACKEND
-            Authorization: getToken() 
+            Authorization: getToken()
         }
     };
     await axios

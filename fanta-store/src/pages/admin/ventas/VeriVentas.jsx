@@ -7,6 +7,7 @@ import { nanoid } from 'nanoid';
 import { Tooltip } from '@material-ui/core';
 import Dialog from '@mui/material/Dialog';
 import ReactLoading from 'react-loading';
+import PrivateComponent from 'components/PrivateComponent';
 
 const VeriUsers = () => {
 
@@ -188,12 +189,9 @@ const Filaventa = ({ venta, setEjecutarConsulta }) => {
                     <td>{venta.estadoVenta}</td>
                     <td>{venta.idCliente}</td>
                     <td>{venta.nameCliente}</td>
-                    {/* <td>{venta.descripcion}</td>
-                    <td>{venta.cantidad}</td> */}
                     <td>{venta.valorTotal}</td>
                 </>
             )}
-            {/* <td><Link to={`/admin/ventas/actualizar/${venta.idventa}`}>Actualizar</Link></td> */}
             <td>
                 <div className='flex w-full justify-evenly'>
                     {edit ? (
@@ -232,11 +230,13 @@ const Filaventa = ({ venta, setEjecutarConsulta }) => {
                                 text-yellow-600 hover:text-yellow-800 hover:bg-green-500 hover:bg-opacity-20 hover:border-green-100-100
                                 transition-all'></i>
                             </Tooltip>
-                            <Tooltip title='Eliminar venta' arrow placement='bottom'>
-                                <i onClick={() => setOpenDialog(true)} className='fas fa-trash p-2 border-2 border-red-300 rounded-md
+                            <PrivateComponent roleList={['Administrador']}>
+                                <Tooltip title='Eliminar venta' arrow placement='bottom'>
+                                    <i onClick={() => setOpenDialog(true)} className='fas fa-trash p-2 border-2 border-red-300 rounded-md
                                 text-red-600 hover:text-red-700 hover:bg-green-500 hover:bg-opacity-20 hover:border-red-100
                                 transition-all'></i>
-                            </Tooltip>
+                                </Tooltip>
+                            </PrivateComponent>
                         </>
                     )}
 

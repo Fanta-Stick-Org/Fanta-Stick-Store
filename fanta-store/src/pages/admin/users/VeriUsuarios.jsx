@@ -161,7 +161,6 @@ const Filausuario = ({ usuario, setEjecutarConsulta }) => {
                             <option disabled>Seleccione...</option>
                             <option value="Vendedor">Vendedor</option>
                             <option value="Administrador">Administrador</option>
-                            <option value="Gerente">Gerente</option>
                         </select>
                     </td>
                     <td>
@@ -191,7 +190,7 @@ const Filausuario = ({ usuario, setEjecutarConsulta }) => {
                         <>
                             <Tooltip title='Confirmar Edición' arrow placement='bottom'>
                                 <button type='submit'>
-                                    <i onClick={() => actualizarUsuario(usuario._id, infoNuevoUsuario,
+                                    <i onClick={async () => await actualizarUsuario(usuario._id, infoNuevoUsuario,
 
                                         (response) => {
                                             console.log(response.data);
@@ -236,7 +235,7 @@ const Filausuario = ({ usuario, setEjecutarConsulta }) => {
                     <div className='flex flex-col p-8 bg-gray-200 shadow-md rounded-sm'>
                         <h1 className='text-gray-900 text-lg font-medium'>¿Está seguro de querer eliminar este usuario?</h1>
                         <div className='flex w-full items-center justify-center mt-4'>
-                            <button onClick={() => eliminarUsuario(usuario._id,
+                            <button onClick={async () => await eliminarUsuario(usuario._id,
 
                                 (response) => {
                                     console.log(response.data);
