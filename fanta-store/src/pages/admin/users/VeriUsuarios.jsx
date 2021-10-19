@@ -103,7 +103,6 @@ const TablaUsuarios = ({ loading, listaUsuarios, setEjecutarConsulta, busqueda }
                                         <th>Email</th>
                                         <th>Rol</th>
                                         <th>Estado Usuario</th>
-                                        <th>Contraseña</th>
                                         <th>Opciones</th>
                                     </tr>
                                 </thead>
@@ -126,7 +125,6 @@ const TablaUsuarios = ({ loading, listaUsuarios, setEjecutarConsulta, busqueda }
                                 <span>{usuario.email}</span>
                                 <span>{usuario.rol}</span>
                                 <span>{usuario.estadoUsuario}</span>
-                                <span>{usuario.password}</span>
                             </div>
                         )
                     })}
@@ -146,7 +144,6 @@ const Filausuario = ({ usuario, setEjecutarConsulta }) => {
         email: usuario.email,
         rol: usuario.rol,
         estadoUsuario: usuario.estadoUsuario,
-        password: usuario.password,
     });
 
     return (
@@ -176,18 +173,15 @@ const Filausuario = ({ usuario, setEjecutarConsulta }) => {
                             <option value="No autorizado">No autorizado</option>
                         </select>
                     </td>
-                    <td><input className='inputGeneral' type="password" value={infoNuevoUsuario.password}
-                        onChange={(e) => setInfoNuevoUsuario({ ...infoNuevoUsuario, password: e.target.value })} /></td>
                 </>
 
             ) : (
                 <>
-                    <td>{usuario._id}</td>
+                    <td>{usuario._id.slice(20)}</td>
                     <td>{usuario.name}</td>
                     <td>{usuario.email}</td>
                     <td>{usuario.rol}</td>
                     <td>{usuario.estadoUsuario}</td>
-                    <td>{usuario.password}</td>
                 </>
             )}
             {/* <td><Link to={`/admin/usuarios/actualizar/${usuario.idusuario}`}>Actualizar</Link></td> */}
