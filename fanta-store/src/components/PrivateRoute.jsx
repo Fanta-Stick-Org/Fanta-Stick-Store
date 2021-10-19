@@ -1,56 +1,23 @@
-import React from 'react'
-import { useAuth0 } from "@auth0/auth0-react";
-import { useEffect } from "react";
-import ReactLoading from 'react-loading';
-import { obtenerInfoUsuario } from '../utils/api/apiUsuarios'
 import { useUser } from 'context/userContext';
+import React from 'react'
 
-const PrivateRoute = ({ children }) => {
+const PrivateRoute = ({ roleList, children }) => {
 
-    const { isAuthenticated, isLoading, getAccessTokenSilently } = useAuth0();
-    const { setUserData } = useUser();
+    const { userData } = useUser();
 
-    useEffect(() => {
-        const fetchAuth0Token = async () => {
-            // aqui se harian validaciones al token
-
-            //PASO 1 > PEIR TOKEN A AUTH0
-            const accessToken = await getAccessTokenSilently({
-                audience: 'https://api-autenticacion-fanta-store'
-            });
-
-            //PASO 2 > RECIBIR TOKEN DE AUTH0
-            localStorage.setItem('token', accessToken); //guardamos el token en localstorage para tenerlo mientras el usuario use la app
-            //o cada vez que inicie sesion
-
-            //PASO 3 > ENVIARLE EL TOKEN AL BACKEND
-            await obtenerInfoUsuario(
-                (response) => {
-                    console.log('response', response)
-                    setUserData(response.data);
-                },
-                (error) => {
-                    console.log('error', error)
-                }
-            );
-        };
-        if (isAuthenticated) {
-            fetchAuth0Token();
-        }
-    }, [isAuthenticated, getAccessTokenSilently, setUserData])
-
-    if (isLoading) {
+    if (roleList.includes(userData.rol)) {
+        return children;
+    } else {
         return (
-            <div className='flex justify-center items-center'>
-                <ReactLoading type='cylon' color='#07f3eb' height={667} width={375} />
+            <div className='flex justify-center items-center h-full'>
+                <div className='flex text-3xl bg-red-400 text-white text-center p-10'>
+                    No estas autorizado para ver este sitio :( <br />
+                    Comunícate con el Administrador si requieres el acceso 😊.
+                </div>
             </div>
-        )
+        );
     }
-    return isAuthenticated ? (
-        <>{children}</>
-    ) : (
-        <div className='text-6xl text-red-500'>No estas autorizado</div>
-    );
-};
+}
+
 
 export default PrivateRoute

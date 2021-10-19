@@ -10,8 +10,8 @@ const Principal = () => {
                 <div className="itemPrincipal"><img src={store} alt="store"></img></div>
                 <div className="itemPrincipal">
                     <p>Esta página te permitirá tener opciones de <br></br> navegacion ⏮⏩. 
-                        Aquí encontrarás las opciones <br></br>
-                        de Productos 🎁, Ventas 🛒 y Usuarios 👁‍🗨. <br></br><br></br>
+                        Aquí encontrarás las opciones de Productos 🎁, Ventas 🛒 <br></br>
+                        y Usuarios 👁‍🗨. De acuerdo con tu rol. <br></br><br></br>
                         Cordialmente. @<a href="https://github.com/Fanta-Stick-Org/Fanta-Stick-Store" className='linkGeneral'>Fanta-Stick
                             Team</a> 💜.</p>
                 </div>

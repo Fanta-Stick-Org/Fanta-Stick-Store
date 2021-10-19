@@ -37,14 +37,6 @@ const FormVentas = () => {
         fetchUsuarios();
     }, []);
 
-    /* useEffect(() => {
-        console.log(productos);
-    }, [productos]);
-
-    useEffect(() => {
-        console.log(usuarios);
-    }, [usuarios]); */
-
 
     const submitForm = async (e) => {
         e.preventDefault();
@@ -114,19 +106,7 @@ const FormVentas = () => {
                         <label htmlFor="fechaVenta" className="textoGeneral">Fecha de venta</label>
                         <input type='date' className="inputGeneral" name="fechaVenta" required></input>
                     </div>
-                    <div className="formGeneral">
-                        <label htmlFor="vendedor" className="textoGeneral">Nombre Vendedor</label>
-                        <select name="vendedor" type="text" defaultValue='' className="inputGeneral" required>
-                            <option value='' disabled>Seleccione...</option>
-                            {usuarios.map((usuario) => {
-                                return (
-                                    <option key={nanoid()} value={usuario.name}>
-                                        {usuario.name}
-                                    </option>
-                                );
-                            })}
-                        </select>
-                    </div>
+
                     <div className="formGeneral">
                         <label htmlFor="estadoVenta" className="textoGeneral">Estado de la Venta</label>
                         <select name="estadoVenta" type="text" defaultValue='' className="inputGeneral" required>
@@ -149,10 +129,26 @@ const FormVentas = () => {
 
                     <TablaProductos productos={productos} setProductos={setProductos} setProductosTabla={setProductosTabla} />
 
-                    <div className="formGeneral">
-                        <label className="textoGeneral" htmlFor="valorTotal">Precio Total</label>
-                        <input className="inputGeneral" type="number" name="valorTotal" min={0} 
-                        placeholder="Precio Total" required></input>
+                    <div className='flex flex-row w-full justify-evenly'>
+                        <div className="formGeneral">
+                            <label htmlFor="vendedor" className="textoGeneral">Nombre Vendedor</label>
+                            <select name="vendedor" type="text" defaultValue='' className="inputGeneral" required>
+                                <option value='' disabled>Seleccione...</option>
+                                {usuarios.map((usuario) => {
+                                    return (
+                                        <option key={nanoid()} value={usuario.name}>
+                                            {usuario.name}
+                                        </option>
+                                    );
+                                })}
+                            </select>
+                        </div>
+
+                        <div className="formGeneral">
+                            <label className="textoGeneral" htmlFor="valorTotal">Precio Total</label>
+                            <input className="inputGeneral" type="number" name="valorTotal" min={0}
+                                placeholder="Precio Total" required></input>
+                        </div>
                     </div>
 
                 </div>

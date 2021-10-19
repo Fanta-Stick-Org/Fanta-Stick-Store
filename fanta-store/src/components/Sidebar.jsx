@@ -3,6 +3,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import ImagenLogo from './ImagenLogo'
 import { useAuth0 } from "@auth0/auth0-react";
+import PrivateComponent from './PrivateComponent';
 
 const Sidebar = () => {
     const { user, logout } = useAuth0();
@@ -19,9 +20,15 @@ const Sidebar = () => {
                 </div>
                 <div className='my-7'>
                     <Ruta icono='fas fa-user-circle' ruta='/admin/perfil/' nombre='Perfil' usuario={user}></Ruta>
-                    <Ruta icono='fas fa-tag' ruta='/admin/productos/' nombre='Productos'></Ruta>
-                    <Ruta icono='fas fa-shopping-cart' ruta='/admin/ventas/' nombre='Ventas'></Ruta>
-                    <Ruta icono='fas fa-user' ruta='/admin/usuarios/maestro/' nombre='Usuarios'></Ruta>
+                    <PrivateComponent roleList={['Administrador']}>
+                        <Ruta icono='fas fa-tag' ruta='/admin/productos/' nombre='Productos'></Ruta>
+                    </PrivateComponent>
+                    <PrivateComponent roleList={['Administrador', 'Vendedor']}>
+                        <Ruta icono='fas fa-shopping-cart' ruta='/admin/ventas/' nombre='Ventas'></Ruta>
+                    </PrivateComponent>
+                    <PrivateComponent roleList={['Administrador']}>
+                        <Ruta icono='fas fa-user' ruta='/admin/usuarios/maestro/' nombre='Usuarios'></Ruta>
+                    </PrivateComponent>
                 </div>
             </div>
             <div>

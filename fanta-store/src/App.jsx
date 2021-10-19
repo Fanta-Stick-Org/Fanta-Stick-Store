@@ -19,6 +19,7 @@ import VeriUsuarios from 'pages/admin/users/VeriUsuarios'
 import Perfil from 'pages/Perfil'
 import { UserContext } from 'context/userContext'
 import { useState } from 'react'
+import PrivateRoute from 'components/PrivateRoute'
 
 
 function App() {
@@ -41,13 +42,19 @@ function App() {
               <PrivateLayout>
                 <Switch>
                   <Route path='/admin/productos/registrar'>
-                    <RegisProducto />
+                    <PrivateRoute roleList={['Administrador']}>
+                      <RegisProducto />
+                    </PrivateRoute>
                   </Route>
                   <Route path='/admin/productos/listar'>
-                    <ListProductos />
+                    <PrivateRoute roleList={['Administrador']}>
+                      <ListProductos />
+                    </PrivateRoute>
                   </Route>
                   <Route path='/admin/productos/maestro'>
-                    <VeriProductos />
+                    <PrivateRoute roleList={['Administrador']}>
+                      <VeriProductos />
+                    </PrivateRoute>
                   </Route>
                   <Route path='/admin/ventas/registrar'>
                     <RegisVentas />
@@ -59,10 +66,14 @@ function App() {
                     <VeriVentas />
                   </Route>
                   <Route path='/admin/usuarios/maestro'>
-                    <VeriUsuarios />
+                    <PrivateRoute roleList={['Administrador']}>
+                      <VeriUsuarios />
+                    </PrivateRoute>
                   </Route>
                   <Route path='/admin/productos'>
-                    <Productos />
+                    <PrivateRoute roleList={['Administrador']}>
+                      <Productos />
+                    </PrivateRoute>
                   </Route>
                   <Route path='/admin/ventas'>
                     <Ventas />
@@ -71,7 +82,9 @@ function App() {
                     <Perfil />
                   </Route>
                   <Route path='/admin'>
+                    <PrivateRoute roleList={['Administrador', 'Vendedor']}>
                     <Principal />
+                    </PrivateRoute>
                   </Route>
                 </Switch>
               </PrivateLayout>
